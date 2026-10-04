@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark" data-lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>حمزة التل | مطوّر أنظمة وويب وقواعد بيانات — مشاريع تخرّج</title>
+<meta name="description" content="حمزة التل — مطوّر أنظمة وويب وقواعد بيانات. مشاريع تخرّج كاملة (ويب، موبايل، قواعد بيانات) مع توثيق وشرح وتحضير للمناقشة، ومحاضرات أونلاين مسجّلة، ومشاريع جاهزة، وأفكار جديدة. علامة مضمونة فوق 85. عمّان وإربد.">
+
+<!-- ✏️ استعادة الثيم واللغة المحفوظين قبل رسم الصفحة (بدون وميض). الافتراضي: عربي + دارك -->
+<script>
+(function(){
+  var h=document.documentElement;
+  try{
+    var t=localStorage.getItem('ht-theme'); h.dataset.theme=(t==='light')?'light':'dark';
+    var l=localStorage.getItem('ht-lang');
+    if(l==='en'){h.lang='en';h.dir='ltr';h.dataset.lang='en';}
+  }catch(e){}
+})();
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%23151806'/><text x='32' y='44' font-size='30' text-anchor='middle' fill='%23C9F73A' font-family='sans-serif' font-weight='bold'>ح</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<noscript><style>.reveal,.reveal-load,.h1-mask>span{opacity:1!important;transform:none!important}#loader{display:none!important}.svc-body{max-height:none!important}</style></noscript>
+
+<style>
+/* ===================== المتغيرات (دارك = الافتراضي) ===================== */
+:root{
+  --bg:#F3EFE3; --fg:#17150F; --muted:#6E6755; --line:#D9D1BC; --card:#FAF7EC;
+  --lime:#C9F73A; --lime-ink:#151806;
+  --inv-bg:#181510; --inv-fg:#F1EDDF; --inv-muted:#9C947F; --inv-line:#343023; --inv-hover:#231F16;
+  --deep:#12100B; --nav-bg:rgba(243,239,227,.88); --hard:#17150F;
+  --hl-grad:linear-gradient(transparent 55%, var(--lime) 55%);
+  --head:'Alexandria',sans-serif; --body:'IBM Plex Sans Arabic',sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --h1-lh:1.35; --h2-lh:1.45;
+  --ease:cubic-bezier(.22,1,.36,1); --ease-io:cubic-bezier(.77,0,.18,1);
+}
+[data-lang="en"]{ --head:'Space Grotesk',sans-serif; --body:'Space Grotesk',sans-serif; --h1-lh:1.08; --h2-lh:1.2; }
+[data-theme="dark"]{
+  --bg:#151310; --fg:#EEE9D8; --muted:#A39A85; --line:#332F24; --card:#1D1A13;
+  --inv-bg:var(--lime); --inv-fg:#151806; --inv-muted:#43500F; --inv-line:rgba(21,24,6,.3); --inv-hover:rgba(21,24,6,.08);
+  --deep:#0D0C08; --nav-bg:rgba(21,19,16,.88); --hard:#070603; --hl-grad:none;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--body);background:var(--bg);color:var(--fg);
+  font-size:1rem;line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  transition:background .35s,color .35s;
+}
+body.no-scroll,body.menu-open,body.modal-open{overflow:hidden}
+::selection{background:var(--lime);color:var(--lime-ink)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+::-webkit-scrollbar{width:10px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+bdi{unicode-bidi:isolate}
+.mono{font-family:var(--mono)}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.wrap{max-width:1440px;margin-inline:auto;padding-inline:clamp(1.1rem,4vw,3.5rem)}
+.ic{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+[dir="ltr"] .arr-flip{transform:scaleX(-1)}
+@media (min-width:1800px){ html{font-size:112.5%} .wrap,.hero{max-width:1600px} }
+@media (min-width:2400px){ html{font-size:125%} .wrap,.hero{max-width:1900px} }
+
+/* ===================== شاشة التحميل ===================== */
+#loader{position:fixed;inset:0;z-index:2000;background:#151806;color:var(--lime);display:flex;align-items:center;justify-content:center;transition:transform .85s var(--ease-io)}
+#loader.done{transform:translateY(-101%)}
+.l-name{overflow:hidden;font:800 clamp(2rem,8vw,3.4rem)/1.5 var(--head);color:#F1EDDF;text-align:center}
+.l-name span{display:block;animation:rise .8s .1s var(--ease) both}
+.l-role{margin-top:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.3em;color:#8a8f6e;text-align:center;direction:ltr;animation:fadeUp .7s .45s var(--ease) both}
+.l-count{position:absolute;bottom:2rem;inset-inline-end:clamp(1.5rem,4vw,3.5rem);font-family:var(--mono);font-size:2rem;color:#8a8f6e;direction:ltr}
+.l-bar{position:absolute;bottom:0;inset-inline:0;height:3px;background:var(--lime);transform:scaleX(0);transform-origin:right}
+[dir="ltr"] .l-bar{transform-origin:left}
+@keyframes rise{from{transform:translateY(110%)}to{transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ===================== المؤشر المخصص ===================== */
+#cursorDot,#cursorRing{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;opacity:0}
+body.cursor-on #cursorDot,body.cursor-on #cursorRing{opacity:1}
+#cursorDot::after{content:"";display:block;width:6px;height:6px;margin:-3px;border-radius:50%;background:#fff;mix-blend-mode:difference}
+#cursorRing .ring{position:absolute;top:0;left:0;width:38px;height:38px;margin:-19px;border:1.5px solid #fff;border-radius:50%;mix-blend-mode:difference;display:grid;place-items:center;transition:width .3s,height .3s,margin .3s,background-color .3s}
+#cursorRing.on .ring{width:52px;height:52px;margin:-26px}
+#cursorRing.view .ring{width:84px;height:84px;margin:-42px;background:rgba(255,255,255,.1)}
+#cursorLabel{font:600 .75rem var(--head);color:#fff;opacity:0;transition:opacity .25s}
+#cursorRing.view #cursorLabel{opacity:1}
+@media (pointer:coarse){#cursorDot,#cursorRing{display:none}}
+
+/* ===================== النافبار ===================== */
+#nav{
+  position:fixed;top:0;right:0;left:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.15rem clamp(1.1rem,4vw,3.5rem);padding-top:calc(1.15rem + env(safe-area-inset-top,0px));
+  transition:transform .45s var(--ease),background .35s,border-color .35s,padding .35s;border-bottom:1px solid transparent;
+}
+#nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line);padding-block:.7rem;padding-top:calc(.7rem + env(safe-area-inset-top,0px))}
+#nav.hide{transform:translateY(-100%)}
+body.menu-open #nav{background:transparent;border-color:transparent;backdrop-filter:none;transform:none}
+.brand{display:flex;align-items:center;gap:.75rem;min-width:0}
+.brand-mark{width:40px;height:40px;border:1.5px solid var(--fg);border-radius:4px;flex-shrink:0;display:grid;place-items:center;font:800 1.15rem var(--head);background:var(--lime);color:var(--lime-ink)}
+.brand-text{line-height:1.3;font:700 .98rem var(--head);white-space:nowrap}
+.brand-text small{display:block;font:500 .62rem var(--mono);letter-spacing:.14em;color:var(--muted);direction:ltr;text-align:start}
+.nav-links{display:flex;gap:clamp(1rem,1.8vw,1.8rem)}
+.nav-links a{position:relative;font:500 .92rem var(--body);padding:.25rem 0;transition:color .3s;white-space:nowrap}
+.nav-links a::after{content:"";position:absolute;bottom:0;inset-inline-start:0;width:0;height:2px;background:var(--lime);transition:width .35s var(--ease)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-links a.active{font-weight:700}
+.nav-cta{display:flex;align-items:center;gap:.7rem}
+.seg{display:flex;border:1.5px solid var(--fg);border-radius:3px;overflow:hidden;flex-shrink:0}
+.seg button{padding:.5rem .68rem;font:600 .74rem var(--mono);color:var(--muted);transition:background .25s,color .25s;line-height:1}
+.seg button.on{background:var(--fg);color:var(--bg)}
+.theme-btn{width:40px;height:40px;border:1.5px solid var(--fg);border-radius:3px;display:grid;place-items:center;transition:background .25s,color .25s;flex-shrink:0}
+.theme-btn:hover{background:var(--fg);color:var(--bg)}
+.theme-btn .ic{width:17px;height:17px}
+[data-theme="light"] .icon-sun{display:none}
+[data-theme="dark"] .icon-moon{display:none}
+#menuBtn{display:none;flex-direction:column;gap:6px;padding:.7rem .15rem;z-index:110}
+#menuBtn span{width:26px;height:2px;background:var(--fg);transition:transform .4s var(--ease),background .3s}
+body.menu-open #menuBtn span{background:#F1EDDF}
+body.menu-open #menuBtn span:first-child{transform:translateY(4px) rotate(45deg)}
+body.menu-open #menuBtn span:last-child{transform:translateY(-4px) rotate(-45deg)}
+body.menu-open .brand-text,body.menu-open .brand-text small{color:#F1EDDF}
+body.menu-open .brand-mark,body.menu-open .seg,body.menu-open .theme-btn{border-color:#F1EDDF}
+body.menu-open .seg button{color:#9C947F}
+body.menu-open .seg button.on{background:#F1EDDF;color:#151806}
+body.menu-open .theme-btn{color:#F1EDDF}
+
+/* ===================== الأزرار ===================== */
+.btn{
+  position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.9rem 1.6rem;border:1.5px solid var(--fg);border-radius:3px;font:600 .95rem var(--head);line-height:1.3;overflow:hidden;
+  transition:color .35s,border-color .35s,transform .2s var(--ease),box-shadow .2s var(--ease);text-align:center;
+}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .45s var(--ease-io)}
+[dir="ltr"] .btn::before{transform:translateY(-101%)}
+.btn:hover::before{transform:translateY(0)}
+.btn .ic{width:16px;height:16px}
+.btn-sm{padding:.55rem 1.05rem;font-size:.85rem}
+.btn-solid{background:var(--lime);border-color:var(--lime-ink);color:var(--lime-ink);box-shadow:4px 4px 0 var(--hard)}
+.btn-solid:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--hard)}
+.btn-solid:hover::before{display:none}
+.btn-outline{background:transparent;color:var(--fg)}
+.btn-outline::before{background:var(--fg)}
+.btn-outline:hover{color:var(--bg)}
+.invert{--fg:var(--inv-fg);--muted:var(--inv-muted);--line:var(--inv-line);--bg:var(--inv-bg);color:var(--fg)}
+.invert .btn-solid{box-shadow:4px 4px 0 rgba(0,0,0,.45)}
+[data-theme="dark"] .invert .btn-solid{background:var(--lime-ink);color:var(--lime);border-color:var(--lime-ink)}
+.deep{--fg:#F1EDDF;--muted:#9C947F;--line:#2C2920;--bg:var(--deep);color:var(--fg)}
+.deep h2 em{background-image:none;color:var(--lime)}
+.deep .sec-desc{color:#9C947F}
+
+/* ===================== قائمة الموبايل ===================== */
+#mobileMenu{
+  position:fixed;inset:0;z-index:95;background:#151806;color:#F1EDDF;display:flex;flex-direction:column;
+  padding:5.5rem clamp(1.4rem,6vw,3rem) 2rem;overflow-y:auto;
+  clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .6s var(--ease-io),visibility 0s .6s;
+}
+body.menu-open #mobileMenu{clip-path:inset(0 0 0% 0);visibility:visible;transition:clip-path .6s var(--ease-io),visibility 0s}
+.mm-inner{margin-block:auto}
+.mm-link{
+  display:flex;align-items:baseline;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(241,237,223,.14);
+  font:700 clamp(1.35rem,5.6vw,2rem)/1.5 var(--head);opacity:0;transform:translateY(22px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease),color .3s;
+}
+body.menu-open .mm-link{opacity:1;transform:none}
+.mm-link:nth-child(1){transition-delay:.10s}.mm-link:nth-child(2){transition-delay:.14s}.mm-link:nth-child(3){transition-delay:.18s}
+.mm-link:nth-child(4){transition-delay:.22s}.mm-link:nth-child(5){transition-delay:.26s}.mm-link:nth-child(6){transition-delay:.30s}
+.mm-link:nth-child(7){transition-delay:.34s}.mm-link:nth-child(8){transition-delay:.38s}
+.mm-link em{font:500 .78rem var(--mono);font-style:normal;color:#8a8f6e}
+.mm-link:hover{color:var(--lime)}
+.mm-foot{margin-top:1.8rem;display:flex;justify-content:space-between;gap:1rem;font:500 .8rem var(--body);color:#8a8f6e;flex-wrap:wrap}
+
+/* ===================== دخول العناصر ===================== */
+.reveal-load{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal-load[data-d="1"]{transition-delay:.12s}.reveal-load[data-d="2"]{transition-delay:.24s}
+.reveal-load[data-d="3"]{transition-delay:.36s}.reveal-load[data-d="4"]{transition-delay:.48s}
+body.loaded .reveal-load{opacity:1;transform:none}
+.h1-mask{display:block;overflow:hidden;padding-block:.12em;margin-block:-.12em}
+.h1-mask>span{display:block;transform:translateY(120%);transition:transform 1.05s var(--ease) .12s}
+body.loaded .h1-mask>span{transform:none}
+
+/* ===================== الهيرو ===================== */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding:clamp(6.5rem,14vh,8.5rem) clamp(1.1rem,4vw,3.5rem) 0;max-width:1440px;margin-inline:auto;width:100%}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:.8rem 1.5rem;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:.6rem;border:1.5px solid var(--fg);border-radius:99px;padding:.5rem 1.05rem;font-size:.85rem;font-weight:600;background:var(--card);line-height:1.5}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--lime);border:1.5px solid var(--lime-ink);position:relative;flex-shrink:0}
+.pulse::after{content:"";position:absolute;inset:-1px;border-radius:50%;background:var(--lime);animation:ping 1.8s cubic-bezier(0,0,.2,1) infinite;opacity:.6}
+@keyframes ping{75%,100%{transform:scale(2.4);opacity:0}}
+.hero-loc{font:500 .85rem var(--body);color:var(--muted)}
+.hero h1{margin-block:auto;padding-block:2rem;font:800 clamp(1.7rem,5.6vw,4.4rem)/var(--h1-lh) var(--head);letter-spacing:-.01em}
+.scramble{display:inline-block;white-space:nowrap;max-width:100%;background:var(--lime);color:var(--lime-ink);padding:0 .18em;border-radius:.12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+h1 .dot{font-style:normal;background:var(--lime);color:var(--lime-ink);border-radius:.12em;padding:0 .1em}
+.hero-bottom{display:grid;grid-template-columns:1.05fr .85fr;gap:clamp(2rem,4vw,4rem);align-items:end}
+.hero-desc{max-width:600px;color:var(--muted);font-size:1.02rem}
+.hero-desc b{color:var(--fg)}
+.hero-note{margin-top:1rem;font:600 1rem/1.8 var(--head);color:var(--fg);display:flex;gap:.6rem;align-items:baseline}
+.hero-note::before{content:"";flex-shrink:0;width:10px;height:10px;background:var(--lime);border:1.5px solid var(--lime-ink);border-radius:2px;translate:0 -1px}
+.hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.6rem}
+.hero-code{background:#151806;border:1.5px solid var(--lime-ink);border-radius:5px;overflow:hidden;width:100%;box-shadow:6px 6px 0 rgba(21,24,6,.18)}
+[data-theme="dark"] .hero-code{box-shadow:none;border-color:#2a2f14}
+.hc-bar{display:flex;align-items:center;gap:6px;padding:.65rem .95rem;border-bottom:1px solid #2a2f14}
+.hc-bar span{width:9px;height:9px;border-radius:50%;background:#2a2f14}
+.hc-bar span:first-child{background:var(--lime)}
+.hc-bar em{margin-inline-start:auto;font:500 .68rem var(--mono);font-style:normal;color:#8a8f6e}
+.hero-code pre{padding:1rem 1.1rem;font:400 .78rem/2 var(--mono);color:#F1EDDF;text-align:left;overflow-x:auto}
+.hero-code .c{color:#8a8f6e}.hero-code .k{color:var(--lime)}.hero-code .s{color:#d7f59a}.hero-code .o{color:var(--lime)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1.5px solid var(--fg);margin-top:clamp(2.2rem,5vh,3.5rem)}
+.stat{background:var(--bg);padding:1.4rem clamp(1rem,2vw,1.8rem)}
+.stat b{display:flex;align-items:baseline;gap:.45rem;font:800 clamp(1.8rem,3.6vw,2.7rem)/1.25 var(--head)}
+[dir="rtl"] .stat b{direction:ltr;justify-content:flex-end}
+.stat b .unit{font:600 .8rem var(--body);background:var(--lime);color:var(--lime-ink);border-radius:3px;padding:.05em .45em}
+.stat span.lbl{color:var(--muted);font-size:.86rem;display:block;line-height:1.65;margin-top:.15rem}
+
+/* ===================== الشريط المتحرك ===================== */
+.marquee{background:var(--lime);color:var(--lime-ink);border-block:1.5px solid var(--lime-ink);overflow:hidden;padding:.85rem 0}
+.mq-track{display:flex;width:max-content;animation:mq 40s linear infinite}
+.mq-group{display:flex}
+.marquee:hover .mq-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(50%)}}
+[dir="ltr"] .mq-track{animation-name:mql}
+@keyframes mql{to{transform:translateX(-50%)}}
+.mq-item{display:flex;align-items:center;gap:2.2rem;padding-inline:1.1rem;white-space:nowrap;font:600 1rem var(--head)}
+.mq-item svg{width:14px;height:14px;fill:var(--lime-ink);flex-shrink:0}
+
+/* ===================== العبارات التحفيزية ===================== */
+.quote-band{background:var(--card);border-bottom:1.5px solid var(--fg);padding-block:clamp(2.6rem,6vw,4.5rem)}
+.q-wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(1rem,3vw,2.4rem);align-items:start}
+.q-mark{font:800 clamp(4rem,10vw,7rem)/.8 'Space Grotesk',sans-serif;color:var(--lime-ink);background:var(--lime);border-radius:6px;padding:.1em .22em .02em;direction:ltr}
+.q-stack{display:grid}
+.q-stack p{grid-area:1/1;font:700 clamp(1.25rem,3vw,2.4rem)/1.6 var(--head);max-width:980px;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s var(--ease),visibility 0s .35s}
+.q-stack p.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s .1s,transform .45s .1s var(--ease),visibility 0s}
+.q-dots{display:flex;gap:.55rem;margin-top:1.2rem;flex-wrap:wrap}
+.q-dots button{width:34px;height:6px;border-radius:99px;background:var(--line);transition:background .3s,width .3s}
+.q-dots button.on{background:var(--lime);width:54px}
+[data-theme="light"] .q-dots button.on{background:var(--fg)}
+
+/* ===================== هيكل الأقسام ===================== */
+.sec{padding-block:clamp(4rem,9vw,7.5rem)}
+.sec.tight{padding-top:0}
+.sec-head{display:flex;align-items:center;gap:1.4rem}
+.sec-num{display:inline-flex;align-items:center;gap:.65rem;font:600 .85rem var(--body);white-space:nowrap}
+.sec-num::before{content:"";width:10px;height:10px;background:var(--lime);border:1.5px solid var(--lime-ink);border-radius:2px;flex-shrink:0}
+.grow{flex:1;height:1.5px;background:var(--fg);transform:scaleX(0);transform-origin:right;transition:transform 1.1s var(--ease) .15s}
+[dir="ltr"] .grow{transform-origin:left}
+.grow.in{transform:scaleX(1)}
+.sec h2{font:700 clamp(1.7rem,4.2vw,3rem)/var(--h2-lh) var(--head);margin-top:1.3rem;letter-spacing:-.01em;max-width:1000px}
+.sec h2 em,.acc-hl{font-style:normal;background-image:var(--hl-grad);padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+[data-theme="dark"] .sec h2 em,[data-theme="dark"] .acc-hl{color:var(--lime)}
+.sec-desc{max-width:640px;color:var(--muted);margin-top:.9rem}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.1s}.reveal[data-d="2"]{transition-delay:.2s}.reveal[data-d="3"]{transition-delay:.3s}
+
+/* بطاقة عامة */
+.card{border:1.5px solid var(--fg);border-radius:5px;background:var(--card);padding:1.6rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease),opacity .8s var(--ease)}
+.card:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--lime)}
+.chip{display:inline-block;font:600 .74rem var(--body);background:var(--lime);color:var(--lime-ink);border-radius:3px;padding:.15rem .6rem;line-height:1.7}
+.chip.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.tags span{border:1px solid var(--line);border-radius:2px;padding:.2rem .55rem;font:500 .68rem var(--mono);color:var(--muted);direction:ltr;unicode-bidi:isolate}
+
+/* ===================== نبذة عني ===================== */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2.2rem,5vw,5rem);margin-top:2.4rem;align-items:start}
+.about-text h2{margin-top:0}
+.about-text p{margin-bottom:1.3rem;color:var(--muted);font-size:1.03rem}
+.about-text p b{color:var(--fg)}
+.about-text .lead{font:500 clamp(1.1rem,2vw,1.4rem)/1.8 var(--head);color:var(--fg);margin-top:1.3rem}
+.id-card{background:#151806;color:#F1EDDF;border:1.5px solid var(--fg);border-radius:5px;padding:1.6rem;box-shadow:6px 6px 0 var(--lime);direction:ltr;text-align:left}
+.id-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.6rem}
+.id-top .mono{font-size:.68rem;color:#8a8f6e;letter-spacing:.15em}
+.id-badge{font:600 .62rem var(--mono);letter-spacing:.12em;background:var(--lime);color:var(--lime-ink);padding:.3rem .6rem;border-radius:2px;white-space:nowrap}
+.id-name{font:700 clamp(2rem,4.5vw,2.9rem)/1.15 'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.id-line{margin-top:1.1rem;font:500 .72rem/1.8 var(--mono);letter-spacing:.06em;color:#d9d4c0;border-top:1px solid #2a2f14;padding-top:1rem}
+.id-line.dim{color:#8a8f6e;border-top:none;padding-top:.4rem;margin-top:.2rem}
+.info-card{border:1.5px solid var(--fg);border-radius:4px;overflow:hidden;background:var(--card);margin-top:1.3rem}
+.info-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.2rem 1.2rem;align-items:baseline;padding:.8rem 1.1rem;border-bottom:1px solid var(--line)}
+.info-row:last-child{border-bottom:none}
+.info-row span{color:var(--muted);font-size:.82rem;flex-shrink:0}
+.info-row b{font:600 .9rem/1.7 var(--head);text-align:end;flex:1;min-width:10ch}
+.tech-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem;direction:ltr;justify-content:flex-start}
+.tech-pills span{border:1px solid var(--line);border-radius:3px;padding:.3rem .68rem;font:500 .7rem var(--mono);color:var(--muted);background:var(--card);transition:background .25s,color .25s,border-color .25s;cursor:default}
+.tech-pills span:hover{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+
+/* ===================== الخدمات (أكورديون) ===================== */
+.accordion{margin-top:2.4rem;border-top:1.5px solid var(--fg)}
+.svc{border-bottom:1px solid var(--line)}
+.svc-head{width:100%;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:1.4rem;padding:1.5rem 0;text-align:start}
+.svc-num{font:500 .8rem var(--mono);color:var(--muted)}
+.svc-title{font:700 clamp(1.15rem,2.5vw,1.75rem)/1.5 var(--head);transition:color .3s}
+.svc-head:hover .svc-title{color:var(--muted)}
+.svc-tag{color:var(--muted);font-size:.86rem;text-align:end}
+.svc-x{width:42px;height:42px;border:1.5px solid var(--fg);border-radius:50%;display:grid;place-items:center;transition:transform .45s var(--ease),background .3s,color .3s;flex-shrink:0}
+.svc-x .ic{width:16px;height:16px}
+.svc.open .svc-x{transform:rotate(45deg);background:var(--lime);border-color:var(--lime-ink);color:var(--lime-ink)}
+.svc-body{max-height:0;overflow:hidden;visibility:hidden;transition:max-height .55s var(--ease-io),visibility 0s .55s}
+.svc.open .svc-body{visibility:visible;transition:max-height .55s var(--ease-io),visibility 0s}
+.svc-inner{padding:0 0 2rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2.2rem}
+.svc-inner p{color:var(--muted);max-width:620px;font-size:.98rem}
+.svc-outs{list-style:none}
+.svc-outs li{display:flex;gap:.65rem;padding:.4rem 0;font-size:.93rem;font-weight:500;line-height:1.7}
+.svc-outs li::before{content:"✓";color:var(--lime-ink);background:var(--lime);font-weight:700;line-height:1.6;padding:0 .35em;border-radius:2px;height:fit-content;font-size:.72rem;flex-shrink:0;margin-top:.2rem}
+.svc-techs{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem}
+.svc-techs span{border:1px solid var(--line);border-radius:2px;padding:.22rem .6rem;font:500 .68rem var(--mono);color:var(--muted);direction:ltr;unicode-bidi:isolate}
+.svc-cta{margin-top:1.2rem}
+
+/* ===================== ليش أنا + الطمأنينة + الخطوات ===================== */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1.2rem;margin-top:2.4rem}
+.why-num{display:inline-block;font:600 .72rem var(--mono);background:var(--lime);color:var(--lime-ink);border-radius:3px;padding:.2rem .55rem;margin-bottom:1rem}
+.why-card h3{font:700 1.12rem/1.6 var(--head);margin-bottom:.6rem}
+.why-card p{color:var(--muted);font-size:.94rem}
+.calm{margin-top:clamp(2.5rem,6vw,4rem);border:1.5px solid var(--fg);border-radius:6px;background:var(--card);padding:clamp(1.4rem,4vw,2.8rem)}
+.calm h3{font:700 clamp(1.3rem,2.8vw,2rem)/1.5 var(--head)}
+.calm>p{color:var(--muted);margin-top:.5rem;max-width:640px}
+.calm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:1rem 2rem;margin-top:1.6rem}
+.calm-item{display:flex;gap:.85rem;align-items:flex-start}
+.calm-item .tick{width:30px;height:30px;border-radius:50%;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;flex-shrink:0;margin-top:.1rem}
+.calm-item .tick .ic{width:15px;height:15px;stroke-width:2.6}
+.calm-item b{display:block;font:700 .98rem/1.6 var(--head)}
+.calm-item span{color:var(--muted);font-size:.9rem;line-height:1.7;display:block}
+.steps{margin-top:clamp(2.5rem,6vw,4rem)}
+.steps-title{font:700 clamp(1.3rem,2.6vw,1.8rem)/1.5 var(--head);display:flex;align-items:center;gap:1rem}
+.steps-title::after{content:"";flex:1;height:1.5px;background:var(--line)}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1.4rem;margin-top:1.8rem}
+.step{border-top:1.5px solid var(--fg);padding-top:1.1rem}
+.step i{font:600 1.5rem var(--mono);font-style:normal;display:block}
+.step i b{color:var(--lime-ink);background:var(--lime);border-radius:3px;padding:0 .3em;font-weight:600}
+.step h4{font:700 1.02rem/1.6 var(--head);margin:.5rem 0 .35rem}
+.step p{color:var(--muted);font-size:.9rem;line-height:1.75}
+
+/* ===================== معرض المشاريع ===================== */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:clamp(1rem,2vw,1.6rem);margin-top:2.4rem}
+.proj-card{display:block;width:100%;text-align:start;border:1.5px solid var(--fg);border-radius:5px;background:var(--card);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),opacity .8s var(--ease)}
+.proj-card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--lime)}
+.pc-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--bg);border-bottom:1.5px solid var(--fg)}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.proj-card:hover .pc-img img{transform:scale(1.05)}
+.pc-meta{display:flex;align-items:center;gap:.9rem;padding:1rem 1.1rem}
+.pc-num{font:500 .78rem var(--mono);color:var(--muted)}
+.pc-name{flex:1;font:700 1.08rem/1.55 var(--head)}
+.pc-go{width:38px;height:38px;border:1.5px solid var(--line);border-radius:50%;display:grid;place-items:center;flex-shrink:0;transition:background .3s,color .3s,border-color .3s}
+.proj-card:hover .pc-go{background:var(--lime);border-color:var(--lime-ink);color:var(--lime-ink)}
+.work-note{margin-top:1.5rem;color:var(--muted);font-size:.88rem;display:flex;gap:.6rem;align-items:baseline;line-height:1.7}
+.work-note b{font-family:var(--mono);background:var(--lime);color:var(--lime-ink);border-radius:2px;padding:0 .4em;flex-shrink:0}
+
+/* نافذة اللقطات */
+.pmodal{position:fixed;inset:0;z-index:1800;background:rgba(10,9,6,.97);display:flex;flex-direction:column;opacity:0;transition:opacity .3s;color:#F1EDDF}
+.pmodal[hidden]{display:none}
+.pmodal.open{opacity:1}
+.pm-bar{display:flex;align-items:center;gap:1rem;padding:.9rem clamp(1rem,3vw,2rem);padding-top:calc(.9rem + env(safe-area-inset-top,0px));border-bottom:1px solid #2C2920}
+.pm-bar h3{flex:1;font:700 clamp(1rem,2.2vw,1.35rem)/1.5 var(--head);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pm-count{font:500 .8rem var(--mono);color:#9C947F;direction:ltr}
+.pm-close{width:42px;height:42px;border:1.5px solid #F1EDDF;border-radius:50%;display:grid;place-items:center;flex-shrink:0;transition:background .25s,color .25s}
+.pm-close:hover{background:#F1EDDF;color:#151806}
+.pm-stage{position:relative;flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:center;padding:clamp(.6rem,2vw,1.5rem) clamp(.6rem,5vw,4.5rem)}
+.pm-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;border:1px solid #2C2920;background:#151310}
+.pm-nav{position:absolute;top:50%;translate:0 -50%;width:46px;height:46px;border-radius:50%;background:rgba(21,24,6,.9);border:1.5px solid var(--lime);color:var(--lime);display:grid;place-items:center;z-index:2;transition:background .25s,color .25s}
+.pm-nav:hover{background:var(--lime);color:var(--lime-ink)}
+.pm-prev{inset-inline-start:clamp(.4rem,1.5vw,1.2rem)}
+.pm-next{inset-inline-end:clamp(.4rem,1.5vw,1.2rem)}
+[dir="rtl"] .pm-nav .ic{transform:scaleX(-1)}
+.pm-thumbs{display:flex;gap:.6rem;overflow-x:auto;padding:.8rem clamp(1rem,3vw,2rem);padding-bottom:calc(1rem + env(safe-area-inset-bottom,0px));border-top:1px solid #2C2920;scrollbar-width:thin}
+.pm-th{flex:0 0 auto;width:clamp(72px,12vw,110px);aspect-ratio:16/10;border:2px solid transparent;border-radius:4px;overflow:hidden;opacity:.55;transition:opacity .25s,border-color .25s}
+.pm-th:hover{opacity:.9}
+.pm-th.on{border-color:var(--lime);opacity:1}
+.pm-th img{width:100%;height:100%;object-fit:cover}
+
+/* ===================== المشاريع الجاهزة + الأفكار ===================== */
+.ready-includes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:.9rem 1.6rem;margin-top:2rem}
+.ready-includes div{display:flex;gap:.7rem;align-items:flex-start;font-weight:500;font-size:.95rem;line-height:1.7}
+.ready-includes .tick{width:26px;height:26px;border-radius:50%;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;flex-shrink:0}
+.ready-includes .tick .ic{width:13px;height:13px;stroke-width:2.8}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:clamp(1rem,2vw,1.4rem);margin-top:2rem}
+.item-card{display:flex;flex-direction:column;gap:.7rem}
+.item-card .top{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap}
+.item-card h3{font:700 1.15rem/1.6 var(--head)}
+.item-card p{color:var(--muted);font-size:.93rem;line-height:1.8;flex:1}
+.item-card .tags{margin-top:.2rem}
+.item-card .btn{align-self:flex-start;margin-top:.5rem}
+.sub-head{margin-top:clamp(2.5rem,6vw,4rem);display:flex;align-items:center;gap:1rem;font:700 clamp(1.3rem,2.6vw,1.8rem)/1.5 var(--head)}
+.sub-head::after{content:"";flex:1;height:1.5px;background:var(--line)}
+.idea-cta{margin-top:2rem;border:1.5px dashed var(--fg);border-radius:6px;padding:clamp(1.3rem,3vw,2rem);display:flex;justify-content:space-between;align-items:center;gap:1.2rem 2rem;flex-wrap:wrap}
+.idea-cta b{font:700 1.15rem/1.6 var(--head);display:block}
+.idea-cta span{color:var(--muted);font-size:.93rem}
+
+.fbar{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.fchip{border:1.5px solid var(--fg);border-radius:99px;padding:.4rem 1.1rem;font:600 .86rem var(--body);line-height:1.6;transition:background .25s,color .25s}
+.fchip:hover{background:var(--line)}
+.fchip.on{background:var(--fg);color:var(--bg)}
+#ideasGrid{align-items:start;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))}
+.idea-card{gap:.9rem}
+.idea-card .ps{display:grid;gap:.9rem}
+.idea-card .ps b,.idea-det b{display:block;font:700 .8rem var(--body);color:var(--muted);margin-bottom:.15rem}
+.idea-card p{flex:none}
+.idea-card .sol{color:var(--fg)}
+.idea-more{border-top:1px dashed var(--line);padding-top:.8rem}
+.idea-more summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;font:700 .92rem var(--head)}
+.idea-more summary::-webkit-details-marker{display:none}
+.idea-more summary::after{content:"+";width:28px;height:28px;border:1.5px solid var(--fg);border-radius:50%;display:grid;place-items:center;font:600 1rem/1 var(--mono);flex-shrink:0;transition:background .3s,transform .3s var(--ease)}
+.idea-more[open] summary::after{content:"−";background:var(--lime);border-color:var(--lime-ink);color:var(--lime-ink)}
+.idea-det{display:grid;gap:1rem;padding-top:1rem}
+.idea-det ul{list-style:none}
+.idea-det li{display:flex;gap:.55rem;padding:.2rem 0;font-size:.9rem;line-height:1.7}
+.idea-det li::before{content:"—";color:var(--muted);flex-shrink:0}
+.idea-det p{color:var(--muted);font-size:.9rem;line-height:1.75}
+.idea-det .tags{margin-top:.2rem}
+/* ===================== الأسعار ===================== */
+.pricing{background:var(--inv-bg);color:var(--inv-fg);border-block:1.5px solid var(--fg)}
+.pricing .sec-num::before{border-color:currentColor}
+.pricing h3 em{font-style:normal;background:var(--lime-ink);color:var(--lime);padding:0 .25em;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.price-hero{display:grid;grid-template-columns:auto 1fr;gap:clamp(2rem,5vw,4.5rem);margin-top:2.6rem;align-items:start}
+.price-num-box{border:1.5px solid var(--inv-fg);border-radius:5px;padding:clamp(1.5rem,3vw,2.4rem);background:var(--inv-hover)}
+.price-from{display:block;font:600 .85rem var(--body);color:var(--inv-muted);margin-bottom:.4rem}
+.price-num{font:600 clamp(3.4rem,9vw,6.2rem)/1 var(--mono);color:var(--lime);letter-spacing:-.03em;direction:ltr;display:flex;align-items:baseline;gap:.4rem}
+[data-theme="dark"] .price-num{color:var(--lime-ink)}
+.price-num small{font:600 clamp(1.1rem,2.5vw,1.7rem)/1 var(--head);letter-spacing:0}
+.price-main h3{font:700 clamp(1.3rem,3vw,2.05rem)/1.65 var(--head);max-width:660px}
+.price-main p{color:var(--inv-muted);max-width:620px;margin-top:.8rem;font-size:.98rem}
+.factors{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.factors span{border:1.5px solid var(--inv-line);border-radius:99px;padding:.4rem 1rem;font-size:.84rem;font-weight:500}
+.price-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:1.4rem;margin-top:2.2rem}
+.price-box{border:1.5px solid var(--inv-line);border-radius:5px;padding:1.6rem;background:var(--inv-hover)}
+.price-box h4{font:700 1.05rem/1.6 var(--head);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.price-box h4 .ic{width:17px;height:17px;color:var(--lime)}
+[data-theme="dark"] .price-box h4 .ic{color:var(--lime-ink)}
+.price-box ul{list-style:none}
+.price-box li{display:flex;gap:.65rem;padding:.42rem 0;font-size:.93rem;font-weight:500;line-height:1.7}
+.price-box li::before{content:"—";font-weight:700;color:var(--lime);flex-shrink:0}
+[data-theme="dark"] .price-box li::before{color:var(--lime-ink)}
+.price-box .pay{margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--inv-line);font:500 .85rem/1.7 var(--body);color:var(--inv-muted)}
+.pricing .btn-solid{margin-top:2.2rem;padding:1.05rem 2rem;font-size:1rem}
+
+/* ===================== التواصل ===================== */
+.contact{background:var(--deep);border-top:1.5px solid var(--fg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.2rem,5vw,4.5rem);margin-top:2.6rem;align-items:start}
+.contact-info>p{color:#9C947F;max-width:500px;margin-bottom:1.8rem;font-size:.98rem}
+.wa-big{display:flex;align-items:center;gap:1.1rem;padding:1.3rem 1.2rem;border:1.5px solid var(--lime);border-radius:5px;background:rgba(201,247,58,.06);transition:background .3s,transform .3s var(--ease)}
+.wa-big:hover{background:rgba(201,247,58,.12);transform:translateY(-2px)}
+.wa-ic{width:52px;height:52px;border-radius:50%;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;flex-shrink:0}
+.wa-ic svg{width:26px;height:26px}
+.wa-body{flex:1;line-height:1.55;min-width:0}
+.wa-body b{font:700 1.08rem var(--head);display:block}
+.wa-body small{color:#9C947F;font-size:.85rem}
+.wa-big .c-arr{color:var(--lime)}
+.c-row{display:flex;align-items:stretch;border-bottom:1px solid #2C2920}
+.c-main{flex:1;display:flex;align-items:center;gap:1rem;padding:1.1rem .3rem;min-width:0;transition:color .3s}
+.c-main:hover{color:var(--lime)}
+.c-ic{width:44px;height:44px;border:1px solid #2C2920;border-radius:4px;display:grid;place-items:center;flex-shrink:0;transition:border-color .3s,color .3s}
+.c-main:hover .c-ic{border-color:var(--lime);color:var(--lime)}
+.c-body{flex:1;line-height:1.55;min-width:0}
+.c-body b{font:700 1rem var(--head);display:block}
+.c-body small{color:#9C947F;font-size:.85rem}
+.c-arr{color:#9C947F;transition:transform .3s var(--ease),color .3s}
+.c-main:hover .c-arr{color:var(--lime)}
+[dir="rtl"] .c-main:hover .c-arr{transform:translate(-4px,-4px)}
+[dir="ltr"] .c-main:hover .c-arr{transform:translate(4px,-4px)}
+.quick-form{background:#181610;border:1px solid #2C2920;border-radius:6px;padding:clamp(1.3rem,3vw,2.2rem)}
+.quick-form h3{font:700 1.25rem var(--head);margin-bottom:.3rem}
+.quick-form>p{color:#9C947F;font-size:.88rem;margin-bottom:1.6rem}
+.field{margin-bottom:1.3rem}
+.field>label,.field>.flabel{display:block;font:600 .8rem var(--body);color:#9C947F;margin-bottom:.45rem}
+.field input[type="text"],.field textarea{width:100%;background:transparent;border:none;border-bottom:1.5px solid #2C2920;color:#F1EDDF;font:400 1rem var(--body);padding:.55rem .1rem;transition:border-color .3s;resize:vertical;border-radius:0}
+.field input::placeholder,.field textarea::placeholder{color:#6b654f}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--lime)}
+.pill-group{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;pointer-events:none}
+.pill span{display:inline-block;border:1px solid #2C2920;border-radius:99px;padding:.42rem .95rem;font-size:.85rem;color:#9C947F;cursor:pointer;transition:background .25s,color .25s,border-color .25s;line-height:1.6}
+.pill span:hover{border-color:#F1EDDF;color:#F1EDDF}
+.pill input:checked+span{background:var(--lime);border-color:var(--lime);color:var(--lime-ink);font-weight:600}
+.pill input:focus-visible+span{outline:2px solid var(--lime);outline-offset:2px}
+.quick-form .btn{width:100%;margin-top:.4rem}
+.form-hint{margin-top:1rem;font-size:.8rem;color:#9C947F;text-align:center;line-height:1.7}
+
+/* ===================== الفوتر ===================== */
+footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
+.foot-top{display:flex;justify-content:space-between;gap:1.5rem 2rem;padding-block:2.6rem;flex-wrap:wrap;align-items:center}
+.foot-brand{max-width:480px;font:600 1.1rem/1.9 var(--head)}
+.foot-brand em{font-style:normal;background:var(--lime);color:var(--lime-ink);padding:0 .25em;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.foot-links{display:flex;gap:1.6rem;flex-wrap:wrap}
+.foot-links a{font:500 .9rem var(--body);color:#9C947F;transition:color .3s}
+.foot-links a:hover{color:var(--lime)}
+.foot-base{display:flex;justify-content:space-between;align-items:center;gap:.8rem 1.5rem;padding-block:1.3rem;padding-bottom:calc(1.3rem + env(safe-area-inset-bottom,0px));border-top:1px solid #2C2920;flex-wrap:wrap}
+.foot-base span{font:500 .82rem var(--body);color:#9C947F}
+.to-top{display:inline-flex;align-items:center;gap:.45rem;font:500 .82rem var(--body);color:#9C947F;transition:color .3s}
+.to-top:hover{color:var(--lime)}
+
+/* ===================== التوست + زر واتساب العائم ===================== */
+#toast{position:fixed;bottom:1.8rem;right:50%;transform:translate(50%,200%);z-index:2100;display:flex;align-items:center;gap:.65rem;max-width:calc(100vw - 2rem);background:#151806;color:#F1EDDF;border:1.5px solid var(--lime);padding:.85rem 1.4rem;border-radius:4px;font-size:.92rem;font-weight:500;transition:transform .5s var(--ease)}
+#toast.show{transform:translate(50%,0)}
+#toast .ic{color:var(--lime);width:19px;height:19px}
+#waFloat{position:fixed;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));inset-inline-end:1.2rem;z-index:90;width:56px;height:56px;border-radius:50%;background:var(--lime);color:var(--lime-ink);border:1.5px solid var(--lime-ink);display:grid;place-items:center;box-shadow:4px 4px 0 var(--hard);opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .4s,transform .4s var(--ease),background .3s}
+#waFloat.show{opacity:1;transform:none;pointer-events:auto}
+#waFloat:hover{background:#d8fa66}
+#waFloat svg{width:26px;height:26px}
+
+/* ===================== الاستجابة (كل الشاشات) ===================== */
+@media (max-width:1180px){
+  .nav-links,.nav-cta .btn{display:none}
+  #menuBtn{display:flex}
+  .svc-tag{display:none}
+  .svc-head{grid-template-columns:auto 1fr auto}
+}
+@media (max-width:1024px){
+  .hero-bottom{grid-template-columns:1fr}
+  .hero-code{max-width:560px}
+  .about-grid{grid-template-columns:1fr}
+  .id-card{max-width:460px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:880px){
+  .price-hero,.contact-grid,.svc-inner{grid-template-columns:1fr}
+  .svc-inner{gap:1rem}
+  .q-wrap{grid-template-columns:1fr}
+  .q-mark{width:fit-content}
+}
+@media (max-width:640px){
+  html{scroll-padding-top:80px}
+  .brand-text small{display:none}
+  .hero{padding-top:6.2rem}
+  .hero h1{padding-block:1.5rem}
+  .hero-ctas .btn{flex:1 1 100%}
+  .stat{padding:1.1rem 1rem}
+  .sec-head{gap:.9rem}
+  .svc-head{gap:.9rem;padding:1.25rem 0}
+  .svc-x{width:38px;height:38px}
+  .foot-top,.foot-base{flex-direction:column;align-items:flex-start}
+  .wa-big{padding:1.1rem .9rem;gap:.8rem}
+  .wa-ic{width:46px;height:46px}
+  .pm-nav{width:38px;height:38px}
+  .pm-stage{padding-inline:.5rem}
+  #waFloat{width:52px;height:52px}
+  .idea-cta .btn{width:100%}
+}
+@media (max-width:420px){
+  #nav{gap:.5rem}
+  .nav-cta{gap:.45rem}
+  .brand-text{display:none}
+  .seg button{padding:.5rem .55rem}
+  .theme-btn{width:38px;height:38px}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .stat b{font-size:1.6rem}
+  .card{padding:1.3rem}
+}
+@media (max-width:340px){ .hero-stats{grid-template-columns:1fr} }
+@media (max-height:520px) and (orientation:landscape){ .hero{min-height:auto} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- رموز SVG -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="ic-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24"><path d="M12 0l2 10 10 2-10 2-2 10-2-10L0 12l10-2z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M5 12l7-7 7 7M12 19V5"/></symbol>
+  <symbol id="i-arrow-up-left" viewBox="0 0 24 24"><path d="M7 17V7h10M7 7l10 10"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-check-check" viewBox="0 0 24 24"><path d="M18 6 7 17l-5-5M22 10l-9.5 9.5L13 16"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4ZM22 2 11 13"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+</svg>
+
+<!-- شاشة التحميل -->
+<div id="loader" aria-hidden="true">
+  <div>
+    <div class="l-name"><span>حمزة التل</span></div>
+    <div class="l-role">SYSTEMS · WEB · DATABASES</div>
+  </div>
+  <div class="l-count" id="loaderCount">000</div>
+  <div class="l-bar" id="loaderBar"></div>
+</div>
+
+<!-- المؤشر المخصص -->
+<div id="cursorRing"><div class="ring"><span id="cursorLabel"></span></div></div>
+<div id="cursorDot"></div>
+
+<!-- النافبار -->
+<header id="nav">
+  <a href="#top" class="brand" aria-label="حمزة التل">
+    <span class="brand-mark">ح</span>
+    <span class="brand-text"><span data-en="Hamzeh Al-Tal">حمزة التل</span><small>FULL-STACK · DB</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#services" data-en="Services">الخدمات</a>
+    <a href="#projects" data-en="My projects">مشاريعي</a>
+    <a href="#ready" data-en="Ready projects">مشاريع جاهزة</a>
+    <a href="#ideas" data-en="Project ideas">أفكار مشاريع</a>
+    <a href="#pricing" data-en="Pricing">الأسعار</a>
+    <a href="#contact" data-en="Contact">تواصل</a>
+  </nav>
+  <div class="nav-cta">
+    <div class="seg" role="group" aria-label="اللغة / Language">
+      <button type="button" data-setlang="ar" id="langAr" class="on">ع</button>
+      <button type="button" data-setlang="en" id="langEn">EN</button>
+    </div>
+    <button type="button" class="theme-btn" id="themeBtn" aria-label="تبديل الوضع الداكن / الفاتح">
+      <svg class="ic icon-moon"><use href="#i-moon"/></svg>
+      <svg class="ic icon-sun"><use href="#i-sun"/></svg>
+    </button>
+    <a class="btn btn-outline" href="#contact"><span data-en="Start your project">ابدأ مشروعك</span></a>
+    <button id="menuBtn" type="button" aria-label="فتح القائمة"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- قائمة الموبايل -->
+<div id="mobileMenu">
+  <div class="mm-inner">
+    <a class="mm-link" href="#about"><em>01</em><span data-en="About">نبذة عني</span></a>
+    <a class="mm-link" href="#services"><em>02</em><span data-en="Services">الخدمات</span></a>
+    <a class="mm-link" href="#why"><em>03</em><span data-en="Why me">ليش أنا</span></a>
+    <a class="mm-link" href="#projects"><em>04</em><span data-en="My projects">مشاريعي</span></a>
+    <a class="mm-link" href="#ready"><em>05</em><span data-en="Ready projects">مشاريع جاهزة</span></a>
+    <a class="mm-link" href="#ideas"><em>06</em><span data-en="Project ideas">أفكار مشاريع</span></a>
+    <a class="mm-link" href="#pricing"><em>07</em><span data-en="Pricing">الأسعار</span></a>
+    <a class="mm-link" href="#contact"><em>08</em><span data-en="Contact">تواصل</span></a>
+    <div class="mm-foot">
+      <span data-en="Amman · Irbid · Online">عمّان · إربد · أونلاين</span>
+      <bdi>0772372187</bdi>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ============ الهيرو ============ -->
+  <section class="hero">
+    <div class="hero-top reveal-load">
+      <span class="badge"><i class="pulse"></i><span data-en="Guaranteed grade above 85 on your project">علامة مضمونة فوق <bdi>85</bdi> لمشروعك</span></span>
+      <span class="hero-loc" data-en="Amman · Irbid · and online anywhere">عمّان · إربد · وأونلاين من أي مكان</span>
+    </div>
+
+    <h1>
+      <span class="h1-mask"><span data-en="Graduation projects built like">مشاريع تخرّج بمستوى</span></span>
+      <span class="h1-mask"><span><span class="scramble" id="scrambleWord">شغل الشركات</span><i class="dot">.</i></span></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <div class="reveal-load" data-d="2">
+        <p class="hero-desc" data-en="I'm Hamzeh Al-Tal, a systems, web and database developer. I hold a Computer Science degree and trained at Orange in <b>Laravel</b> and <b>React</b>. I build complete graduation projects for university students, from the idea and documentation all the way to defense day, with clean code you can explain <b>line by line</b>.">
+          أنا حمزة التل، مطوّر أنظمة وويب وقواعد بيانات، خريج علم الحاسوب، وتدرّبت في
+          <b>Orange</b> على <bdi>Laravel</bdi> و<bdi>React</bdi>. أبني لطلاب الجامعات مشاريع تخرّج
+          متكاملة، من الفكرة والتوثيق حتى يوم المناقشة، بكود نظيف تستطيع شرحه <b>سطراً بسطر</b>.
+        </p>
+        <p class="hero-note" data-en="Relax. I'm with you from the first idea to the last question on defense day.">ارتاح، أنا معك من أول فكرة حتى آخر سؤال يوم المناقشة.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="https://wa.me/962772372187" target="_blank" rel="noopener"><span data-en="Book your project on WhatsApp">احجز مشروعك على واتساب</span></a>
+          <a class="btn btn-outline" href="#projects"><span data-en="See my projects">شاهد مشاريعي</span> <svg class="ic"><use href="#i-arrow-down"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-code reveal-load" data-d="4" dir="ltr" aria-hidden="true">
+        <div class="hc-bar"><span></span><span></span><span></span><em>query.sql</em></div>
+        <pre><code><span class="c" data-en="-- defense day result">-- نتيجة يوم المناقشة</span>
+<span class="k">SELECT</span> grade <span class="k">FROM</span> projects
+<span class="k">WHERE</span> student = <span class="s" data-en="'you'">'أنت'</span>;
+
+<span class="o">→ '85+'</span></code></pre>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal-load" data-d="4">
+      <div class="stat"><b><span data-count="20">0</span><span class="unit">+</span></b><span class="lbl" data-en="graduation projects delivered">مشروع تخرّج سلّمته لطلاب</span></div>
+      <div class="stat"><b><span data-count="85">0</span><span class="unit">+</span></b><span class="lbl" data-en="guaranteed grade for your project">علامة مضمونة لمشروعك</span></div>
+      <div class="stat"><b><span data-count="250">0</span><span class="unit" data-en="JOD">د.أ</span></b><span class="lbl" data-en="starting price, final quote fixed before we begin">بداية الأسعار، والسعر النهائي يُثبّت قبل البدء</span></div>
+      <div class="stat"><b><span data-count="24">0</span><span class="unit" data-en="hrs">ساعة</span></b><span class="lbl" data-en="maximum response time on WhatsApp">أقصى مدة للرد على واتساب</span></div>
+    </div>
+  </section>
+
+  <!-- ============ الشريط المتحرك ============ -->
+  <div class="marquee" aria-hidden="true"><div class="mq-track" id="mqTrack"></div></div>
+
+  <!-- ============ عبارات تحفيزية ============ -->
+  <section class="quote-band" id="quote" aria-label="Motivation">
+    <div class="wrap q-wrap">
+      <div class="q-mark" aria-hidden="true">“</div>
+      <div class="q-body">
+        <div class="q-stack" id="qText" aria-live="polite"></div>
+        <div class="q-dots" id="qDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ نبذة عني ============ -->
+  <section id="about" class="sec">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" data-en="01 — About me">01 — نبذة عني</span>
+        <span class="grow"></span>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="reveal" data-en="My work isn't copy-paste<em>.</em>">شغلي ليس نسخاً ولصقاً<em>.</em></h2>
+          <p class="lead reveal" data-d="1" data-en="It's built to the same standard as my day job, because it is my day job.">يُبنى بنفس معايير عملي الوظيفي، لأنه <span class="acc-hl">عملي الوظيفي فعلاً</span>.</p>
+          <p class="reveal" data-d="1" data-en="I currently work at <b>JO PETROL</b> as a systems, web and database developer. I build and maintain internal systems that employees use every day, and design databases and reports for real operations. Your project gets built to that same standard, not with a 'just get it done' mindset.">
+            أعمل حالياً في <b>JO PETROL</b> مطوّر أنظمة وويب وقواعد بيانات: أبني وأطوّر
+            أنظمة داخلية يستخدمها الموظفون يومياً، وأصمّم قواعد بيانات وتقارير لعمليات العمل الفعلية.
+            ومشروعك يُبنى بنفس هذا المعيار، لا بعقلية «المهم أن ينتهي».
+          </p>
+          <p class="reveal" data-d="2" data-en="I have a Computer Science degree from Jadara University (Very Good) and trained at Orange in web development with Laravel and React. Since graduating I've delivered <b>20+ graduation projects</b> for students across Jordanian universities: web systems, mobile apps, and databases with real reports.">
+            حاصل على بكالوريوس <b>علم الحاسوب من جامعة جدارا</b> بتقدير <b>جيد جداً</b>، وتدرّبت في
+            <b>Orange</b> على تطوير مواقع الويب باستخدام <bdi>Laravel</bdi> و<bdi>React</bdi>.
+            ومنذ تخرّجي سلّمت <b>أكثر من 20 مشروع تخرّج</b> لطلاب من جامعات الأردن:
+            أنظمة ويب، وتطبيقات موبايل، وقواعد بيانات بتقارير حقيقية.
+          </p>
+          <p class="reveal" data-d="3" data-en="Working with me isn't 'take the files and go'. You get a line-by-line explanation and a mock defense, because on presentation day, <b>understanding is what gets graded</b>.">
+            العمل معي ليس «تستلم الملفات وتمضي». ستحصل على <b>شرح سطراً بسطر</b> وتدريب على
+            أسئلة اللجنة، لأن <b>الفهم هو ما يُقيَّم</b> يوم المناقشة.
+          </p>
+        </div>
+        <aside class="reveal" data-d="2">
+          <!-- ✏️ لاستبدال البطاقة بصورتك: ضع <img src="me.jpg" alt="حمزة التل"> بدل محتوى .id-card -->
+          <div class="id-card">
+            <div class="id-top">
+              <span class="mono">ID · <span class="yr">2026</span></span>
+              <span class="id-badge">AMMAN · IRBID</span>
+            </div>
+            <div class="id-name">HAMZEH<br>AL-TAL</div>
+            <div class="id-line">COMPUTER SCIENCE — JADARA UNIVERSITY</div>
+            <div class="id-line dim">SYSTEMS · WEB · DATABASES — LARAVEL / REACT</div>
+          </div>
+          <div class="info-card">
+            <div class="info-row"><span data-en="Current job">الوظيفة الحالية</span><b data-en="Systems, Web &amp; Database Developer at JO PETROL">مطوّر أنظمة وويب وقواعد بيانات في <bdi>JO PETROL</bdi></b></div>
+            <div class="info-row"><span data-en="Education">التعليم</span><b data-en="B.Sc. Computer Science, Jadara University (Very Good)">بكالوريوس علم الحاسوب، جامعة جدارا (جيد جداً)</b></div>
+            <div class="info-row"><span data-en="Training">التدريب</span><b data-en="Orange: web development with Laravel &amp; React">Orange: تطوير الويب بـ <bdi>Laravel</bdi> و<bdi>React</bdi></b></div>
+            <div class="info-row"><span data-en="Specialty">التخصص</span><b data-en="Web &amp; databases">الويب وقواعد البيانات</b></div>
+            <div class="info-row"><span data-en="Also offers">خدمات أخرى</span><b data-en="Mobile apps · Admin systems · Online lectures">تطبيقات موبايل · أنظمة إدارية · محاضرات أونلاين</b></div>
+            <div class="info-row"><span data-en="Location">المكان</span><b data-en="Amman · Irbid · Online">عمّان · إربد · أونلاين</b></div>
+            <div class="info-row"><span data-en="Response time">سرعة الرد</span><b data-en="Within 24 hours on WhatsApp">خلال 24 ساعة على واتساب</b></div>
+          </div>
+          <!-- ✏️ عدّل التقنيات حسب ما تعمل عليه فعلياً -->
+          <div class="tech-pills" aria-label="Tech stack">
+            <span>Laravel</span><span>React</span><span>React Native</span><span>MySQL</span><span>SQL</span>
+            <span>REST APIs</span><span>ERD</span><span>Firebase</span><span>Git</span><span>Responsive UI</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ الخدمات ============ -->
+  <section id="services" class="sec tight">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" data-en="02 — Services">02 — الخدمات</span>
+        <span class="grow"></span>
+      </div>
+      <h2 class="reveal" data-en="What I deliver, in detail<em>.</em>">ماذا أقدّم، بالتفصيل<em>.</em></h2>
+      <p class="sec-desc reveal" data-d="1" data-en="Tap any service to see exactly what you get.">اضغط على أي خدمة لترى ما ستحصل عليه بالضبط.</p>
+      <div class="accordion reveal" data-d="1" id="accordion"></div>
+    </div>
+  </section>
+
+  <!-- ============ ليش أنا ============ -->
+  <section id="why" class="sec tight">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" data-en="03 — Why work with me">03 — لماذا تعمل معي</span>
+        <span class="grow"></span>
+      </div>
+      <h2 class="reveal" data-en="Because your grade is on the line<em>.</em>">لأن علامتك على المحك<em>.</em></h2>
+      <p class="sec-desc reveal" data-d="1" data-en="Anyone can hand you files. Few can hand you confidence on defense day.">أي شخص يستطيع تسليمك ملفات. قليلون يستطيعون تسليمك الثقة يوم المناقشة.</p>
+
+      <div class="why-grid">
+        <article class="card why-card reveal">
+          <span class="why-num">01</span>
+          <h3 data-en="A guaranteed grade above 85">علامة مضمونة فوق <bdi>85</bdi></h3>
+          <p data-en="Your project is built against your university's marking criteria and reviewed with you before the defense, so you walk in with a grade above 85 secured.">يُبنى مشروعك وفق معايير التقييم في جامعتك ويُراجَع معك قبل المناقشة، لتدخل وأنت مطمئن لعلامة فوق <bdi>85</bdi>.</p>
+        </article>
+        <article class="card why-card reveal" data-d="1">
+          <span class="why-num">02</span>
+          <h3 data-en="Real-world standard, not classroom standard">معيار العمل الحقيقي لا معيار القاعة</h3>
+          <p data-en="I build systems people rely on every day. Your project gets the same discipline: clean, organized, and ready for any committee question.">أبني أنظمة يعتمد عليها الناس يومياً. ومشروعك يُبنى بنفس الانضباط: نظيف ومنظّم وجاهز لأي سؤال من اللجنة.</p>
+        </article>
+        <article class="card why-card reveal" data-d="2">
+          <span class="why-num">03</span>
+          <h3 data-en="Databases are my home turf">قواعد البيانات مجالي الأساسي</h3>
+          <p data-en="The database is where most projects crumble and where committees dig deepest. It's my actual job: ERD, normalization, queries, reports. Yours is built right the first time.">قاعدة البيانات هي الجزء الذي تتعثّر فيه أغلب المشاريع وتتعمّق فيه اللجان. وهي صلب عملي: <bdi>ERD</bdi>، وتطبيع، واستعلامات، وتقارير. يُبنى مشروعك صحيحاً من أول مرة.</p>
+        </article>
+        <article class="card why-card reveal" data-d="3">
+          <span class="why-num">04</span>
+          <h3 data-en="Defense prep is part of delivery">التحضير للمناقشة جزء من التسليم</h3>
+          <p data-en="You don't just receive a project, you rehearse it. Line-by-line explanation, mock questions, and support until the day itself.">لا تستلم مشروعاً فحسب، بل تتدرّب عليه. شرح سطراً بسطر، وأسئلة تجريبية، ومتابعة حتى يوم المناقشة نفسه.</p>
+        </article>
+      </div>
+
+      <div class="calm reveal">
+        <h3 data-en="Take a breath. You're not doing this alone.">خذ نفساً عميقاً، أنت لست وحدك في هذا.</h3>
+        <p data-en="Graduation projects feel heavy, but they're much lighter when someone walks you through them calmly. This is how I make it stress-free:">مشروع التخرّج يبدو ثقيلاً، لكنه يخفّ كثيراً حين يرافقك أحد بهدوء. هكذا أجعل التجربة بلا توتر:</p>
+        <div class="calm-grid">
+          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="No question is a silly question">لا يوجد سؤال سخيف</b><span data-en="Ask anything, anytime. I explain from zero and never assume you already know.">اسأل عن أي شيء وفي أي وقت. أشرح من الصفر ولا أفترض أنك تعرف مسبقاً.</span></div></div>
+          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Recorded lectures to revisit">محاضرات مسجّلة ترجع إليها</b><span data-en="Missed a detail? Re-watch the explanation whenever you want.">فاتتك نقطة؟ أعد مشاهدة الشرح متى شئت وبالسرعة التي تناسبك.</span></div></div>
+          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Rehearsal before the real thing">بروفة قبل المناقشة الحقيقية</b><span data-en="We practice the committee's likely questions until answering feels natural.">نتدرّب على أسئلة اللجنة المتوقعة حتى يصبح الجواب طبيعياً وسهلاً.</span></div></div>
+          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="A clear plan, no surprises">خطة واضحة بلا مفاجآت</b><span data-en="You know the price, the scope and the timeline in writing before we start.">تعرف السعر ونطاق العمل والمدة مكتوبةً قبل أن نبدأ.</span></div></div>
+          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Free revisions in scope">تعديلات مجانية ضمن الاتفاق</b><span data-en="Your professor asks for a change? We handle it together.">طلب الدكتور تعديلاً؟ نتعامل معه معاً دون أي قلق.</span></div></div>
+          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Your details stay private">تفاصيلك تبقى خاصة</b><span data-en="Your project and personal information stay between us.">مشروعك ومعلوماتك الشخصية تبقى بيني وبينك.</span></div></div>
+        </div>
+      </div>
+
+      <div class="steps reveal">
+        <h3 class="steps-title" data-en="How we work together">كيف نعمل معاً</h3>
+        <div class="steps-grid">
+          <div class="step"><i class="mono"><b>01</b></i><h4 data-en="Send your project details">أرسل تفاصيل مشروعك</h4><p data-en="Your university, requirements and deadline. One WhatsApp message is enough.">جامعتك ومتطلبات المشروع وموعد التسليم. رسالة واتساب واحدة تكفي.</p></div>
+          <div class="step"><i class="mono"><b>02</b></i><h4 data-en="Fixed quote within 24 hours">عرض سعر ثابت خلال 24 ساعة</h4><p data-en="Price and scope in writing before we start. No surprises later.">السعر ونطاق العمل مكتوبان قبل البدء، دون أي مفاجآت لاحقاً.</p></div>
+          <div class="step"><i class="mono"><b>03</b></i><h4 data-en="Build with live previews">تنفيذ مع معاينة مستمرة</h4><p data-en="You see the progress and try it yourself. Nothing is a black box.">ترى التقدّم وتجرّب بنفسك. لا شيء يبقى غامضاً.</p></div>
+          <div class="step"><i class="mono"><b>04</b></i><h4 data-en="Delivery, explanation, defense prep">تسليم وشرح وتحضير للمناقشة</h4><p data-en="Full documentation, an explanation session and Q&amp;A rehearsal, until you own it.">توثيق كامل وجلسة شرح وتدريب على الأسئلة، حتى تتقن مشروعك تماماً.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ مشاريعي (معرض لقطات الشاشة) ============ -->
+  <section id="projects" class="sec tight">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" data-en="04 — My projects">04 — مشاريعي</span>
+        <span class="grow"></span>
+      </div>
+      <h2 class="reveal" data-en="Projects I've built<em>.</em>">مشاريع نفّذتها<em>.</em></h2>
+      <p class="sec-desc reveal" data-d="1" data-en="Tap any project to browse all of its screenshots.">اضغط على أي مشروع لتتصفّح جميع لقطات الشاشة الخاصة به.</p>
+      <div class="proj-grid" id="projGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ مشاريع جاهزة ============ -->
+  <section id="ready" class="sec tight">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" data-en="05 — Ready-made projects">05 — مشاريع جاهزة للشراء</span>
+        <span class="grow"></span>
+      </div>
+      <h2 class="reveal" data-en="Need it sooner? Buy a finished project<em>.</em>">وقتك ضيّق؟ اشترِ مشروعاً جاهزاً<em>.</em></h2>
+      <p class="sec-desc reveal" data-d="1" data-en="Every ready-made project comes complete and explained, so you understand it before you present it.">كل مشروع جاهز يأتيك كاملاً ومشروحاً، لتفهمه جيداً قبل أن تعرضه.</p>
+      <div class="ready-includes reveal" data-d="1">
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Full source code, running out of the box">الكود المصدري كاملاً ويعمل مباشرة</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Database with sample data">قاعدة البيانات مع بيانات تجريبية</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Ready documentation and report">التوثيق والتقرير جاهزان</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Recorded explanation lecture">محاضرة شرح مسجّلة للمشروع</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Optional customization to your requirements">تعديل حسب متطلباتك (اختياري)</span></div>
+      </div>
+      <!-- ✏️ عدّل قائمة READY في الجافاسكربت أسفل الصفحة -->
+      <div class="grid3" id="readyGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ أفكار مشاريع ============ -->
+  <section id="ideas" class="sec tight">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" data-en="06 — Project ideas">06 — أفكار مشاريع</span>
+        <span class="grow"></span>
+      </div>
+      <h2 class="reveal" data-en="Don't have an idea? Here are fresh ones<em>.</em>">ليس لديك فكرة؟ إليك أفكاراً جديدة<em>.</em></h2>
+      <p class="sec-desc reveal" data-d="1" data-en="Brand-new ideas that aren't the usual clinic, store or library system. We also check with you that the idea isn't already used at your university.">أفكار جديدة بالكامل، ليست نظام العيادة أو المتجر أو المكتبة المعتاد. ونتأكد معك أن الفكرة غير مستخدمة في جامعتك.</p>
+      <div class="ready-includes reveal" data-d="1" aria-label="Criteria">
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="<b>A real problem</b> you can explain to the committee in one sentence">مشكلة حقيقية تُشرح للجنة في جملة واحدة</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="<b>Defensible logic</b>: an algorithm or clear business rule, not just screens">منطق يمكن الدفاع عنه: خوارزمية أو قاعدة عمل واضحة، وليست مجرد شاشات</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="<b>A rich database</b> with relations and constraints worth discussing">قاعدة بيانات غنية بعلاقات وقيود تستحق النقاش</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="<b>Achievable</b> within a single semester">قابلة للإنجاز خلال فصل دراسي واحد</span></div>
+      </div>
+      <div class="fbar" id="ideaFilters" role="group" aria-label="Filter"></div>
+      <div class="grid3" id="ideasGrid"></div>
+      <div class="idea-cta reveal">
+        <div><b data-en="None of these fits you?">لم تُعجبك هذه الأفكار؟</b><span data-en="Tell me your major and interests, and I'll shape an original idea just for you.">أخبرني بتخصصك واهتماماتك، وأصيغ لك فكرة أصلية خاصة بك.</span></div>
+        <a class="btn btn-solid" id="ideaAsk" href="#" target="_blank" rel="noopener"><span data-en="Help me find an idea">ساعدني في إيجاد فكرة</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ الأسعار ============ -->
+  <section id="pricing" class="sec pricing invert">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" data-en="07 — Pricing">07 — الأسعار</span>
+        <span class="grow"></span>
+      </div>
+      <div class="price-hero">
+        <div class="price-num-box reveal">
+          <span class="price-from" data-en="Projects start from">تبدأ المشاريع من</span>
+          <div class="price-num">250<small data-en="JOD">د.أ</small></div>
+        </div>
+        <div class="price-main">
+          <h3 class="reveal" data-d="1" data-en="A clear price from the first message. The final quote depends on your project's <em>size and details</em> and is fixed before we start.">سعر واضح من أول رسالة. والسعر النهائي يُحدَّد حسب <em>حجم المشروع وتفاصيله</em> ويُثبَّت قبل البدء.</h3>
+          <p class="reveal" data-d="2" data-en="No hidden fees and no surprise add-ons halfway through. You get the full price and the full scope in writing, then we build.">بلا رسوم مخفية ولا زيادات في منتصف العمل. تحصل على السعر ونطاق العمل كاملين مكتوبين، ثم نبدأ التنفيذ.</p>
+          <div class="factors reveal" data-d="2">
+            <span data-en="Project type (web / mobile / database)">نوع المشروع (ويب / موبايل / قاعدة بيانات)</span>
+            <span data-en="Number of screens and features">عدد الشاشات والمزايا</span>
+            <span data-en="Documentation size">حجم التوثيق المطلوب</span>
+            <span data-en="Deadline">مدة التسليم</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-cols">
+        <div class="price-box reveal" data-d="1">
+          <h4><svg class="ic"><use href="#i-check-check"/></svg><span data-en="Included in every project">مشمول في كل مشروع</span></h4>
+          <ul>
+            <li data-en="Guaranteed grade above 85">علامة مضمونة فوق <bdi>85</bdi></li>
+            <li data-en="Clean, organized source code">كود مصدري نظيف ومنظّم</li>
+            <li data-en="Full documentation in your university's format">توثيق كامل بصيغة جامعتك</li>
+            <li data-en="Line-by-line explanation session">جلسة شرح سطراً بسطر</li>
+            <li data-en="Free revisions within the agreed scope">تعديلات مجانية ضمن الاتفاق</li>
+            <li data-en="Support up to defense day">متابعة حتى يوم المناقشة</li>
+          </ul>
+          <p class="pay" data-en="Payment: 50% on agreement, 50% on delivery">الدفع: <bdi>50%</bdi> عند الاتفاق و<bdi>50%</bdi> عند التسليم</p>
+        </div>
+        <div class="price-box reveal" data-d="2">
+          <h4><svg class="ic"><use href="#i-pin"/></svg><span data-en="What moves the price up or down">ما الذي يرفع السعر أو يخفضه</span></h4>
+          <ul>
+            <li data-en="Simple database + reports project: starts at the base price">مشروع قاعدة بيانات وتقارير بسيط: يبدأ من السعر الأساسي</li>
+            <li data-en="Full-stack web with admin panel: mid range">مشروع ويب متكامل مع لوحة تحكم: سعر متوسط</li>
+            <li data-en="Complete project + documentation + mobile app: top range">مشروع متكامل مع توثيق وتطبيق موبايل: الأعلى سعراً</li>
+            <li data-en="Ready-made project: priced per project, ask me">مشروع جاهز: يُسعَّر لكل مشروع، اسألني</li>
+            <li data-en="Online lectures: priced per session or package">محاضرات أونلاين: بالجلسة أو بالباقة</li>
+            <li data-en="Tight deadline? Ask about express delivery, quoted upfront">وقت ضيق؟ اسأل عن التسليم السريع، ويُحدَّد سعره من البداية</li>
+          </ul>
+          <p class="pay" data-en="Every quote is written down before any work starts">كل عرض سعر يُكتب قبل أن يبدأ أي عمل</p>
+        </div>
+      </div>
+
+      <a class="btn btn-solid reveal" data-d="2" href="https://wa.me/962772372187" target="_blank" rel="noopener">
+        <span data-en="Send your project details and get the final price">أرسل تفاصيل مشروعك واحصل على السعر النهائي</span>
+        <svg class="ic arr-flip"><use href="#i-arrow-up-left"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ التواصل ============ -->
+  <section id="contact" class="sec contact deep">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" data-en="08 — Contact">08 — تواصل</span>
+        <span class="grow"></span>
+      </div>
+      <h2 class="reveal" data-en="Ready to start? WhatsApp is fastest<em>.</em>">جاهز للبدء؟ واتساب هو الأسرع<em>.</em></h2>
+      <div class="contact-grid">
+
+        <div class="contact-info reveal" data-d="1">
+          <p data-en="Send me your project details (university, requirements, deadline) and you'll get a clear offer and a build plan within 24 hours. No emails, no forms lost in the void. Everything happens directly on WhatsApp.">أرسل لي تفاصيل مشروعك (الجامعة والمتطلبات وموعد التسليم) وسيصلك عرض واضح وخطة تنفيذ خلال 24 ساعة. بلا بريد إلكتروني وبلا نماذج تضيع. كل شيء يتم مباشرةً على واتساب.</p>
+
+          <a class="wa-big" href="https://wa.me/962772372187?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%AD%D9%85%D8%B2%D8%A9%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AA%D8%AE%D8%B1%D8%AC" target="_blank" rel="noopener">
+            <span class="wa-ic"><svg><use href="#ic-wa"/></svg></span>
+            <span class="wa-body">
+              <b data-en="WhatsApp: Hamzeh Al-Tal">واتساب: حمزة التل</b>
+              <small data-en="Tap to chat directly. Replies within 24 hours at most">اضغط وتحدّث مباشرة. الرد خلال 24 ساعة كحد أقصى</small>
+            </span>
+            <svg class="ic c-arr arr-flip"><use href="#i-arrow-up-left"/></svg>
+          </a>
+
+          <div class="c-row">
+            <a class="c-main" href="tel:+962772372187">
+              <span class="c-ic"><svg class="ic"><use href="#i-phone"/></svg></span>
+              <span class="c-body"><b><bdi>0772372187</bdi></b><small data-en="Phone call">اتصال هاتفي</small></span>
+              <svg class="ic c-arr arr-flip"><use href="#i-arrow-up-left"/></svg>
+            </a>
+          </div>
+          <div class="c-row" style="border-bottom:none">
+            <div class="c-main" style="cursor:default">
+              <span class="c-ic"><svg class="ic"><use href="#i-pin"/></svg></span>
+              <span class="c-body"><b data-en="Amman · Irbid">عمّان · إربد</b><small data-en="In person, or online anywhere">لقاء حضوري، أو أونلاين من أي مكان</small></span>
+            </div>
+          </div>
+        </div>
+
+        <form class="quick-form reveal" data-d="2" id="waForm" novalidate>
+          <h3 data-en="Quick request via WhatsApp">طلب سريع عبر واتساب</h3>
+          <p data-en="Fill in the fields and I'll prepare a ready message. You can edit it before sending.">عبّئ الحقول وسأجهّز لك رسالة جاهزة، ويمكنك تعديلها قبل الإرسال.</p>
+          <div class="field">
+            <label for="fName" data-en="Your name">اسمك</label>
+            <input id="fName" type="text" data-en-ph="e.g. Sara Khatib" placeholder="مثال: سارة الخطيب" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="fUni" data-en="University / major">الجامعة / التخصص</label>
+            <input id="fUni" type="text" data-en-ph="e.g. Jadara University, Computer Science" placeholder="مثال: جامعة جدارا، علم الحاسوب">
+          </div>
+          <div class="field">
+            <div class="flabel" id="ptypeLbl" data-en="What do you need?">ماذا تحتاج؟</div>
+            <div class="pill-group" role="radiogroup" aria-labelledby="ptypeLbl">
+              <label class="pill"><input type="radio" name="ptype" value="مشروع تخرّج متكامل مع توثيق" data-v-en="A complete project with documentation"><span data-en="Full project + docs">مشروع متكامل + توثيق</span></label>
+              <label class="pill"><input type="radio" name="ptype" value="مشروع ويب Full-Stack" data-v-en="A full-stack web project"><span data-en="Full-stack web">ويب <bdi>Full-Stack</bdi></span></label>
+              <label class="pill"><input type="radio" name="ptype" value="تطبيق موبايل (React Native)" data-v-en="A mobile app (React Native)"><span data-en="Mobile app">تطبيق موبايل</span></label>
+              <label class="pill"><input type="radio" name="ptype" value="قاعدة بيانات وتقارير" data-v-en="A database and reports"><span data-en="Database &amp; reports">قاعدة بيانات</span></label>
+              <label class="pill"><input type="radio" name="ptype" value="محاضرات أونلاين" data-v-en="Online lectures"><span data-en="Online lectures">محاضرات أونلاين</span></label>
+              <label class="pill"><input type="radio" name="ptype" value="شراء مشروع جاهز" data-v-en="Buying a ready-made project"><span data-en="Ready-made project">مشروع جاهز</span></label>
+              <label class="pill"><input type="radio" name="ptype" value="مساعدة في إيجاد فكرة" data-v-en="Help finding an idea"><span data-en="I need an idea">أحتاج فكرة</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="fDet" data-en="Details (optional)">تفاصيل (اختياري)</label>
+            <textarea id="fDet" rows="3" data-en-ph="Requirements, deadline, professor's notes..." placeholder="المتطلبات، موعد التسليم، أي ملاحظة من الدكتور..."></textarea>
+          </div>
+          <button class="btn btn-solid" type="submit"><span data-en="Send via WhatsApp">إرسال عبر واتساب</span> <svg class="ic"><use href="#i-send"/></svg></button>
+          <p class="form-hint" data-en="The message opens in your own WhatsApp before sending. Nothing is stored or sent anywhere else.">تُفتح الرسالة في واتساب الخاص بك قبل الإرسال، ولا يُحفظ أو يُرسل أي شيء إلى مكان آخر.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- الفوتر -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-brand" data-en="I build graduation projects that <em>pass the defense</em> with confidence.">أبني مشاريع تخرّج <em>تجتاز المناقشة</em> بثقة.</p>
+      <div class="foot-links">
+        <a href="https://wa.me/962772372187" target="_blank" rel="noopener" data-en="WhatsApp">واتساب</a>
+        <a href="tel:+962772372187" data-en="Call">اتصال</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span data-en="© <span class='yr'>2026</span> Hamzeh Al-Tal · Amman · Irbid, Jordan">© <span class="yr">2026</span> حمزة التل · عمّان · إربد، الأردن</span>
+      <a href="#top" class="to-top"><span data-en="Back to top">رجوع لأعلى</span> <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow-up"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- نافذة لقطات المشروع -->
+<div id="pModal" class="pmodal" role="dialog" aria-modal="true" aria-labelledby="pmTitle" hidden>
+  <div class="pm-bar">
+    <h3 id="pmTitle"></h3>
+    <span class="pm-count" id="pmCount"></span>
+    <button type="button" class="pm-close" id="pmClose" aria-label="إغلاق"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="pm-stage" id="pmStage">
+    <button type="button" class="pm-nav pm-prev" id="pmPrev" aria-label="السابق"><svg class="ic"><use href="#i-chev-l"/></svg></button>
+    <img id="pmImg" alt="">
+    <button type="button" class="pm-nav pm-next" id="pmNext" aria-label="التالي"><svg class="ic"><use href="#i-chev-r"/></svg></button>
+  </div>
+  <div class="pm-thumbs" id="pmThumbs"></div>
+</div>
+
+<!-- زر واتساب العائم -->
+<a id="waFloat" href="https://wa.me/962772372187" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#ic-wa"/></svg></a>
+
+<!-- التوست -->
+<div id="toast" role="status" aria-live="polite"><svg class="ic"><use href="#i-check"/></svg><span>تم</span></div>
+
+<script>
+/* ===================== أدوات وإعدادات ===================== */
+const $  = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const html = document.documentElement;
+const isFine  = matchMedia('(pointer:fine)').matches;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const PHONE = '962772372187';                 // رقم واتساب الدولي
+const wa = msg => `https://wa.me/${PHONE}` + (msg ? `?text=${encodeURIComponent(msg)}` : '');
+const ICON = (n, c = 'ic') => `<svg class="${c}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+const T = {
+  ar:{ name:'اكتب اسمك أولاً', type:'اختر ما تحتاجه', open:'نفتح لك واتساب والرسالة جاهزة',
+       title:'حمزة التل | مطوّر أنظمة وويب وقواعد بيانات — مشاريع تخرّج',
+       desc:'حمزة التل — مطوّر أنظمة وويب وقواعد بيانات. مشاريع تخرّج كاملة (ويب، موبايل، قواعد بيانات) مع توثيق وشرح وتحضير للمناقشة، ومحاضرات أونلاين مسجّلة، ومشاريع جاهزة، وأفكار جديدة. علامة مضمونة فوق 85. عمّان وإربد.',
+       shot:'لقطة', of:'من', view:'شوف', close:'إغلاق', prev:'السابق', next:'التالي', menuO:'فتح القائمة', menuC:'إغلاق القائمة' },
+  en:{ name:'Add your name first', type:'Pick what you need', open:'Opening WhatsApp, message ready',
+       title:'Hamzeh Al-Tal | Systems, Web & Database Developer — Graduation Projects',
+       desc:'Hamzeh Al-Tal, systems, web and database developer. Complete graduation projects (web, mobile, databases) with documentation, explanation and defense prep, recorded online lectures, ready-made projects and fresh ideas. Guaranteed grade above 85. Amman and Irbid.',
+       shot:'Screenshot', of:'of', view:'VIEW', close:'Close', prev:'Previous', next:'Next', menuO:'Open menu', menuC:'Close menu' }
+};
+let LANG = html.dataset.lang || 'ar';
+
+/* ===================== البيانات (✏️ عدّلها بسهولة) ===================== */
+
+/* ✏️ مشاريعي: dir = مجلد الصور، shots = أسماء ملفات اللقطات داخل المجلد.
+   مثال: ضع الصور في  projects/clinic/1.jpg  و 2.jpg ... ثم اكتب shots:['1.jpg','2.jpg']
+   إذا تركت shots فارغة أو الصورة غير موجودة تظهر لقطة بديلة مؤقتة. */
+const PROJECTS = [
+  { ar:'نظام إدارة عيادات',     en:'Clinic Management System', dir:'projects/clinic',   shots:[] },
+  { ar:'متجر إلكتروني',          en:'E-commerce Store',         dir:'projects/shop',     shots:[] },
+  { ar:'نظام إدارة مستشفى',      en:'Hospital Management System',dir:'projects/hospital', shots:[] },
+  { ar:'تطبيق توصيل طلبات',      en:'Order Delivery App',       dir:'projects/delivery', shots:[] },
+  { ar:'لوحة تحليلات مبيعات',    en:'Sales Analytics Dashboard',dir:'projects/analytics',shots:[] },
+  { ar:'تطبيق مصاريف شخصية',     en:'Personal Expense Tracker', dir:'projects/expense',  shots:[] }
+];
+
+/* ✏️ المشاريع الجاهزة للشراء */
+const READY = [
+  { ar:'نظام إدارة عيادات', en:'Clinic Management System', cat:{ar:'ويب + قاعدة بيانات',en:'Web + Database'}, tech:['Laravel','MySQL'],
+    d:{ar:'حجز المواعيد، ملفات المرضى، الوصفات والفواتير مع لوحة تحكم وتقارير.',en:'Appointments, patient files, prescriptions and invoices with an admin panel and reports.'} },
+  { ar:'متجر إلكتروني متكامل', en:'Complete E-commerce Store', cat:{ar:'ويب Full-Stack',en:'Full-Stack Web'}, tech:['Laravel','React','MySQL'],
+    d:{ar:'سلة مشتريات، طلبات، إدارة منتجات ومخزون، ولوحة تحكم بصلاحيات.',en:'Cart, orders, product and stock management, and a role-based admin panel.'} },
+  { ar:'تطبيق مصاريف شخصية', en:'Personal Expense Tracker', cat:{ar:'تطبيق موبايل',en:'Mobile App'}, tech:['React Native','Firebase'],
+    d:{ar:'تسجيل المصاريف والدخل، تصنيفات، ورسوم بيانية شهرية، يعمل على أندرويد وآيفون.',en:'Log income and expenses, categories and monthly charts. Runs on Android and iPhone.'} }
+];
+
+/* ✏️ أفكار مشاريع: كل فكرة = مشكلة حقيقية + حل + وحدات + جداول + نقطة قوة أمام اللجنة */
+const IDEA_CATS = {
+  web:    { ar:'ويب وقواعد بيانات', en:'Web & Database' },
+  mobile: { ar:'تطبيق موبايل',      en:'Mobile App' },
+  data:   { ar:'تحليل بيانات',      en:'Data Analytics' }
+};
+const IDEAS = [
+  { k:'web', lvl:{ar:'متقدم',en:'Advanced'}, wk:{ar:'10–12 أسبوعاً',en:'10–12 weeks'}, tech:['Laravel','MySQL','React'],
+    ar:'مُجدوِل الامتحانات الجامعية', en:'University Exam Scheduler',
+    prob:{ar:'جداول الامتحانات تُعدّ يدوياً في أغلب الأقسام، فتحدث تعارضات: طالب لديه امتحانان في الوقت نفسه، أو قاعة لا تتّسع، أو مراقب في قاعتين.',
+          en:'Exam timetables are mostly made by hand, causing clashes: a student with two exams at once, a room that is too small, or an invigilator in two rooms.'},
+    sol:{ar:'نظام يولّد جدول امتحانات خالياً من التعارض تلقائياً حسب تسجيل الطلاب وسعة القاعات وتوفّر المراقبين، ويوضّح سبب أي تعارض لا يمكن حلّه.',
+         en:'A system that automatically generates a clash-free exam timetable from student enrollments, room capacities and invigilator availability, and explains any clash it cannot resolve.'},
+    mods:{ar:['استيراد المواد وتسجيل الطلاب','توليد الجدول بخوارزمية تلوين الرسم البياني (Graph Coloring)','توزيع القاعات حسب السعة وتوزيع المراقبين بعدالة','كشف التعارضات وتقرير بأسبابها','جدول شخصي لكل طالب ومراقب'],
+          en:['Import courses and student enrollments','Generate the timetable with graph coloring','Assign rooms by capacity and invigilators fairly','Detect clashes with a reasoned report','A personal timetable for every student and invigilator']},
+    tbl:['students','courses','enrollments','rooms','exam_slots','invigilators','exam_assignments'],
+    win:{ar:'قلب المشروع خوارزمية حقيقية يمكن شرحها وإثبات صحتها: أي مادتين يشترك بهما طالب لا تقعان في الوقت نفسه.',
+         en:'At its core is a real algorithm you can explain and prove: any two courses sharing a student are never scheduled at the same time.'} },
+
+  { k:'web', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','MySQL','React'],
+    ar:'مخزون الغذاء الذكي (الأقرب انتهاءً أولاً)', en:'Smart Food Stock (First-Expired-First-Out)',
+    prob:{ar:'المحلات والمطاعم تُتلف بضاعة بسبب انتهاء الصلاحية، لأن المخزون يُتتبَّع بالكمية فقط وليس بتاريخ كل دفعة.',
+          en:'Shops and restaurants throw away goods because stock is tracked by quantity only, not by each batch\'s expiry date.'},
+    sol:{ar:'نظام يتتبّع كل دفعة بتاريخ انتهائها، ويصرف الأقرب انتهاءً أولاً، ويقترح خصومات على ما يقترب من الانتهاء، ويقيس الهدر بالدينار.',
+         en:'Tracks every batch by expiry date, issues the soonest-expiring first, suggests discounts on items nearing expiry, and measures waste in dinars.'},
+    mods:{ar:['استلام البضاعة على شكل دفعات بتواريخ صلاحية','صرف تلقائي بقاعدة FEFO عند البيع','تنبيهات وخصومات مقترحة حسب الأيام المتبقية','تقرير الهدر والخسارة الشهرية','لوحة بالمنتجات الأعلى خطراً'],
+          en:['Receive goods as batches with expiry dates','Automatic FEFO issuing at sale time','Alerts and suggested discounts by days left','Monthly waste and loss report','Dashboard of the highest-risk products']},
+    tbl:['products','batches','stock_movements','sales','sale_items','discount_rules','waste_log'],
+    win:{ar:'تصميم الدفعات وربط الحركات المخزنية من أصعب أجزاء أنظمة المخازن، وهنا يُحَل بشكل صحيح ويمكن التحقق منه بالاستعلامات.',
+         en:'Batch design and linking stock movements is among the hardest parts of inventory systems; here it is solved properly and verifiable with queries.'} },
+
+  { k:'web', lvl:{ar:'متقدم',en:'Advanced'}, wk:{ar:'10–12 أسبوعاً',en:'10–12 weeks'}, tech:['Laravel','React','MySQL','Maps'],
+    ar:'منصة الشحنات العائدة', en:'Return-Load Freight Matching',
+    prob:{ar:'كثير من الشاحنات تعود فارغة بعد التوصيل، وفي المقابل يدفع تجار صغار سعراً مرتفعاً لنقل شحنات صغيرة.',
+          en:'Many trucks return empty after delivery, while small merchants pay high prices to move small loads.'},
+    sol:{ar:'يعلن السائق رحلة العودة (المسار والوقت والحمولة المتاحة)، فيقترح النظام الشحنات الأنسب حسب المسافة والوزن ومهلة التسليم.',
+         en:'The driver posts the return trip (route, time, spare capacity) and the system suggests the best-fitting loads by distance, weight and delivery window.'},
+    mods:{ar:['تسجيل الشاحنات ورحلات العودة','نشر الشحنات بوزنها ووجهتها ومهلتها','مطابقة تلقائية بدرجة توافق لكل شحنة','سعر مقترح حسب المسافة والوزن','تتبّع حالة الشحنة وتقييم الطرفين'],
+          en:['Register trucks and return trips','Post loads with weight, destination and deadline','Automatic matching with a fit score per load','Suggested price by distance and weight','Shipment status tracking and mutual ratings']},
+    tbl:['drivers','trucks','trips','shipments','matches','ratings','locations'],
+    win:{ar:'درجة التوافق (Matching Score) تعطي المشروع عمقاً تحليلياً، ومشكلته حقيقية ومحلية يسهل الدفاع عنها.',
+         en:'The matching score gives the project analytical depth, and its problem is real, local and easy to defend.'} },
+
+  { k:'web', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'6–8 أسابيع',en:'6–8 weeks'}, tech:['Laravel','MySQL'],
+    ar:'حجز المختبرات والقاعات المشتركة', en:'Lab & Room Booking System',
+    prob:{ar:'حجز المختبرات والأجهزة يتم بالورق أو الرسائل، فيحدث تضارب مواعيد ولا يُعرف أي مورد مستغَل وأيها مهمَل.',
+          en:'Labs and equipment are booked on paper or by message, causing double bookings and no visibility on which resources are used or idle.'},
+    sol:{ar:'نظام حجز يمنع تداخل المواعيد على مستوى قاعدة البيانات، ويطبّق أولويات (محاضرة قبل نشاط)، ويعرض إحصائيات استخدام كل مورد.',
+         en:'A booking system that prevents overlapping slots at the database level, applies priorities (a lecture beats an activity) and shows usage statistics per resource.'},
+    mods:{ar:['كتالوج الموارد وساعات إتاحتها','حجز بمنع التداخل وتكرار أسبوعي','سياسة أولويات وإلغاء وإشعارات','تقويم مرئي لكل مورد','تقارير نسبة الاستخدام'],
+          en:['Resource catalog and availability hours','Conflict-free booking with weekly repeats','Priority, cancellation and notification rules','A visual calendar per resource','Utilization reports']},
+    tbl:['resources','bookings','recurring_rules','users','roles','priorities','notifications'],
+    win:{ar:'شرط منع التداخل الزمني داخل قاعدة البيانات (بداية الحجز قبل نهاية الآخر ونهايته بعد بدايته) نقطة نقاش ممتازة في الاستعلامات والقيود.',
+         en:'The time-overlap rule enforced inside the database is an excellent talking point on queries and constraints.'} },
+
+  { k:'mobile', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['React Native','Firebase'],
+    ar:'رفيق الدواء لكبار السن', en:'Medication Companion for Seniors',
+    prob:{ar:'كبار السن يتناولون عدة أدوية بمواعيد مختلفة، فقد ينسون جرعة أو يكرّرونها، وأهلهم لا يعرفون ما يحدث.',
+          en:'Seniors take several medicines at different times, may miss or repeat a dose, and their family has no visibility.'},
+    sol:{ar:'تطبيق بواجهة بسيطة يذكّر بكل جرعة ويسجّل تناولها، ويُشعِر قريباً مسؤولاً عند فوات جرعة، ويحذّر من أدوية بينها تعارض معروف (بيانات تعليمية ولا تغني عن الصيدلاني).',
+         en:'A simple app that reminds and logs each dose, notifies a caregiver when one is missed, and warns about known drug interactions (educational data, not a substitute for a pharmacist).'},
+    mods:{ar:['جدول أدوية بجرعات ومواعيد متكررة','تذكير بإشعار وتسجيل «تم تناول الدواء»','إشعار لمقدّم الرعاية عند فوات الجرعة','فحص تعارض الأدوية من جدول تفاعلات','تقرير التزام أسبوعي'],
+          en:['Medication list with repeating doses and times','Push reminders and a "taken" confirmation','Caregiver alert when a dose is missed','Interaction check against an interactions table','Weekly adherence report']},
+    tbl:['users','patients','caregivers','medications','schedules','dose_logs','interactions'],
+    win:{ar:'يجمع مشكلة اجتماعية واضحة مع منطق جدولة وإشعارات وقاعدة تفاعلات، وكلها قابلة للعرض مباشرة على الهاتف.',
+         en:'Pairs a clear social problem with scheduling logic, notifications and an interactions table, all demonstrable live on a phone.'} },
+
+  { k:'mobile', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'6–8 أسابيع',en:'6–8 weeks'}, tech:['React Native','Firebase'],
+    ar:'تقاسم مصاريف السكن المشترك', en:'Shared-Housing Expense Splitter',
+    prob:{ar:'طلاب السكن المشترك يدفعون الفواتير والمشتريات بالتناوب، وبعد شهر لا يعرف أحد بالضبط من يدين لمن.',
+          en:'Flatmates take turns paying bills and groceries, and after a month nobody knows exactly who owes whom.'},
+    sol:{ar:'تطبيق يسجّل كل مصروف ويقسّمه بين المشاركين (بالتساوي أو بنسب)، ثم يبسّط الديون إلى أقل عدد ممكن من التحويلات.',
+         en:'Records each expense and splits it among members (equally or by share), then simplifies all debts into the fewest possible transfers.'},
+    mods:{ar:['مجموعات سكن وأعضاء','تسجيل مصروف وتقسيمه بالتساوي أو بنسب','خوارزمية تبسيط الديون (أقل عدد تحويلات)','تسوية وتتبّع الدفعات','ملخص شهري حسب الفئات'],
+          en:['Housing groups and members','Log an expense and split equally or by share','Debt-simplification algorithm (fewest transfers)','Settlements and payment tracking','Monthly summary by category']},
+    tbl:['users','groups','group_members','expenses','expense_shares','settlements'],
+    win:{ar:'خوارزمية تبسيط الديون مسألة معروفة (Minimum Cash Flow) تُشرح بالرسم والمثال بسهولة أمام اللجنة.',
+         en:'Debt simplification is a known problem (Minimum Cash Flow) that is easy to explain with a diagram and an example.'} },
+
+  { k:'data', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','MySQL','SQL','Charts'],
+    ar:'مؤشّر الإنذار المبكر للطلاب', en:'Student Early-Warning Dashboard',
+    prob:{ar:'يُكتشف تعثّر الطالب عادةً بعد نهاية الفصل، حين يصبح الإصلاح متأخراً.',
+          en:'A struggling student is usually spotted after the semester ends, when it is too late to help.'},
+    sol:{ar:'لوحة تحليلات تجمع الحضور وعلامات الفصل وتسليم الواجبات، وتحسب لكل طالب درجة خطورة بقواعد واضحة، لينبَّه المرشد مبكراً (تُعرض ببيانات تجريبية).',
+         en:'An analytics dashboard combining attendance, assessment marks and assignment submissions, scoring each student\'s risk with clear rules so advisors are alerted early (shown with sample data).'},
+    mods:{ar:['استيراد البيانات من ملفات Excel','حساب درجة الخطورة بأوزان قابلة للتعديل','لوحة مؤشرات للقسم وللمادة','قائمة طلاب بحاجة متابعة مع السبب','تقارير شهرية'],
+          en:['Import data from Excel files','Risk score with adjustable weights','Department and course indicators','A follow-up list with the reason for each student','Monthly reports']},
+    tbl:['students','courses','attendance','assessments','assignments','risk_scores','advisors'],
+    win:{ar:'مشروع بيانات حقيقي: Views واستعلامات تجميعية ومعادلة تقييم يمكن شرحها ودراسة دقّتها.',
+         en:'A genuine data project: views, aggregate queries and a scoring formula you can explain and evaluate for accuracy.'} },
+
+  { k:'web', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','MySQL','React'],
+    ar:'صيانة الأسطول التنبؤية', en:'Fleet Maintenance Planner',
+    prob:{ar:'الشركات ذات المركبات والمعدات تصيّن عند العطل فقط، فترتفع التكلفة وتتوقف الأعمال فجأة.',
+          en:'Companies with vehicles and equipment only repair after a breakdown, raising costs and halting work unexpectedly.'},
+    sol:{ar:'نظام يجدول الصيانة الدورية حسب العدّاد والزمن لكل مركبة، وينبّه قبل الاستحقاق، ويحسب تكلفة الكيلومتر ليكشف المركبات الأعلى كلفة.',
+         en:'Schedules periodic maintenance by odometer and time for each vehicle, alerts before it is due, and computes cost per kilometre to expose the costliest vehicles.'},
+    mods:{ar:['سجل المركبات وقراءات العدّاد','قواعد صيانة (كل X كم أو Y شهر)','تنبيه قبل الاستحقاق وأوامر عمل','سجل قطع وتكاليف','تقرير تكلفة الكيلومتر وأكثر المركبات أعطالاً'],
+          en:['Vehicle register and odometer readings','Maintenance rules (every X km or Y months)','Pre-due alerts and work orders','Parts and cost log','Cost-per-km and most-faulty-vehicle report']},
+    tbl:['vehicles','odometer_readings','maintenance_rules','work_orders','parts','costs','technicians'],
+    win:{ar:'منطق قواعد الصيانة وحساب موعد الاستحقاق التالي ومؤشرات التكلفة يقرّبه كثيراً من أنظمة الشركات الحقيقية.',
+         en:'The maintenance-rule logic, next-due calculation and cost indicators bring it close to real company systems.'} }
+];
+
+/* العبارات التحفيزية */
+const QUOTES = [
+  { ar:'المشروع الناجح ليس للعباقرة فقط، بل لمن يبدأ ولا يتوقف.', en:'A successful project isn\'t only for geniuses. It\'s for those who start and keep going.' },
+  { ar:'كل مبرمج كبير كان يوماً طالباً خائفاً من المناقشة.', en:'Every great developer was once a student afraid of their defense.' },
+  { ar:'التخرّج ليس خط النهاية، بل أول سطر في قصتك المهنية.', en:'Graduation isn\'t the finish line. It\'s the first line of your career story.' },
+  { ar:'ثقتك يوم المناقشة تُبنى من فهمك، وأنا هنا لأساعدك أن تفهم.', en:'Your confidence on defense day is built on understanding, and I\'m here to help you understand.' },
+  { ar:'خطوة صغيرة اليوم أخفّ بكثير من ضغط آخر أسبوع.', en:'A small step today is far lighter than the last-week rush.' },
+  { ar:'سنوات تعبك تستحق نهاية مشرّفة، وأنت أقرب إليها مما تظن.', en:'Your years of effort deserve a proud ending, and you\'re closer than you think.' }
+];
+
+/* الشريط المتحرك */
+const MARQUEE = [
+  { ar:'مشاريع تخرّج كاملة', en:'Full graduation projects' },
+  { ar:'علامة مضمونة فوق <bdi>85</bdi>', en:'Guaranteed grade above 85' },
+  { ar:'تطوير ويب <bdi>Full-Stack</bdi>', en:'Full-stack web development' },
+  { ar:'قواعد بيانات وتقارير', en:'Databases & reports' },
+  { ar:'تطبيقات <bdi>React Native</bdi>', en:'React Native apps' },
+  { ar:'محاضرات أونلاين مسجّلة', en:'Recorded online lectures' },
+  { ar:'مشاريع جاهزة مع شرحها', en:'Ready projects with explanation' },
+  { ar:'أفكار مشاريع جديدة', en:'Fresh project ideas' },
+  { ar:'عمّان وإربد', en:'Amman & Irbid' }
+];
+
+/* الخدمات */
+const SERVICES = [
+  { techs:['Laravel','React','React Native','MySQL','SQL'],
+    ar:{ t:'مشاريع تخرّج كاملة', tag:'من الفكرة إلى المناقشة',
+      p:'الخدمة الأكثر طلباً. أبني مشروعك من الصفر وفق متطلبات جامعتك: تحليل المتطلبات وتصميم مخطط <bdi>ERD</bdi>، وبناء قاعدة البيانات، وبرمجة الواجهات والخلفية، وتوثيق كامل بصيغة جامعتك، وجلسات شرح حتى تستطيع عرض أي جزء بثقة. أنت تقدّم المناقشة، وأنا أضمن الجودة.',
+      outs:['تحليل المتطلبات ومخطط <bdi>ERD</bdi> جاهز للتقرير','كود كامل ومنظّم مع تعليقات توضيحية','دليل تثبيت وتشغيل خطوة بخطوة','جلسات شرح وتحضير لأسئلة اللجنة','علامة مضمونة فوق <bdi>85</bdi>'] },
+    en:{ t:'Complete graduation projects', tag:'From idea to defense',
+      p:'The most requested service. I build your project from scratch to your university\'s requirements: requirements analysis and ERD design, database construction, front-end and back-end programming, full documentation in your university\'s format, and explanation sessions until you can present any part with confidence. You give the defense, I guarantee the quality.',
+      outs:['Requirements analysis and a report-ready ERD','Complete, organized, commented code','Step-by-step setup and run guide','Explanation sessions and committee Q&A prep','Guaranteed grade above 85'] } },
+  { techs:['Laravel','React','MySQL','REST APIs'],
+    ar:{ t:'تطوير مواقع <bdi>Full-Stack</bdi>', tag:'خلفية حقيقية ولوحة تحكم فعلية',
+      p:'مواقع شركات، ومتاجر إلكترونية، وأنظمة إدارية، ولوحات تحكم. من تصميم الواجهة حتى ربط الخلفية بقاعدة البيانات، ثم النشر على استضافة حقيقية لتفتحه اللجنة من أجهزتها.',
+      outs:['واجهات متجاوبة مع جميع الشاشات','لوحات تحكم بنظام صلاحيات','<bdi>REST API</bdi> مرتبطة بقاعدة البيانات','نشر واستضافة وتجربة حيّة'] },
+    en:{ t:'Full-stack web development', tag:'A real back-end and a working admin panel',
+      p:'Company sites, online stores, admin systems and dashboards. From interface design to connecting the back-end and database, then deploying on real hosting so the committee can open it from their own devices.',
+      outs:['Responsive interfaces on every screen','Admin panels with roles and permissions','REST APIs wired to the database','Live hosting and deployment'] } },
+  { techs:['MySQL','SQL','ERD','Normalization'],
+    ar:{ t:'قواعد البيانات', tag:'تخصصي الأساسي',
+      p:'تصميم <bdi>ERD</bdi> وتطبيع الجداول، وكتابة الاستعلامات والإجراءات المخزّنة، وبناء التقارير، وتحسين أداء الاستعلامات. قاعدة البيانات هي الجزء الذي تتعمّق فيه اللجان غالباً، وهي صلب عملي اليومي.',
+      outs:['مخطط <bdi>ERD</bdi> كامل مع توثيق التطبيع','استعلامات معقّدة وتقارير','إجراءات مخزّنة و<bdi>Triggers</bdi>','تحسين الأداء والفهرسة'] },
+    en:{ t:'Databases', tag:'My core specialty',
+      p:'ERD design and normalization, queries and stored procedures, reporting, and query performance tuning. The database is where committees usually dig deepest, and it is the core of my daily work.',
+      outs:['Full ERD with documented normalization','Complex queries and reports','Stored procedures and triggers','Performance tuning and indexing'] } },
+  { techs:['React Native','JavaScript','Firebase','REST APIs'],
+    ar:{ t:'تطبيقات الموبايل', tag:'أندرويد وآيفون بكود واحد',
+      p:'تطبيقات موبايل باستخدام <bdi>React Native</bdi>: واجهات سريعة، وربط مع <bdi>Firebase</bdi> أو واجهة برمجية جاهزة، وتجربة فعلية على هاتفك قبل التسليم، وليس على المحاكي فقط.',
+      outs:['تكامل <bdi>React Native</bdi> مع <bdi>Firebase</bdi>','تجربة مباشرة على هاتفك','تسليم ملف <bdi>APK</bdi> يعمل','شرح بنية التطبيق والشاشات'] },
+    en:{ t:'Mobile apps', tag:'Android and iPhone from one codebase',
+      p:'Mobile apps built with React Native: fast interfaces, Firebase or ready API integration, and real testing on your own phone before delivery, not just on an emulator.',
+      outs:['React Native + Firebase integration','Live testing on your own phone','A working APK delivered','Walkthrough of the app structure and screens'] } },
+  { techs:['Systems Analysis','Laravel','SQL'],
+    ar:{ t:'أنظمة إدارية وأتمتة العمليات', tag:'تحليل عمليات حقيقية',
+      p:'أنظمة إدارية وأتمتة للعمليات: فواتير، ومخازن، وحضور وانصراف، وتقارير إدارية. إن كانت لديك فكرة نظام لنشاط تجاري، أو مشروع نظم معلومات يتطلب تحليل عمليات فعلياً، فهذا من صلب عملي.',
+      outs:['تحليل عمليات العمل وتوثيقها','أنظمة ويب داخلية','ربط مع أنظمة قائمة','صيانة وتطوير مستمر'] },
+    en:{ t:'Business systems & process automation', tag:'Real process analysis',
+      p:'Admin systems and process automation: invoicing, inventory, attendance and management reports. If you have a system idea for a real business, or an information-systems project that needs genuine process analysis, this is core to my work.',
+      outs:['Business process analysis and documentation','Internal web systems','Integration with existing systems','Maintenance and continuous improvement'] } },
+  { techs:['Live','Recorded','Q&A'],
+    cta:{ href:'#contact', ar:'احجز محاضرة', en:'Book a lecture' },
+    ar:{ t:'محاضرات أونلاين مسجّلة', tag:'ارجع إلى الشرح بأي وقت',
+      p:'محاضرات أونلاين للطلاب، فردية أو لمجموعات، لشرح مشروعك أو مواد البرمجة وقواعد البيانات. كل محاضرة تُسجَّل وتصلك بعدها، لتراجع الشرح بأي وقت وبالسرعة التي تناسبك.',
+      outs:['شرح مباشر مع أسئلة وأجوبة','تسجيل كل محاضرة لتعيد مشاهدتها','مواعيد مرنة تناسب دوامك','مراجعة نهائية قبل المناقشة'] },
+    en:{ t:'Recorded online lectures', tag:'Revisit the explanation anytime',
+      p:'Online lectures for students, one-to-one or in groups, to explain your project or programming and database courses. Every lecture is recorded and sent to you, so you can review the explanation anytime at your own pace.',
+      outs:['Live explanation with Q&A','Every lecture recorded to re-watch','Flexible times around your schedule','Final review before the defense'] } },
+  { techs:['Laravel','React','React Native','MySQL'],
+    cta:{ href:'#ready', ar:'شاهد المشاريع الجاهزة', en:'Browse ready projects' },
+    ar:{ t:'مشاريع جاهزة للشراء', tag:'كود وقاعدة بيانات وشرح',
+      p:'مشاريع جاهزة بالكامل للشراء: الكود وقاعدة البيانات والتوثيق، مع محاضرة شرح مسجّلة لكل مشروع، وإمكانية تعديله ليناسب متطلبات جامعتك.',
+      outs:['مشروع كامل يعمل مباشرة','محاضرة شرح مسجّلة','توثيق وتقرير جاهزان','تعديل حسب متطلباتك (اختياري)'] },
+    en:{ t:'Ready-made projects for sale', tag:'Code, database and explanation',
+      p:'Fully ready projects for purchase: the code, the database and the documentation, with a recorded explanation lecture for each project, and optional customization to your university\'s requirements.',
+      outs:['A complete project that runs right away','A recorded explanation lecture','Ready documentation and report','Optional customization to your requirements'] } },
+  { techs:['Brainstorming','Scoping'],
+    cta:{ href:'#ideas', ar:'شاهد أفكاراً جديدة', en:'See fresh ideas' },
+    ar:{ t:'مساعدة في إيجاد فكرة المشروع', tag:'أفكار جديدة غير مكررة',
+      p:'لا تعرف ماذا تختار؟ أساعدك في الوصول إلى فكرة تناسب تخصصك ومستواك ووقتك. الأفكار جديدة بالكامل وغير مكررة، ونتحقق معك أنها غير مستخدمة في جامعتك.',
+      outs:['جلسة عصف ذهني حسب تخصصك','أفكار جديدة بالكامل','تقدير صعوبة الفكرة ومدة تنفيذها','مساعدة في صياغة الفكرة لتقبلها اللجنة'] },
+    en:{ t:'Help finding a project idea', tag:'Fresh, never-repeated ideas',
+      p:'Not sure what to pick? I help you land on an idea that suits your major, level and time. Ideas are completely new and not repeated, and we check with you that they aren\'t already used at your university.',
+      outs:['A brainstorming session around your major','Completely new ideas','Difficulty and time estimate for each idea','Help framing the idea so the committee approves it'] } }
+];
+
+/* ===================== أيقونات / أدوات عرض ===================== */
+const pad = n => String(n).padStart(2, '0');
+const ph = (n, name='') => {
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='960' height='600' viewBox='0 0 960 600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#1d1a13'/><stop offset='1' stop-color='#2b2d12'/></linearGradient></defs><rect width='960' height='600' fill='url(#g)'/><rect x='48' y='48' width='864' height='40' rx='6' fill='#C9F73A' opacity='.9'/><rect x='48' y='120' width='260' height='432' rx='8' fill='#ffffff' opacity='.06'/><rect x='336' y='120' width='576' height='200' rx='8' fill='#ffffff' opacity='.06'/><rect x='336' y='344' width='276' height='208' rx='8' fill='#ffffff' opacity='.06'/><rect x='636' y='344' width='276' height='208' rx='8' fill='#ffffff' opacity='.06'/><text x='480' y='328' fill='#C9F73A' font-family='monospace' font-size='34' text-anchor='middle' letter-spacing='6'>SCREENSHOT ${pad(n)}</text></svg>`;
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+};
+const shotsOf = p => (p.shots && p.shots.length) ? p.shots.map(f => `${p.dir}/${f}`) : [null, null, null];
+const imgTag = (src, n, alt='', extra='') => `<img src="${src || ph(n)}" data-fb="${n}" alt="${alt}" ${extra}>`;
+function bindFallbacks(root){
+  $$('img[data-fb]', root).forEach(im => {
+    const fix = () => { im.onerror = null; im.src = ph(+im.dataset.fb); };
+    im.addEventListener('error', fix, { once:true });
+    if (im.complete && im.naturalWidth === 0 && im.src && !im.src.startsWith('data:')) fix();
+  });
+}
+
+/* ===================== الرسم الديناميكي ===================== */
+function renderMarquee(){
+  const set = MARQUEE.map(m => `<div class="mq-item"><svg><use href="#ic-spark"/></svg><span>${m[LANG]}</span></div>`).join('');
+  const group = `<div class="mq-group">${set}${set}${set}</div>`;
+  $('#mqTrack').innerHTML = group + group;
+}
+
+let openIdx = 0;
+function fitOpen(){ const o = $('.svc.open'); if (o){ const b = $('.svc-body', o); b.style.maxHeight = b.scrollHeight + 'px'; } }
+function renderServices(){
+  $('#accordion').innerHTML = SERVICES.map((s, i) => {
+    const d = s[LANG], open = i === openIdx;
+    return `<article class="svc ${open ? 'open' : ''}">
+      <button class="svc-head" type="button" aria-expanded="${open}">
+        <span class="svc-num">${pad(i+1)}</span><span class="svc-title">${d.t}</span><span class="svc-tag">${d.tag}</span>
+        <span class="svc-x">${ICON('plus')}</span>
+      </button>
+      <div class="svc-body"><div class="svc-inner">
+        <div><p>${d.p}</p><div class="svc-techs">${s.techs.map(x => `<span>${x}</span>`).join('')}</div>
+          ${s.cta ? `<a class="btn btn-outline btn-sm svc-cta" href="${s.cta.href}"><span>${s.cta[LANG]}</span></a>` : ''}</div>
+        <ul class="svc-outs">${d.outs.map(o => `<li>${o}</li>`).join('')}</ul>
+      </div></div></article>`;
+  }).join('');
+  requestAnimationFrame(fitOpen);
+}
+
+function renderProjects(){
+  $('#projGrid').innerHTML = PROJECTS.map((p, i) => {
+    const first = shotsOf(p)[0];
+    return `<button type="button" class="proj-card reveal" data-i="${i}" style="transition-delay:${(i % 3) * .08}s" aria-label="${p[LANG]}">
+      <span class="pc-img">${imgTag(first, 1, '', 'loading="lazy"')}</span>
+      <span class="pc-meta"><span class="pc-num">${pad(i+1)}</span><span class="pc-name">${p[LANG]}</span><span class="pc-go">${ICON('arrow-up-left','ic arr-flip')}</span></span>
+    </button>`;
+  }).join('');
+  bindFallbacks($('#projGrid'));
+}
+
+function renderReady(){
+  $('#readyGrid').innerHTML = READY.map((r, i) => {
+    const msg = LANG === 'en' ? `Hi Hamzeh, I'm interested in the ready-made project "${r.en}". Can we talk?` : `مرحباً حمزة، أرغب بالاستفسار عن المشروع الجاهز "${r.ar}". هل نستطيع التحدث؟`;
+    return `<article class="card item-card reveal" style="transition-delay:${(i % 3) * .08}s">
+      <div class="top"><span class="chip">${r.cat[LANG]}</span><span class="chip ghost">${LANG==='en'?'Ready':'جاهز'}</span></div>
+      <h3>${r[LANG]}</h3><p>${r.d[LANG]}</p>
+      <div class="tags">${r.tech.map(t => `<span>${t}</span>`).join('')}</div>
+      <a class="btn btn-outline btn-sm" href="${wa(msg)}" target="_blank" rel="noopener"><span>${LANG==='en'?'Ask about this project':'اسأل عن هذا المشروع'}</span></a>
+    </article>`;
+  }).join('');
+}
+
+let ideaFilter = 'all';
+const IL = { // نصوص واجهة بطاقة الفكرة
+  ar:{ prob:'المشكلة', sol:'الحل', more:'تفاصيل الفكرة', mods:'الوحدات الرئيسية', tbl:'الجداول الرئيسية', win:'نقطة قوتها أمام اللجنة', wk:'مدة التنفيذ التقديرية', want:'أريد هذه الفكرة', all:'الكل' },
+  en:{ prob:'The problem', sol:'The solution', more:'Idea details', mods:'Main modules', tbl:'Core tables', win:'Why it works in a defense', wk:'Estimated build time', want:'I want this idea', all:'All' }
+};
+function renderIdeas(){
+  const L = IL[LANG];
+  $('#ideaFilters').innerHTML = ['all', ...Object.keys(IDEA_CATS)].map(k =>
+    `<button type="button" class="fchip ${ideaFilter === k ? 'on' : ''}" data-f="${k}" aria-pressed="${ideaFilter === k}">${k === 'all' ? L.all : IDEA_CATS[k][LANG]}</button>`).join('');
+  const list = IDEAS.filter(x => ideaFilter === 'all' || x.k === ideaFilter);
+  $('#ideasGrid').innerHTML = list.map((x, i) => {
+    const msg = LANG === 'en' ? `Hi Hamzeh, I like the idea "${x.en}" and I'd like to discuss it.` : `مرحباً حمزة، أعجبتني فكرة "${x.ar}" وأرغب بمناقشتها.`;
+    return `<article class="card item-card idea-card reveal" style="transition-delay:${(i % 3) * .08}s">
+      <div class="top"><span class="chip">${IDEA_CATS[x.k][LANG]}</span><span class="chip ghost">${x.lvl[LANG]}</span></div>
+      <h3>${x[LANG]}</h3>
+      <div class="ps"><div><b>${L.prob}</b><p>${x.prob[LANG]}</p></div><div><b>${L.sol}</b><p class="sol">${x.sol[LANG]}</p></div></div>
+      <details class="idea-more"><summary>${L.more}</summary>
+        <div class="idea-det">
+          <div><b>${L.mods}</b><ul>${x.mods[LANG].map(m => `<li>${m}</li>`).join('')}</ul></div>
+          <div><b>${L.tbl}</b><div class="tags">${x.tbl.map(t => `<span>${t}</span>`).join('')}</div></div>
+          <div><b>${L.win}</b><p>${x.win[LANG]}</p></div>
+          <div><b>${L.wk}</b><p>${x.wk[LANG]}</p></div>
+        </div>
+      </details>
+      <div class="tags">${x.tech.map(t => `<span>${t}</span>`).join('')}</div>
+      <a class="btn btn-outline btn-sm" href="${wa(msg)}" target="_blank" rel="noopener"><span>${L.want}</span></a>
+    </article>`;
+  }).join('');
+  $('#ideaAsk').href = wa(LANG === 'en' ? 'Hi Hamzeh, I need help finding an original graduation project idea. My major is: ' : 'مرحباً حمزة، أحتاج مساعدة في إيجاد فكرة مشروع تخرّج جديدة. تخصصي: ');
+  observeReveals();
+}
+$('#ideaFilters').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if (b){ ideaFilter = b.dataset.f; renderIdeas(); } });
+
+/* العبارات التحفيزية */
+let qi = 0, qTimer;
+function renderQuote(){
+  $('#qText').innerHTML = QUOTES.map((q, i) => `<p class="${i === qi ? 'on' : ''}" ${i === qi ? '' : 'aria-hidden="true"'}>${q[LANG]}</p>`).join('');
+  $('#qDots').innerHTML = QUOTES.map((_, i) => `<button type="button" class="${i === qi ? 'on' : ''}" data-q="${i}" aria-label="${i+1}"></button>`).join('');
+}
+function goQuote(i){
+  qi = i;
+  $$('#qText p').forEach((p, k) => { p.classList.toggle('on', k === i); p.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+  $$('#qDots button').forEach((b, k) => b.classList.toggle('on', k === i));
+}
+function startQuotes(){ clearInterval(qTimer); if (!reduced) qTimer = setInterval(() => goQuote((qi + 1) % QUOTES.length), 6500); }
+
+/* ===================== تبديل اللغة ===================== */
+const scEl = $('#scrambleWord');
+const SCRAMBLE = {
+  ar:{ words:['شغل الشركات','أنظمة متينة','بيانات منظّمة','تطبيقات حقيقية'], chars:'01#*+=<>/{}' },
+  en:{ words:['real products','solid systems','clean databases','real apps'], chars:'abcdefghijklmnopqrstuvwxyz01#*!' }
+};
+let scIndex = 0, scBusy = false;
+function resetScramble(){ scIndex = 0; scBusy = false; scEl.textContent = SCRAMBLE[LANG].words[0]; }
+
+function setYear(){ $$('.yr').forEach(e => e.textContent = new Date().getFullYear()); }
+
+function applyLang(l){
+  LANG = l;
+  html.lang = l; html.dir = l === 'ar' ? 'rtl' : 'ltr'; html.dataset.lang = l;
+  document.title = T[l].title;
+  const md = $('meta[name="description"]'); if (md) md.content = T[l].desc;
+  $$('[data-en]').forEach(el => {
+    if (el.dataset.ar === undefined) el.dataset.ar = el.innerHTML;
+    el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.ar;
+  });
+  $$('[data-en-ph]').forEach(el => {
+    if (el.dataset.arPh === undefined) el.dataset.arPh = el.placeholder;
+    el.placeholder = l === 'en' ? el.dataset.enPh : el.dataset.arPh;
+  });
+  $('#langAr').classList.toggle('on', l === 'ar');
+  $('#langEn').classList.toggle('on', l === 'en');
+  $('#pmClose').setAttribute('aria-label', T[l].close);
+  $('#pmPrev').setAttribute('aria-label', T[l].prev);
+  $('#pmNext').setAttribute('aria-label', T[l].next);
+  $('#menuBtn').setAttribute('aria-label', document.body.classList.contains('menu-open') ? T[l].menuC : T[l].menuO);
+  renderMarquee(); renderServices(); renderProjects(); renderReady(); renderIdeas(); renderQuote();
+  setYear(); resetScramble(); observeReveals();
+  if (!modal.hidden && curProj !== null) renderModal();
+  try { localStorage.setItem('ht-lang', l); } catch(e){}
+}
+$$('[data-setlang]').forEach(b => b.addEventListener('click', () => { if (b.dataset.setlang !== LANG) applyLang(b.dataset.setlang); }));
+
+/* ===================== الثيم ===================== */
+function applyTheme(t){
+  html.dataset.theme = t;
+  try { localStorage.setItem('ht-theme', t); } catch(e){}
+  let meta = $('meta[name="theme-color"]');
+  if (!meta){ meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
+  meta.content = t === 'dark' ? '#151310' : '#F3EFE3';
+}
+$('#themeBtn').addEventListener('click', () => applyTheme(html.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+/* ===================== شاشة التحميل ===================== */
+(() => {
+  const loader = $('#loader'), count = $('#loaderCount'), bar = $('#loaderBar');
+  document.body.classList.add('no-scroll');
+  let prog = 0, finished = false;
+  const finish = () => {
+    if (finished) return; finished = true;
+    bar.style.transform = 'scaleX(1)'; count.textContent = '100';
+    setTimeout(() => {
+      loader.classList.add('done');
+      document.body.classList.remove('no-scroll');
+      document.body.classList.add('loaded');
+      setTimeout(() => loader.remove(), 1000);
+    }, 250);
+  };
+  setTimeout(finish, 4500); // أمان: لا يعلق التحميل أبداً
+  if (reduced) { finish(); return; }
+  const tick = () => {
+    if (finished) return;
+    prog += Math.random() * 14 + 7;
+    if (prog >= 100) return finish();
+    count.textContent = String(Math.floor(prog)).padStart(3, '0');
+    bar.style.transform = `scaleX(${prog / 100})`;
+    setTimeout(tick, 50 + Math.random() * 80);
+  };
+  setTimeout(tick, 200);
+})();
+
+/* ===================== المؤشر المخصص ===================== */
+(() => {
+  if (!isFine) return;
+  const ring = $('#cursorRing'), dot = $('#cursorDot'), label = $('#cursorLabel');
+  let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my, started = false;
+  addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = `translate(${mx}px,${my}px)`;
+    if (!started){ started = true; document.body.classList.add('cursor-on'); }
+  });
+  (function loop(){ rx += (mx - rx) * .16; ry += (my - ry) * .16; ring.style.transform = `translate(${rx}px,${ry}px)`; requestAnimationFrame(loop); })();
+  document.addEventListener('mouseover', e => {
+    const view  = e.target.closest('.proj-card');
+    const inter = e.target.closest('a, button, input, textarea, .pill');
+    ring.classList.toggle('view', !!view);
+    ring.classList.toggle('on', !!inter && !view);
+    label.textContent = T[LANG].view;
+  });
+})();
+
+/* ===================== النافبار ===================== */
+const nav = $('#nav');
+let lastY = 0;
+const onScroll = () => {
+  const y = scrollY;
+  nav.classList.toggle('scrolled', y > 40);
+  nav.classList.toggle('hide', y > lastY && y > 520 && !document.body.classList.contains('menu-open'));
+  $('#waFloat').classList.toggle('show', y > 480);
+  lastY = y;
+};
+addEventListener('scroll', onScroll, { passive:true }); onScroll();
+
+$('#menuBtn').addEventListener('click', () => {
+  const open = document.body.classList.toggle('menu-open');
+  $('#menuBtn').setAttribute('aria-label', open ? T[LANG].menuC : T[LANG].menuO);
+});
+$$('#mobileMenu a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+addEventListener('resize', () => { if (innerWidth > 1180) document.body.classList.remove('menu-open'); fitOpen(); });
+
+const spy = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    $$('.nav-links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  });
+}, { rootMargin:'-40% 0px -55% 0px' });
+['about','services','why','projects','ready','ideas','pricing','contact'].forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+/* ===================== ظهور + خطوط + عدادات ===================== */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold:.1, rootMargin:'0px 0px -30px 0px' });
+function observeReveals(){ $$('.reveal:not(.in)').forEach(el => io.observe(el)); }
+
+const ioLine = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); ioLine.unobserve(e.target); } });
+}, { threshold:.5 });
+$$('.grow').forEach(el => ioLine.observe(el));
+
+const ioCount = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const b = e.target; ioCount.unobserve(b);
+    const target = +b.dataset.count, dur = 1400, t0 = performance.now();
+    const step = t => {
+      const p = Math.min((t - t0) / dur, 1);
+      b.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+}, { threshold:.6 });
+$$('[data-count]').forEach(el => ioCount.observe(el));
+
+/* ===================== الكلمة المتحركة ===================== */
+if (!reduced) setInterval(() => {
+  if (scBusy || document.hidden) return;
+  scBusy = true;
+  const S = SCRAMBLE[LANG];
+  scIndex = (scIndex + 1) % S.words.length;
+  const word = S.words[scIndex], chars = S.chars;
+  let frame = 0; const total = 24;
+  const iv = setInterval(() => {
+    frame++;
+    const solved = Math.floor((frame / total) * word.length);
+    scEl.textContent = word.slice(0, solved) + [...word.slice(solved)].map(c => c === ' ' ? ' ' : chars[Math.random() * chars.length | 0]).join('');
+    if (frame >= total){ clearInterval(iv); scEl.textContent = word; scBusy = false; }
+  }, 38);
+}, 3600);
+
+/* ===================== الأكورديون ===================== */
+$('#accordion').addEventListener('click', e => {
+  const head = e.target.closest('.svc-head'); if (!head) return;
+  const item = head.parentElement;
+  const idx = [...item.parentElement.children].indexOf(item);
+  const was = item.classList.contains('open');
+  $$('.svc.open').forEach(o => {
+    o.classList.remove('open');
+    $('.svc-body', o).style.maxHeight = '0px';
+    $('.svc-head', o).setAttribute('aria-expanded', 'false');
+  });
+  if (!was){
+    item.classList.add('open'); head.setAttribute('aria-expanded', 'true');
+    $('.svc-body', item).style.maxHeight = $('.svc-body', item).scrollHeight + 'px';
+    openIdx = idx;
+  } else openIdx = -1;
+});
+addEventListener('load', fitOpen);
+
+/* ===================== نافذة لقطات المشروع ===================== */
+const modal = $('#pModal');
+let curProj = null, curShot = 0, lastFocus = null;
+
+function renderModal(){
+  const p = PROJECTS[curProj], shots = shotsOf(p), total = shots.length;
+  $('#pmTitle').textContent = p[LANG];
+  $('#pmCount').textContent = `${curShot + 1} / ${total}`;
+  const img = $('#pmImg');
+  img.alt = `${p[LANG]} — ${T[LANG].shot} ${curShot + 1}`;
+  img.dataset.fb = curShot + 1;
+  img.onerror = () => { img.onerror = null; img.src = ph(curShot + 1); };
+  img.src = shots[curShot] || ph(curShot + 1);
+  $('#pmThumbs').innerHTML = shots.map((s, i) =>
+    `<button type="button" class="pm-th ${i === curShot ? 'on' : ''}" data-s="${i}" aria-label="${T[LANG].shot} ${i+1}">${imgTag(s, i+1)}</button>`).join('');
+  bindFallbacks($('#pmThumbs'));
+  const act = $('.pm-th.on'); if (act) act.scrollIntoView({ block:'nearest', inline:'center' });
+  const single = total < 2;
+  $('#pmPrev').style.display = $('#pmNext').style.display = single ? 'none' : '';
+}
+function openModal(i){
+  curProj = i; curShot = 0; lastFocus = document.activeElement;
+  modal.hidden = false; document.body.classList.add('modal-open');
+  renderModal();
+  requestAnimationFrame(() => { modal.classList.add('open'); $('#pmClose').focus(); });
+}
+function closeModal(){
+  modal.classList.remove('open'); document.body.classList.remove('modal-open');
+  setTimeout(() => { modal.hidden = true; curProj = null; }, reduced ? 0 : 300);
+  if (lastFocus) lastFocus.focus();
+}
+function stepShot(d){
+  const total = shotsOf(PROJECTS[curProj]).length;
+  curShot = (curShot + d + total) % total; renderModal();
+}
+$('#projGrid').addEventListener('click', e => { const c = e.target.closest('.proj-card'); if (c) openModal(+c.dataset.i); });
+$('#pmClose').addEventListener('click', closeModal);
+$('#pmPrev').addEventListener('click', () => stepShot(-1));
+$('#pmNext').addEventListener('click', () => stepShot(1));
+$('#pmThumbs').addEventListener('click', e => { const t = e.target.closest('.pm-th'); if (t){ curShot = +t.dataset.s; renderModal(); } });
+modal.addEventListener('click', e => { if (e.target === $('#pmStage')) closeModal(); });
+document.addEventListener('keydown', e => {
+  if (modal.hidden) return;
+  const rtl = html.dir === 'rtl';
+  if (e.key === 'Escape') closeModal();
+  else if (e.key === 'ArrowRight') stepShot(rtl ? -1 : 1);
+  else if (e.key === 'ArrowLeft')  stepShot(rtl ? 1 : -1);
+  else if (e.key === 'Tab'){
+    const f = $$('button', modal).filter(b => b.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+});
+let tx0 = 0;
+$('#pmStage').addEventListener('touchstart', e => { tx0 = e.changedTouches[0].clientX; }, { passive:true });
+$('#pmStage').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx0;
+  if (Math.abs(dx) < 50) return;
+  const rtl = html.dir === 'rtl';
+  stepShot((rtl ? dx > 0 : dx < 0) ? 1 : -1);
+}, { passive:true });
+
+/* ===================== العبارات التحفيزية: أحداث ===================== */
+$('#qDots').addEventListener('click', e => { const b = e.target.closest('[data-q]'); if (b){ goQuote(+b.dataset.q); startQuotes(); } });
+$('#quote').addEventListener('mouseenter', () => clearInterval(qTimer));
+$('#quote').addEventListener('mouseleave', startQuotes);
+
+/* ===================== التوست ===================== */
+let toastTimer;
+const toast = msg => {
+  const t = $('#toast');
+  t.querySelector('span').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+};
+
+/* ===================== طلب سريع عبر واتساب ===================== */
+$('#waForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('#fName').value.trim();
+  const uni  = $('#fUni').value.trim();
+  const type = document.querySelector('input[name="ptype"]:checked');
+  const det  = $('#fDet').value.trim();
+  if (!name){ toast(T[LANG].name); $('#fName').focus(); return; }
+  if (!type){ toast(T[LANG].type); return; }
+  const msg = LANG === 'en'
+    ? `Hi Hamzeh,\nI'd like to ask about a project:\n- Name: ${name}\n` + (uni ? `- University/Major: ${uni}\n` : '') +
+      `- I need: ${type.dataset.vEn}\n` + (det ? `- Details: ${det}\n` : '') + `Thanks`
+    : `مرحباً حمزة،\nأريد الاستفسار عن مشروع:\n- الاسم: ${name}\n` + (uni ? `- الجامعة/التخصص: ${uni}\n` : '') +
+      `- أحتاج: ${type.value}\n` + (det ? `- التفاصيل: ${det}\n` : '') + `شكراً`;
+  window.open(wa(msg), '_blank', 'noopener');
+  toast(T[LANG].open);
+});
+
+/* ===================== التشغيل ===================== */
+applyTheme(html.dataset.theme === 'light' ? 'light' : 'dark');
+applyLang(LANG);
+startQuotes();
+</script>
+</body>
+</html>
