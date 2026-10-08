@@ -52,7 +52,7 @@
   --head:'Alexandria',system-ui,sans-serif;--body:'IBM Plex Sans Arabic',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
   --h1-lh:1.35;--h2-lh:1.45;
   --ease:cubic-bezier(.22,1,.36,1);--ease-io:cubic-bezier(.77,0,.18,1);
-  --r-card:5px;--r-btn:3px;--r-chip:3px;--tab-h:0px;--gut:clamp(1.1rem,4vw,3.5rem);
+  --r-card:5px;--r-btn:3px;--r-chip:3px;--tab-h:0px;--gut:clamp(1.1rem,4vw,4.5rem);
 }
 [data-lang="en"]{--head:'Space Grotesk','Alexandria',sans-serif;--body:'Space Grotesk','IBM Plex Sans Arabic',sans-serif;--h1-lh:1.08;--h2-lh:1.2}
 [data-theme="dark"]{
@@ -79,11 +79,11 @@ a,summary,label{touch-action:manipulation}
 bdi{unicode-bidi:isolate}
 .mono{font-family:var(--mono)}
 .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
-.wrap{max-width:1440px;margin-inline:auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.wrap{margin-inline:auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
 .ic{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 [dir="ltr"] .arr-flip{transform:scaleX(-1)}
-@media (min-width:1800px){ html{font-size:112.5%} .wrap,.hero{max-width:1600px} }
-@media (min-width:2400px){ html{font-size:125%} .wrap,.hero{max-width:1900px} }
+@media (min-width:1800px){ html{font-size:112.5%} }
+@media (min-width:2400px){ html{font-size:125%} }
 
 /* ===================== شاشة التحميل ===================== */
 #loader{position:fixed;inset:0;z-index:2000;background:#151806;color:var(--lime);display:flex;align-items:center;justify-content:center;transition:transform .85s var(--ease-io)}
@@ -177,7 +177,7 @@ body.loaded .reveal-load{opacity:1;transform:none}
 body.loaded .h1-mask>span{transform:none}
 
 /* ===================== الهيرو ===================== */
-.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding:clamp(6.5rem,13vh,8rem) var(--gut) 0;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px));max-width:1440px;margin-inline:auto;width:100%}
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding:clamp(6.5rem,13vh,8rem) var(--gut) 0;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px));margin-inline:auto;width:100%}
 .hero-top{display:flex;justify-content:space-between;align-items:center;gap:.8rem 1.5rem;flex-wrap:wrap}
 .badges{display:flex;gap:.6rem;flex-wrap:wrap}
 .badge{display:inline-flex;align-items:center;gap:.6rem;border:1.5px solid var(--fg);border-radius:99px;padding:.45rem 1rem;font-size:.84rem;font-weight:600;background:var(--card);line-height:1.5}
@@ -397,26 +397,6 @@ h1 .dot{font-style:normal;background:var(--lime);color:var(--lime-ink);border-ra
 .why-num{display:inline-block;font:600 .72rem var(--mono);background:var(--lime);color:var(--lime-ink);border-radius:3px;padding:.2rem .55rem;margin-bottom:1rem}
 .why-card h3{font:700 1.12rem/1.6 var(--head);margin-bottom:.6rem}
 .why-card p{color:var(--muted);font-size:.94rem}
-.cmp{margin-top:clamp(2.5rem,6vw,4rem);border:1.5px solid var(--fg);border-radius:var(--r-card);overflow:hidden;background:var(--card)}
-.cmp-row{display:grid;grid-template-columns:1fr 1fr 1.2fr;border-bottom:1px solid var(--line)}
-.cmp-row:last-child{border-bottom:none}
-.cmp-row>*{padding:.85rem 1.1rem;font-size:.92rem;line-height:1.7}
-.cmp-row .rl{font-weight:700;font-family:var(--head)}
-.cmp-row .no{color:var(--muted)}
-.cmp-row .yes{background:rgba(201,247,58,.38);font-weight:500}
-[data-theme="dark"] .cmp-row .yes{background:rgba(201,247,58,.1)}
-.cmp-head>*{font:700 .85rem var(--head);background:var(--bg)}
-.cmp-head .yes{background:var(--lime);color:var(--lime-ink)}
-[data-theme="dark"] .cmp-head .yes{background:var(--lime)}
-.calm{margin-top:clamp(2.5rem,6vw,4rem);border:1.5px solid var(--fg);border-radius:var(--r-card);background:var(--card);padding:clamp(1.4rem,4vw,2.8rem)}
-.calm h3{font:700 clamp(1.3rem,2.8vw,2rem)/1.5 var(--head)}
-.calm>p{color:var(--muted);margin-top:.5rem;max-width:640px}
-.calm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:1rem 2rem;margin-top:1.6rem}
-.calm-item{display:flex;gap:.85rem;align-items:flex-start}
-.calm-item .tick{width:30px;height:30px;border-radius:50%;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;flex-shrink:0;margin-top:.1rem}
-.calm-item .tick .ic{width:15px;height:15px;stroke-width:2.6}
-.calm-item b{display:block;font:700 .98rem/1.6 var(--head)}
-.calm-item span{color:var(--muted);font-size:.9rem;line-height:1.7;display:block}
 .steps{margin-top:clamp(2.5rem,6vw,4rem)}
 .steps-title{font:700 clamp(1.3rem,2.6vw,1.8rem)/1.5 var(--head);display:flex;align-items:center;gap:1rem}
 .steps-title::after{content:"";flex:1;height:1.5px;background:var(--line)}
@@ -497,20 +477,10 @@ h1 .dot{font-style:normal;background:var(--lime);color:var(--lime-ink);border-ra
 .idea-cta b{font:700 1.15rem/1.6 var(--head);display:block}
 .idea-cta span{color:var(--muted);font-size:.93rem}
 #ideasGrid{align-items:start;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))}
-.idea-card{gap:.9rem}
 .idea-hook{display:flex;gap:.55rem;align-items:flex-start;font:600 .92rem/1.7 var(--head);padding:.7rem .9rem;border-radius:10px;background:rgba(201,247,58,.42);border:1px solid var(--lime-ink)}
 [data-theme="dark"] .idea-hook{background:rgba(201,247,58,.09);border-color:rgba(201,247,58,.4)}
 .idea-hook .ic{width:16px;height:16px;margin-top:.32rem;color:var(--lime-ink)}
 [data-theme="dark"] .idea-hook .ic{color:var(--lime)}
-.idea-card .ps{display:grid;gap:.9rem}
-.idea-card .ps b,.idea-det b{display:block;font:700 .8rem var(--body);color:var(--muted);margin-bottom:.15rem}
-.idea-card p{flex:none}
-.idea-card .sol{color:var(--fg)}
-.idea-more{border-top:1px dashed var(--line);padding-top:.8rem}
-.idea-more summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;font:700 .92rem var(--head)}
-.idea-more summary::-webkit-details-marker{display:none}
-.idea-more summary::after{content:"+";width:28px;height:28px;border:1.5px solid var(--fg);border-radius:50%;display:grid;place-items:center;font:600 1rem/1 var(--mono);flex-shrink:0;transition:background .3s,transform .3s var(--ease)}
-.idea-more[open] summary::after{content:"−";background:var(--lime);border-color:var(--lime-ink);color:var(--lime-ink)}
 .idea-det{display:grid;gap:1rem;padding-top:1rem}
 .idea-det ul{list-style:none}
 .idea-det li{display:flex;gap:.55rem;padding:.2rem 0;font-size:.9rem;line-height:1.7}
@@ -537,23 +507,6 @@ h1 .dot{font-style:normal;background:var(--lime);color:var(--lime-ink);border-ra
 .price-main p{color:var(--inv-muted);max-width:620px;margin-top:.8rem;font-size:.98rem}
 .factors{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
 .factors span{border:1.5px solid var(--inv-line);border-radius:99px;padding:.4rem 1rem;font-size:.84rem;font-weight:500}
-.price-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:1.4rem;margin-top:2.2rem}
-.price-box{border:1.5px solid var(--inv-line);border-radius:var(--r-card);padding:1.6rem;background:var(--inv-hover)}
-.price-box h4{font:700 1.05rem/1.6 var(--head);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
-.price-box h4 .ic{width:17px;height:17px;color:var(--lime)}
-[data-theme="dark"] .price-box h4 .ic{color:var(--lime-ink)}
-.price-box ul{list-style:none}
-.price-box li{display:flex;gap:.65rem;padding:.42rem 0;font-size:.93rem;font-weight:500;line-height:1.7}
-.price-box li::before{content:"—";font-weight:700;color:var(--lime);flex-shrink:0}
-[data-theme="dark"] .price-box li::before{color:var(--lime-ink)}
-.price-box .pay{margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--inv-line);font:500 .85rem/1.7 var(--body);color:var(--inv-muted)}
-.split-strip{margin-top:1.4rem;border:1.5px solid var(--inv-fg);border-radius:var(--r-card);background:var(--inv-hover);padding:1.2rem 1.4rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
-.split-strip b.t{font:700 1.1rem/1.6 var(--head);display:block}
-.split-strip .sub{color:var(--inv-muted);font-size:.9rem}
-.split-nums{display:flex;gap:.7rem;flex-wrap:wrap}
-.split-nums div{border:1.5px solid var(--inv-line);border-radius:12px;padding:.5rem 1rem;text-align:center;line-height:1.4}
-.split-nums div b{font:600 1.35rem var(--mono);display:block;unicode-bidi:isolate}
-.split-nums div span{font-size:.78rem;color:var(--inv-muted)}
 .pricing .btn-solid{margin-top:2.2rem;padding:1.05rem 2rem;font-size:1rem}
 
 /* ===================== هل هو مبلغ كبير؟ (حاسبة + خطة + مقارنة) ===================== */
@@ -590,17 +543,6 @@ h1 .dot{font-style:normal;background:var(--lime);color:var(--lime-ink);border-ra
 .rd i{font:600 .78rem var(--mono);font-style:normal;background:var(--lime);color:var(--lime-ink);border-radius:3px;padding:.05rem .5rem}
 .rd h4{font:700 1rem/1.6 var(--head);margin:.5rem 0 .25rem}
 .rd p{color:var(--muted);font-size:.88rem;line-height:1.7}
-.costs{margin-top:clamp(2.5rem,6vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.costs>div{border:1.5px solid var(--fg);border-radius:var(--r-card);padding:1.5rem;background:var(--card)}
-.costs h3{font:700 1.2rem/1.6 var(--head);margin-bottom:.8rem}
-.costs ul{list-style:none}
-.costs li{display:flex;gap:.6rem;padding:.35rem 0;font-size:.95rem;line-height:1.7}
-.costs .bad li::before{content:"✕";color:var(--muted);font-weight:700}
-.costs .good{background:var(--lime);color:var(--lime-ink);border-color:var(--lime-ink)}
-.costs .good li::before{content:"✓";font-weight:700}
-.cta-band{margin-top:clamp(2.5rem,6vw,4rem);border:1.5px solid var(--fg);border-radius:var(--r-card);background:var(--card);padding:clamp(1.4rem,4vw,2.4rem);display:flex;justify-content:space-between;align-items:center;gap:1.2rem 2rem;flex-wrap:wrap;box-shadow:6px 6px 0 var(--lime)}
-.cta-band b{font:700 clamp(1.15rem,2.4vw,1.6rem)/1.6 var(--head);display:block}
-.cta-band span{color:var(--muted);font-size:.95rem}
 
 /* ===================== الأسئلة الشائعة ===================== */
 .faq{margin-top:2.2rem;border-top:1.5px solid var(--fg)}
@@ -702,6 +644,26 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
 /* ===================== شريط التبويب السفلي (وضع التطبيق) ===================== */
 #tabbar{display:none}
 
+/* ===================== أفكار المشاريع: بطاقات مدمجة + نافذة التفاصيل ===================== */
+#ideasGrid{align-items:stretch;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr))}
+.idea-card{display:flex;flex-direction:column;gap:.8rem;text-align:start;width:100%;cursor:pointer;color:inherit;font-family:inherit}
+.idea-card .top{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.idea-card h3{font:700 1.15rem/1.55 var(--head)}
+.idea-card .idea-hook{font:500 .88rem/1.7 var(--body)}
+.idea-go{margin-top:auto;display:inline-flex;align-items:center;gap:.45rem;font:700 .85rem var(--head)}
+.idea-go .ic{width:15px;height:15px;transition:transform .3s var(--ease)}
+.idea-card:hover .idea-go .ic{transform:translate(-3px,-3px)}
+.idea-det b{display:block;font:700 .8rem var(--body);color:var(--muted);margin-bottom:.15rem}
+.sheet-wide{width:min(94vw,760px)}
+.ib-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.7rem}
+.ib-head h3{font:700 clamp(1.25rem,3vw,1.7rem)/1.5 var(--head)}
+.ib-close{width:38px;height:38px;border:1.5px solid var(--fg);border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.ib-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.8rem}
+.ib-cta{position:sticky;bottom:-1.6rem;margin:1.3rem -1.6rem -1.6rem;padding:.9rem 1.6rem;background:var(--card);border-top:1px solid var(--line)}
+.ib-cta .btn{width:100%}
+.idea-hook>span{flex:1}
+.worth-note{margin-top:1rem;color:var(--muted);font-size:.9rem}
+
 /* ===================== وضع التطبيق: موبايل وتابلت (≤1180px) ===================== */
 @media (max-width:1180px){
   :root{--r-card:18px;--r-btn:14px;--r-chip:8px;--tab-h:66px}
@@ -739,6 +701,7 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   .sheet-grab{display:block;padding:.8rem 0 1rem;cursor:grab;touch-action:none}
   .sheet-grab::before{content:"";display:block;width:44px;height:5px;border-radius:99px;background:var(--line);margin:0 auto}
   .sheet-x{display:none}
+  .ib-cta{bottom:calc(-1.4rem - env(safe-area-inset-bottom,0px));margin:1.3rem -1.2rem calc(-1.4rem - env(safe-area-inset-bottom,0px));padding:.9rem 1.2rem calc(.9rem + env(safe-area-inset-bottom,0px))}
   .sheet-exit h3{padding-inline-end:0}
 
   /* الهيرو بشكل «شاشة رئيسية» */
@@ -809,7 +772,20 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   .af-arrow .ic,[dir="ltr"] .af-arrow .ic{transform:none}
   .costs{grid-template-columns:1fr}
 }
+@media (min-width:361px) and (max-width:640px){
+  .why-grid{grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.6rem}
+  .why-card{padding:1rem}
+  .why-card h3{font-size:.98rem;margin-bottom:.35rem}
+  .why-card p{font-size:.84rem;line-height:1.65}
+  .why-num{margin-bottom:.6rem}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .road-list{grid-template-columns:1fr 1fr;gap:.9rem}
+}
 @media (max-width:640px){
+  .sec{padding-block:2.4rem}
+  .af-node{padding:.9rem 1rem}
+  .af-node .val{min-height:0}
+  .ai-info{padding:1rem;gap:.8rem}
   html{scroll-padding-top:72px}
   .hero-code{max-width:none}
   .trust{gap:.55rem .6rem}
@@ -837,12 +813,27 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   .stat b{font-size:1.6rem}
   .card{padding:1.3rem}
 }
-@media (max-width:400px){ .brand-text{display:none} }
+@media (max-width:364px){ .brand-text{display:none} }
 @media (max-width:340px){ .hero-stats{grid-template-columns:1fr} }
 @media (max-height:520px) and (orientation:landscape){ .hero{min-height:auto} }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
+}
+
+/* ===================== معرض المشروع: صور + شرح ===================== */
+.pc-img img{object-position:top center}
+.pc-name small{display:block;font:500 .78rem var(--body);color:var(--muted);margin-top:.1rem}
+.pmodal{--fg:#F1EDDF;--muted:#9C947F;--line:#2C2920;--bg:#0A0906;background:#0A0906}
+.pm-body{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) clamp(300px,28vw,420px)}
+.pm-main{display:flex;flex-direction:column;min-height:0;min-width:0}
+.pm-info{overflow-y:auto;padding:1.4rem;padding-bottom:calc(1.4rem + env(safe-area-inset-bottom,0px));border-inline-start:1px solid #2C2920;display:flex;flex-direction:column;gap:1rem;align-content:flex-start}
+.pm-desc{color:#d9d4c0;font-size:.98rem;line-height:1.9}
+.pm-info .btn{margin-top:.3rem}
+@media (max-width:880px){
+  .pm-body{display:block;overflow-y:auto}
+  .pm-stage{height:46vh;flex:none}
+  .pm-info{border-inline-start:none;border-top:1px solid #2C2920;overflow:visible}
 }
 </style>
 </head>
@@ -876,7 +867,6 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
   <symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8M16 14v4M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></symbol>
   <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></symbol>
@@ -913,7 +903,6 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
     <a href="#services" data-en="Services">الخدمات</a>
     <a href="#ai" data-en="AI, simplified">الذكاء الاصطناعي</a>
     <a href="#projects" data-en="My projects">مشاريعي</a>
-    <a href="#ready" data-en="Ready projects">مشاريع جاهزة</a>
     <a href="#ideas" data-en="Project ideas">أفكار مشاريع</a>
     <a href="#pricing" data-en="Pricing">الأسعار</a>
   </nav>
@@ -959,19 +948,17 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
 
     <div class="hero-bottom">
       <div class="reveal-load" data-d="2">
-        <p class="hero-desc" data-en="I’m Hamzeh Al-Tal, a systems, web and database developer with a Computer Science degree, trained at Orange Coding Academy in <b>Laravel</b> and <b>React</b>. I build complete graduation projects for university students, from the idea and documentation to defense day, with clean code you can explain <b>line by line</b> and a <b>free AI feature</b> included.">
-          أنا حمزة التل، مطوّر أنظمة وويب وقواعد بيانات وخريج علم الحاسوب، وتدرّبت في <b><bdi>Orange Coding Academy</bdi></b> على <bdi>Laravel</bdi> و<bdi>React</bdi> وتقنيات أخرى.
-          أبني لطلاب الجامعات مشاريع تخرّج متكاملة، من الفكرة والتوثيق حتى يوم المناقشة، بكود نظيف تشرحه <b>سطراً بسطر</b>، وبميزة <b>ذكاء اصطناعي مجانية</b> ضمن مشروعك.
+        <p class="hero-desc" data-en="I’m Hamzeh Al-Tal, a systems, web and database developer. I build complete graduation projects from idea to defense, with clean code you can explain <b>line by line</b> and a <b>free AI feature</b>.">
+          أنا حمزة التل، مطوّر أنظمة وويب وقواعد بيانات. أبني مشاريع تخرّج متكاملة من الفكرة حتى المناقشة، بكود نظيف تشرحه <b>سطراً بسطر</b>، وبميزة <b>ذكاء اصطناعي مجانية</b>.
         </p>
-        <p class="hero-note" data-en="Relax, I’m patient. I stay with you from the first idea to the last question on defense day, and I re-explain as many times as it takes.">ارتاح، أنا طويل البال: أبقى معك من أول فكرة حتى آخر سؤال يوم المناقشة، وأعيد الشرح مهما تكرّر السؤال.</p>
         <div class="hero-ctas">
           <a class="btn btn-solid" href="https://wa.me/962772372187" target="_blank" rel="noopener"><span data-en="Book your project on WhatsApp">احجز مشروعك على واتساب</span></a>
           <a class="btn btn-outline" href="#projects"><span data-en="See my projects">شاهد مشاريعي</span> <svg class="ic"><use href="#i-arrow-down"/></svg></a>
         </div>
         <ul class="trust">
-          <li><span class="ti"><svg class="ic"><use href="#i-sparkles"/></svg></span><span data-en="Free AI feature, explained simply">ذكاء اصطناعي مجاني بشرح بسيط</span></li>
-          <li><span class="ti"><svg class="ic"><use href="#i-heart"/></svg></span><span data-en="Patient: I re-explain until you get it">طويل البال: أعيد الشرح حتى تفهم</span></li>
-          <li><span class="ti"><svg class="ic"><use href="#i-lock"/></svg></span><span data-en="250 JOD final price, in writing">250 د.أ سعر نهائي ومكتوب</span></li>
+          <li><span class="ti"><svg class="ic"><use href="#i-sparkles"/></svg></span><span data-en="Free AI feature">ذكاء اصطناعي مجاني</span></li>
+          <li><span class="ti"><svg class="ic"><use href="#i-heart"/></svg></span><span data-en="Patient explanations">طويل البال في الشرح</span></li>
+          <li><span class="ti"><svg class="ic"><use href="#i-lock"/></svg></span><span data-en="250 JOD, final price">250 د.أ سعر نهائي</span></li>
           <li><span class="ti"><svg class="ic"><use href="#i-zap"/></svg></span><span data-en="Reply within 24 hours">رد خلال 24 ساعة</span></li>
         </ul>
       </div>
@@ -998,10 +985,10 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
     </a>
 
     <div class="hero-stats reveal-load" data-d="4">
-      <div class="stat"><b><span data-count="20">0</span><span class="unit">+</span></b><span class="lbl" data-en="graduation projects delivered">مشروع تخرّج سلّمته لطلاب</span></div>
-      <div class="stat"><b><span data-count="85">0</span><span class="unit">+</span></b><span class="lbl" data-en="guaranteed grade for your project">علامة مضمونة لمشروعك</span></div>
-      <div class="stat"><b><span data-count="3">0</span><span class="unit" data-en="months">أشهر</span></b><span class="lbl" data-en="of work and follow-up on every project">من العمل والمتابعة على كل مشروع</span></div>
-      <div class="stat"><b><span data-count="250">0</span><span class="unit" data-en="JOD">د.أ</span></b><span class="lbl" data-en="lowest price, final, never negotiated down">أدنى سعر، نهائي ولا أنزل عنه</span></div>
+      <div class="stat"><b><span data-count="20">0</span><span class="unit">+</span></b><span class="lbl" data-en="graduation projects delivered">مشروع تخرّج سلّمته</span></div>
+      <div class="stat"><b><span data-count="85">0</span><span class="unit">+</span></b><span class="lbl" data-en="guaranteed grade">علامة مضمونة لمشروعك</span></div>
+      <div class="stat"><b><span data-count="3">0</span><span class="unit" data-en="months">أشهر</span></b><span class="lbl" data-en="of follow-up on every project">متابعة على كل مشروع</span></div>
+      <div class="stat"><b><span data-count="250">0</span><span class="unit" data-en="JOD">د.أ</span></b><span class="lbl" data-en="lowest price, final">أدنى سعر، ونهائي</span></div>
     </div>
   </section>
 
@@ -1037,22 +1024,11 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
         <div class="about-text">
           <h2 class="reveal" data-en="My work isn’t copy-paste<em>.</em>">شغلي ليس نسخاً ولصقاً<em>.</em></h2>
           <p class="lead reveal" data-d="1" data-en="It’s built to the same standard as my day job, because it is my day job.">يُبنى بنفس معايير عملي الوظيفي، لأنه <span class="acc-hl">عملي الوظيفي فعلاً</span>.</p>
-          <p class="reveal" data-d="1" data-en="I currently work at <b>JO PETROL</b> as a systems, web and database developer. I build and maintain internal systems that employees use every day, and design databases and reports for real operations. Your project gets built to that same standard, not with a ‘just get it done’ mindset.">
-            أعمل حالياً في <b><bdi>JO PETROL</bdi></b> كمطوّر أنظمة وويب وقواعد بيانات. أطوّر أنظمة داخلية يستخدمها الموظفون يومياً، وأصمّم قواعد بيانات وتقارير لعمليات العمل الفعلية.
-            ومشروعك يُبنى بنفس هذا المعيار، لا بعقلية «المهم أن ينتهي».
+          <p class="reveal" data-d="1" data-en="I currently work at <b>JO PETROL</b> on systems and databases that employees use every day. I hold a Computer Science degree from Jadara University (Very Good), trained at <b>Orange Coding Academy</b> in Laravel and React, and have delivered <b>20+ graduation projects</b> for students across Jordanian universities.">
+            أعمل حالياً في <b><bdi>JO PETROL</bdi></b> على أنظمة وقواعد بيانات يستخدمها الموظفون يومياً. خريج علم الحاسوب من جامعة جدارا (جيد جداً)، وتدرّبت في <b><bdi>Orange Coding Academy</bdi></b> على <bdi>Laravel</bdi> و<bdi>React</bdi>، وسلّمت <b>أكثر من 20 مشروع تخرّج</b> لطلاب من جامعات الأردن.
           </p>
-          <p class="reveal" data-d="2" data-en="I have a Computer Science degree from Jadara University (Very Good) and trained at Orange Coding Academy in web development with Laravel and React. Since graduating I’ve delivered <b>20+ graduation projects</b> for students across Jordanian universities: web systems, mobile apps, and databases with real reports.">
-            حاصل على بكالوريوس <b>علم الحاسوب من جامعة جدارا</b> بتقدير <b>جيد جداً</b>، وتدرّبت في
-            <b>Orange Coding Academy</b> على تطوير مواقع الويب باستخدام <bdi>Laravel</bdi> و<bdi>React</bdi>.
-            ومنذ تخرّجي سلّمت <b>أكثر من 20 مشروع تخرّج</b> لطلاب من جامعات الأردن:
-            أنظمة ويب، وتطبيقات موبايل، وقواعد بيانات بتقارير حقيقية.
-          </p>
-          <p class="reveal" data-d="3" data-en="Working with me isn’t ‘take the files and go’. You get a <b>line-by-line explanation</b> and a mock defense, because on presentation day <b>understanding is what gets graded</b>. And I’m <b>patient</b>: I never tire of re-explaining, I never mind a repeated question, and I explain in several ways with examples from your own life until the project becomes yours.">
-            العمل معي ليس «تستلم الملفات وخلص». ستحصل على <b>شرح سطراً بسطر</b> وتدريب على أسئلة اللجنة، لأن <b>الفهم هو ما يُقيَّم</b> يوم المناقشة.
-            وأنا <b>طويل البال</b>: لا أملّ من إعادة الشرح، ولا أتضايق من السؤال المتكرّر، وأشرح بأكثر من طريقة وبأمثلة من حياتك حتى يصبح المشروع مشروعك أنت.
-          </p>
-          <p class="reveal" data-d="3" data-en="And because AI is now part of most projects, I add a <b>free AI feature</b> to yours (scaled to the size of the idea) and explain it simply, so there’s nothing to be afraid of.">
-            ولأن الذكاء الاصطناعي صار جزءاً من أغلب المشاريع اليوم، أضيف لمشروعك <b>ميزة ذكاء اصطناعي مجاناً</b> (حسب حجم الفكرة)، وأشرحها لك ببساطة حتى لا تخاف منها.
+          <p class="reveal" data-d="2" data-en="And I’m <b>patient</b>: I re-explain in more than one way and never mind a repeated question, because on defense day <b>understanding is what gets graded</b>.">
+            وأنا <b>طويل البال</b>: أعيد الشرح بأكثر من طريقة ولا أتضايق من السؤال المتكرّر، لأن <b>الفهم هو ما يُقيَّم</b> يوم المناقشة.
           </p>
         </div>
         <aside class="reveal" data-d="2">
@@ -1066,17 +1042,10 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
             <div class="id-line">COMPUTER SCIENCE — JADARA UNIVERSITY</div>
             <div class="id-line dim">SYSTEMS · WEB · DATABASES · AI — LARAVEL / REACT</div>
           </div>
-          <div class="info-card">
-            <div class="info-row"><span data-en="Current job">الوظيفة الحالية</span><b data-en="Systems, Web &amp; Database Developer at JO PETROL">مطوّر أنظمة وويب وقواعد بيانات في <bdi>(JO PETROL)</bdi></b></div>
-            <div class="info-row"><span data-en="Education">التعليم</span><b data-en="B.Sc. Computer Science, Jadara University (Very Good)">بكالوريوس علم الحاسوب، جامعة جدارا (جيد جداً)</b></div>
-            <div class="info-row"><span data-en="Training">التدريب</span><b data-en="Orange Coding Academy: web development with Laravel &amp; React">Orange Coding Academy: تطوير الويب بـ <bdi>Laravel</bdi> و<bdi>React</bdi></b></div>
-            <div class="info-row"><span data-en="Specialty">التخصص</span><b data-en="Web, databases &amp; AI features">الويب وقواعد البيانات وميزات الذكاء الاصطناعي</b></div>
-            <div class="info-row"><span data-en="Style">الأسلوب</span><b data-en="Patient, simple explanations with examples">طويل البال، شرح مبسّط بالأمثلة</b></div>
-          </div>
           <!-- ✏️ عدّل التقنيات حسب ما تعمل عليه فعلياً -->
           <div class="tech-pills" aria-label="Tech stack">
             <span>Laravel</span><span>React</span><span>React Native</span><span>MySQL</span><span>SQL</span>
-            <span>REST APIs</span><span>ERD</span><span>Firebase</span><span>AI APIs</span><span>Git</span><span>Responsive UI</span>
+            <span>REST APIs</span><span>ERD</span><span>Firebase</span><span>AI APIs</span><span>Git</span>
           </div>
         </aside>
       </div>
@@ -1090,8 +1059,7 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
         <span class="sec-num" data-en="02 — Services">02 — الخدمات</span>
         <span class="grow"></span>
       </div>
-      <h2 class="reveal" data-en="What I deliver, in detail<em>.</em>">ماذا أقدّم، بالتفصيل<em>.</em></h2>
-      <p class="sec-desc reveal" data-d="1" data-en="Tap any service to see exactly what you get.">اضغط على أي خدمة لترى ما ستحصل عليه بالضبط.</p>
+      <h2 class="reveal" data-en="What I deliver<em>.</em>">ماذا أقدّم<em>.</em></h2>
       <div class="accordion reveal" data-d="1" id="accordion"></div>
     </div>
   </section>
@@ -1104,110 +1072,68 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
         <span class="grow"></span>
       </div>
       <h2 class="reveal" data-en="AI in your project? <em>Simpler than you think.</em>">الذكاء الاصطناعي في مشروعك؟ <em>أبسط مما تتخيّل.</em></h2>
-      <p class="sec-desc reveal" data-d="1" data-en="Most projects today include AI, and yours deserves a smart feature that sets it apart in front of the committee. I add it for free inside your project and explain it in plain words, with no scary jargon.">أغلب مشاريع اليوم فيها ذكاء اصطناعي، ومشروعك يستحق ميزة ذكية تميّزه أمام اللجنة. أضيفها لك مجاناً ضمن مشروعك، وأشرحها بكلمات بسيطة بلا مصطلحات مخيفة.</p>
+      <p class="sec-desc reveal" data-d="1" data-en="Most projects today include AI. I add a smart feature to yours for free (scaled to the idea’s size) and explain it simply.">أغلب مشاريع اليوم فيها ذكاء اصطناعي. أضيف لمشروعك ميزة ذكية مجاناً (حسب حجم الفكرة) وأشرحها لك ببساطة.</p>
       <span class="ai-free reveal" data-d="1"><svg class="ic"><use href="#i-sparkles"/></svg><span data-en="Free inside your project (scaled to your idea’s size)">مجاني ضمن مشروعك (حسب حجم الفكرة)</span></span>
 
       <div class="ai-flow reveal" data-d="1" id="aiFlow"></div>
 
       <div class="ai-pick reveal">
-        <p class="lbl" data-en="Pick a feature to see how it works, and how to explain it to the committee in one sentence:">اختر ميزة لترى كيف تعمل، وكيف تشرحها للجنة بجملة واحدة:</p>
+        <p class="lbl" data-en="Pick a feature to see how it works:">اختر ميزة لترى كيف تعمل:</p>
         <div class="chips" id="aiChips"></div>
         <div class="ai-info" id="aiInfo"></div>
       </div>
 
-      <div class="calm reveal">
-        <h3 data-en="What makes it easy?">ما الذي يجعل الأمر سهلاً؟</h3>
-        <p data-en="I won’t ask you to be an expert. Here’s what you get:">لن أطلب منك أن تكون خبيراً. هذا ما ستحصل عليه:</p>
-        <div class="calm-grid">
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="No prior experience needed">لا تحتاج خبرة سابقة</b><span data-en="I explain from zero, with an example from your own project.">أشرح من الصفر بمثال من مشروعك نفسه.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Ready-made models, no complex training">نماذج جاهزة، بلا تدريب معقّد</b><span data-en="We call ready-made models through an API, so no scary math and no weeks of training.">نستخدم نماذج جاهزة عبر واجهة برمجية، فلا رياضيات مخيفة ولا أسابيع من التدريب.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="A dedicated AI explanation session">جلسة شرح خاصة بالذكاء الاصطناعي</b><span data-en="A separate part of the walkthrough that I repeat until you own it.">جزء مستقل من الشرح، أعيده معك حتى تتقنه.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Likely committee questions, with answers">أسئلة اللجنة المتوقعة مع أجوبتها</b><span data-en="We rehearse every question the committee may ask about the AI in your project.">نتدرّب على كل سؤال قد يُطرح عن الذكاء الاصطناعي في مشروعك.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="A feature that really works">ميزة تعمل فعلاً</b><span data-en="Shown live inside your project, not just a slide in your presentation.">تُعرض حيّة داخل مشروعك، لا مجرد شريحة في العرض.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="A fair size for your idea">حجم عادل لفكرتك</b><span data-en="The free feature scales with your idea, and anything bigger is agreed before we start.">حجم الميزة المجانية يتناسب مع حجم الفكرة، وأي توسّع أكبر نتفق عليه قبل البدء.</span></div></div>
-        </div>
+      <div class="ready-includes reveal">
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="No prior experience needed">لا تحتاج خبرة سابقة</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Ready-made models, no complex training">نماذج جاهزة بلا تدريب معقّد</span></div>
+        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Likely committee questions, with answers">أسئلة اللجنة عنها مع أجوبتها</span></div>
       </div>
 
       <div class="hero-ctas reveal">
         <a class="btn btn-solid" id="aiCta" href="#" target="_blank" rel="noopener"><span data-en="I want an AI feature in my project">أريد ميزة ذكاء اصطناعي في مشروعي</span></a>
-        <a class="btn btn-outline" href="#ideas"><span data-en="See AI project ideas">شاهد أفكار مشاريع بالذكاء الاصطناعي</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ============ لماذا تعمل معي ============ -->
+  <!-- ============ لماذا أنا ============ -->
   <section id="why" class="sec tight">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num" data-en="04 — Why work with me">04 — لماذا تعمل معي</span>
+        <span class="sec-num" data-en="04 — Why me">04 — لماذا أنا</span>
         <span class="grow"></span>
       </div>
       <h2 class="reveal" data-en="Because your grade is on the line<em>.</em>">لأن علامتك على المحك<em>.</em></h2>
-      <p class="sec-desc reveal" data-d="1" data-en="Anyone can hand you files. Few can hand you confidence on defense day.">أي شخص يستطيع تسليمك ملفات. قليلون يستطيعون تسليمك الثقة يوم المناقشة.</p>
 
       <div class="why-grid">
         <article class="card why-card reveal">
           <span class="why-num">01</span>
           <h3 data-en="A guaranteed grade above 85">علامة مضمونة فوق <bdi>85</bdi></h3>
-          <p data-en="Your project is built against your university’s marking criteria and reviewed with you before the defense, so you walk in with a grade above 85 secured.">يُبنى مشروعك وفق معايير التقييم في جامعتك ويُراجَع معك قبل المناقشة، لتدخل وأنت مطمئن لعلامة فوق <bdi>85</bdi>.</p>
+          <p data-en="Built to your university’s marking criteria and reviewed with you before the defense.">يُبنى مشروعك وفق معايير جامعتك ويُراجَع معك قبل المناقشة.</p>
         </article>
         <article class="card why-card reveal" data-d="1">
           <span class="why-num">02</span>
-          <h3 data-en="Real-world standard, not classroom standard">معيار العمل الحقيقي لا معيار القاعة</h3>
-          <p data-en="I build systems people rely on every day. Your project gets the same discipline: clean, organized, and ready for any committee question.">أبني أنظمة يعتمد عليها الناس يومياً. ومشروعك يُبنى بنفس الانضباط: نظيف ومنظّم وجاهز لأي سؤال من اللجنة.</p>
+          <h3 data-en="Company-grade work">بمعيار الشركات</h3>
+          <p data-en="Clean, organized code, and databases are my core work: ERD, normalization, queries, reports.">كود نظيف ومنظّم، وقواعد البيانات صلب عملي: <bdi>ERD</bdi> وتطبيع واستعلامات وتقارير.</p>
         </article>
         <article class="card why-card reveal" data-d="2">
           <span class="why-num">03</span>
-          <h3 data-en="Databases are my home turf">قواعد البيانات مجالي الأساسي</h3>
-          <p data-en="The database is where most projects crumble and where committees dig deepest. It’s my actual job: ERD, normalization, queries, reports. Yours is built right the first time.">قاعدة البيانات هي الجزء الذي تتعثّر فيه أغلب المشاريع وتتعمّق فيه اللجان. وهي صلب عملي: <bdi>ERD</bdi>، وتطبيع، واستعلامات، وتقارير. يُبنى مشروعك صحيحاً من أول مرة.</p>
+          <h3 data-en="A defense without fear">مناقشة بلا رهبة</h3>
+          <p data-en="Line-by-line explanation, recorded lectures and a rehearsal with likely committee questions.">شرح سطراً بسطر، ومحاضرات مسجّلة، وبروفة بأسئلة اللجنة المتوقعة.</p>
         </article>
         <article class="card why-card reveal" data-d="3">
           <span class="why-num">04</span>
-          <h3 data-en="Defense prep is part of delivery">التحضير للمناقشة جزء من التسليم</h3>
-          <p data-en="You don’t just receive a project, you rehearse it. Line-by-line explanation, mock questions, and support until the day itself.">لا تستلم مشروعاً فحسب، بل تتدرّب عليه. شرح سطراً بسطر، وأسئلة تجريبية، ومتابعة حتى يوم المناقشة نفسه.</p>
+          <h3 data-en="Patient, always">طويل البال</h3>
+          <p data-en="I re-explain however often the question comes back, and your professor’s changes are free within the agreement.">أعيد الشرح مهما تكرّر السؤال، وتعديلات الدكتور مجانية ضمن الاتفاق.</p>
         </article>
-        <article class="card why-card reveal" data-d="1">
-          <span class="why-num">05</span>
-          <h3 data-en="AI that’s simple and free">ذكاء اصطناعي بسيط ومجاني</h3>
-          <p data-en="Most projects now include AI, so I add a smart feature to yours for free (scaled to the idea) and explain it so simply that you’ll be proud of it, not afraid of it.">أغلب المشاريع اليوم فيها ذكاء اصطناعي، فأضيف لمشروعك ميزة ذكية مجاناً (حسب حجم الفكرة)، وأشرحها ببساطة حتى تفتخر بها أمام اللجنة بدل أن تخاف منها.</p>
-        </article>
-        <article class="card why-card reveal" data-d="2">
-          <span class="why-num">06</span>
-          <h3 data-en="Patient with you, always">طويل البال معك دائماً</h3>
-          <p data-en="I never tire of re-explaining or mind repeated questions. I explain in more than one way until it clicks, and I stay with you as long as you need.">لا أملّ من إعادة الشرح، ولا أتضايق من الأسئلة المتكرّرة. أشرح بأكثر من طريقة حتى تفهم، وأبقى معك مهما احتجت من وقت.</p>
-        </article>
-      </div>
-
-      <div class="cmp reveal" role="table" aria-label="Comparison">
-        <div class="cmp-row cmp-head" role="row"><span role="columnheader"></span><span class="no" role="columnheader" data-en="Doing it alone">وحدك</span><span class="yes" role="columnheader" data-en="Working with me">معي</span></div>
-        <div class="cmp-row" role="row"><span class="rl" data-en="Understanding">فهم المشروع</span><span class="no" data-en="You get stuck on every error and search alone">تتعثّر عند كل خطأ وتبحث وحدك</span><span class="yes" data-en="Line-by-line explanation and recorded lectures to re-watch">شرح سطراً بسطر ومحاضرات مسجّلة تعيدها</span></div>
-        <div class="cmp-row" role="row"><span class="rl" data-en="The defense">المناقشة</span><span class="no" data-en="Guessing the questions and hoping">تخمين الأسئلة وانتظار المفاجآت</span><span class="yes" data-en="A rehearsal with likely committee questions and answers">بروفة بأسئلة اللجنة المتوقعة وأجوبتها</span></div>
-        <div class="cmp-row" role="row"><span class="rl" data-en="AI">الذكاء الاصطناعي</span><span class="no" data-en="Scary jargon and endless searching">مصطلحات مخيفة وبحث متشعّب</span><span class="yes" data-en="A free feature, explained simply with examples">ميزة مجانية وشرح بسيط بالأمثلة</span></div>
-        <div class="cmp-row" role="row"><span class="rl" data-en="Stress">التوتر</span><span class="no" data-en="Long nights and a last-week rush">ليالٍ طويلة وضغط آخر أسبوع</span><span class="yes" data-en="A 12-week plan, and a patient developer beside you">خطة 12 أسبوعاً ومطوّر طويل البال بجانبك</span></div>
-        <div class="cmp-row" role="row"><span class="rl" data-en="Your professor’s changes">تعديلات الدكتور</span><span class="no" data-en="All on your shoulders">كلها على كاهلك</span><span class="yes" data-en="Free within the agreement">مجانية ضمن الاتفاق</span></div>
-        <div class="cmp-row" role="row"><span class="rl" data-en="The cost">التكلفة</span><span class="no" data-en="Your time, your nerves, maybe your grade">وقتك وأعصابك، وربما علامتك</span><span class="yes" data-en="From 250 JOD, split across your team">من 250 د.أ يتقاسمها فريقك</span></div>
-      </div>
-
-      <div class="calm reveal">
-        <h3 data-en="Take a breath. You’re not doing this alone.">خذ نفساً عميقاً، أنت لست وحدك في هذا.</h3>
-        <p data-en="Graduation projects feel heavy, but they’re much lighter when someone walks you through them calmly. This is how I make it stress-free:">مشروع التخرّج يبدو ثقيلاً، لكنه يخفّ كثيراً حين يرافقك أحد بهدوء. هكذا أجعل التجربة بلا توتر:</p>
-        <div class="calm-grid">
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Patient: no silly questions">طويل البال: لا يوجد سؤال سخيف</b><span data-en="Ask anything, anytime. I explain from zero, re-explain in different ways, and never tire.">اسأل عن أي شيء وفي أي وقت. أشرح من الصفر، وأعيد الشرح بأكثر من طريقة ولا أملّ.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Recorded lectures to revisit">محاضرات مسجّلة ترجع إليها</b><span data-en="Missed a detail? Re-watch the explanation whenever you want.">فاتتك نقطة؟ أعد مشاهدة الشرح متى شئت وبالسرعة التي تناسبك.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Rehearsal before the real thing">بروفة قبل المناقشة الحقيقية</b><span data-en="We practice the committee’s likely questions until answering feels natural.">نتدرّب على أسئلة اللجنة المتوقعة حتى يصبح الجواب طبيعياً وسهلاً.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="A clear plan, no surprises">خطة واضحة بلا مفاجآت</b><span data-en="You know the price, the scope and the timeline in writing before we start.">تعرف السعر ونطاق العمل والمدة مكتوبةً قبل أن نبدأ.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Free revisions in scope">تعديلات مجانية ضمن الاتفاق</b><span data-en="Your professor asks for a change? We handle it together.">طلب الدكتور تعديلاً؟ نتعامل معه معاً دون أي قلق.</span></div></div>
-          <div class="calm-item"><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><div><b data-en="Your details stay private">تفاصيلك تبقى خاصة</b><span data-en="Your project and personal information stay between us.">مشروعك ومعلوماتك الشخصية تبقى بيني وبينك.</span></div></div>
-        </div>
       </div>
 
       <div class="steps reveal">
         <h3 class="steps-title" data-en="How we work together">كيف نعمل معاً</h3>
         <div class="steps-grid">
-          <div class="step"><i class="mono"><b>01</b></i><h4 data-en="Send your project details">أرسل تفاصيل مشروعك</h4><p data-en="Your university, requirements and deadline. One WhatsApp message is enough.">جامعتك ومتطلبات المشروع وموعد التسليم. رسالة واتساب واحدة تكفي.</p></div>
-          <div class="step"><i class="mono"><b>02</b></i><h4 data-en="Fixed quote within 24 hours">عرض سعر ثابت خلال 24 ساعة</h4><p data-en="Price and scope in writing before we start. No surprises later.">السعر ونطاق العمل مكتوبان قبل البدء، دون أي مفاجآت لاحقاً.</p></div>
-          <div class="step"><i class="mono"><b>03</b></i><h4 data-en="Build with live previews">تنفيذ مع معاينة مستمرة</h4><p data-en="You see the progress and try it yourself. Nothing is a black box.">ترى التقدّم وتجرّب بنفسك. لا شيء يبقى غامضاً.</p></div>
-          <div class="step"><i class="mono"><b>04</b></i><h4 data-en="Delivery, explanation, defense prep">تسليم وشرح وتحضير للمناقشة</h4><p data-en="Full documentation, an explanation session and Q&amp;A rehearsal, until you own it.">توثيق كامل وجلسة شرح وتدريب على الأسئلة، حتى تتقن مشروعك تماماً.</p></div>
+          <div class="step"><i class="mono"><b>01</b></i><h4 data-en="Send your project details">أرسل تفاصيل مشروعك</h4><p data-en="One WhatsApp message is enough.">رسالة واتساب واحدة تكفي.</p></div>
+          <div class="step"><i class="mono"><b>02</b></i><h4 data-en="Fixed quote within 24 hours">عرض ثابت خلال 24 ساعة</h4><p data-en="Price and scope in writing before we start.">السعر والنطاق مكتوبان قبل البدء.</p></div>
+          <div class="step"><i class="mono"><b>03</b></i><h4 data-en="Build with live previews">تنفيذ مع معاينة مستمرة</h4><p data-en="You see the progress and try it yourself.">ترى التقدّم وتجرّب بنفسك.</p></div>
+          <div class="step"><i class="mono"><b>04</b></i><h4 data-en="Delivery and defense prep">تسليم وتحضير للمناقشة</h4><p data-en="Full documentation and a rehearsal, until you own it.">توثيق كامل وبروفة حتى تتقن مشروعك.</p></div>
         </div>
       </div>
 
@@ -1224,30 +1150,8 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
         <span class="grow"></span>
       </div>
       <h2 class="reveal" data-en="Projects I’ve built<em>.</em>">مشاريع نفّذتها<em>.</em></h2>
-      <p class="sec-desc reveal" data-d="1" data-en="Tap any project to browse all of its screenshots.">اضغط على أي مشروع لتتصفّح جميع لقطات الشاشة الخاصة به.</p>
+      <p class="sec-desc reveal" data-d="1" data-en="Tap any project to browse its screenshots and details.">اضغط على أي مشروع لتتصفّح لقطاته وتفاصيله.</p>
       <div class="proj-grid snap-m" id="projGrid"></div>
-      <p class="swipe-hint"><svg class="ic arr-flip"><use href="#i-chev-r"/></svg><span data-en="Swipe to see more">اسحب لمشاهدة المزيد</span></p>
-    </div>
-  </section>
-
-  <!-- ============ مشاريع جاهزة ============ -->
-  <section id="ready" class="sec tight">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num" data-en="06 — Ready-made projects">06 — مشاريع جاهزة للشراء</span>
-        <span class="grow"></span>
-      </div>
-      <h2 class="reveal" data-en="Need it sooner? Buy a finished project<em>.</em>">وقتك ضيّق؟ اشترِ مشروعاً جاهزاً<em>.</em></h2>
-      <p class="sec-desc reveal" data-d="1" data-en="Every ready-made project comes complete and explained, so you understand it before you present it.">كل مشروع جاهز يأتيك كاملاً ومشروحاً، لتفهمه جيداً قبل أن تعرضه.</p>
-      <div class="ready-includes reveal" data-d="1">
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Full source code, running out of the box">الكود المصدري كاملاً ويعمل مباشرة</span></div>
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Database with sample data">قاعدة البيانات مع بيانات تجريبية</span></div>
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Ready documentation and report">التوثيق والتقرير جاهزان</span></div>
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Recorded explanation lecture">محاضرة شرح مسجّلة للمشروع</span></div>
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="Optional customization to your requirements">تعديل حسب متطلباتك (اختياري)</span></div>
-      </div>
-      <!-- ✏️ عدّل قائمة READY في الجافاسكربت أسفل الصفحة -->
-      <div class="grid3 snap-m" id="readyGrid"></div>
       <p class="swipe-hint"><svg class="ic arr-flip"><use href="#i-chev-r"/></svg><span data-en="Swipe to see more">اسحب لمشاهدة المزيد</span></p>
     </div>
   </section>
@@ -1256,21 +1160,15 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   <section id="ideas" class="sec tight">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num" data-en="07 — Project ideas">07 — أفكار مشاريع</span>
+        <span class="sec-num" data-en="06 — Project ideas">06 — أفكار مشاريع</span>
         <span class="grow"></span>
       </div>
-      <h2 class="reveal" data-en="No idea yet? Strong, AI-powered ones<em>.</em>">ليس لديك فكرة؟ إليك أفكاراً قوية بالذكاء الاصطناعي<em>.</em></h2>
-      <p class="sec-desc reveal" data-d="1" data-en="Original ideas that solve a real problem and bring a new feature, not the usual clinic, store or library system. Every idea includes a free AI feature, and we check with you that it isn’t already used at your university.">أفكار أصلية تحلّ مشكلة حقيقية وتحمل ميزة جديدة، وليست نظام العيادة أو المتجر أو المكتبة المعتاد. كل فكرة فيها ميزة ذكاء اصطناعي مجانية ضمن المشروع، ونتأكد معك أنها غير مستخدمة في جامعتك.</p>
-      <div class="ready-includes reveal" data-d="1" aria-label="Criteria">
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="<b>A real problem</b> you can explain to the committee in one sentence">مشكلة حقيقية تُشرح للجنة في جملة واحدة</span></div>
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="<b>A new feature</b> you won’t find in the usual projects">ميزة جديدة لا تجدها في المشاريع المعتادة</span></div>
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="<b>AI that’s simple to explain</b>, and free inside the project">ذكاء اصطناعي بسيط الشرح، ومجاني ضمن المشروع</span></div>
-        <div><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span data-en="<b>Logic and a rich database</b> worth discussing, achievable in one semester">منطق وقاعدة بيانات تستحق النقاش، وقابلة للإنجاز في فصل واحد</span></div>
-      </div>
-      <div class="fbar" id="ideaFilters" role="group" aria-label="Filter"></div>
-      <div class="grid3" id="ideasGrid"></div>
+      <h2 class="reveal" data-en="No idea yet? Jordan-rooted ideas, <em>powered by AI.</em>">ليس لديك فكرة؟ إليك أفكاراً أردنية <em>بالذكاء الاصطناعي.</em></h2>
+      <p class="sec-desc reveal" data-d="1" data-en="Each idea solves a real problem in Jordan and includes a free AI feature. Tap any idea to open its details.">كل فكرة تحلّ مشكلة حقيقية في الأردن وفيها ميزة ذكاء اصطناعي مجانية. اضغط على أي فكرة لتفتح تفاصيلها.</p>
+      <div class="grid3 snap-m" id="ideasGrid"></div>
+      <p class="swipe-hint"><svg class="ic arr-flip"><use href="#i-chev-r"/></svg><span data-en="Swipe to see more">اسحب لمشاهدة المزيد</span></p>
       <div class="idea-cta reveal">
-        <div><b data-en="None of these fits you?">لم تُعجبك هذه الأفكار؟</b><span data-en="Tell me your major and interests, and I’ll shape an original AI-powered idea just for you.">أخبرني بتخصصك واهتماماتك، وأصيغ لك فكرة أصلية مدعومة بالذكاء الاصطناعي خاصة بك.</span></div>
+        <div><b data-en="None of these fits you?">لم تُعجبك هذه الأفكار؟</b><span data-en="Tell me your major and interests, and I’ll shape an original idea for you.">أخبرني بتخصصك واهتماماتك، وأصيغ لك فكرة أصلية.</span></div>
         <a class="btn btn-solid" id="ideaAsk" href="#" target="_blank" rel="noopener"><span data-en="Help me find an idea">ساعدني في إيجاد فكرة</span></a>
       </div>
     </div>
@@ -1280,7 +1178,7 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   <section id="pricing" class="sec pricing invert">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num" data-en="08 — Pricing">08 — الأسعار</span>
+        <span class="sec-num" data-en="07 — Pricing">07 — الأسعار</span>
         <span class="grow"></span>
       </div>
       <div class="price-hero">
@@ -1290,88 +1188,44 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
           <span class="stamp" data-en="FINAL PRICE · NO HAGGLING">سعر نهائي · بلا مساومة</span>
         </div>
         <div class="price-main">
-          <h3 class="reveal" data-d="1" data-en="250 JOD is the lowest price, and it’s <em>final</em>. I never go below it.">250 د.أ هو أدنى سعر، وهو <em>نهائي</em>.</h3>
-          <p class="reveal" data-d="2" data-en="Because I don’t compromise on quality, I don’t compromise on price. You get the full work exactly as written, with no hidden fees and no add-ons halfway through. Your project’s final price (250, 300 or more) depends on its size and details, is written down before we start, and never changes afterwards.">لأنني لا أساوم على الجودة، لا أساوم على السعر. تحصل على العمل كاملاً كما هو مكتوب، بلا رسوم مخفية ولا زيادات في منتصف المشروع. والسعر النهائي لمشروعك (250 أو 300 أو أكثر) يتحدّد حسب حجمه وتفاصيله ويُكتب لك قبل البدء، ثم لا يتغيّر.</p>
+          <h3 class="reveal" data-d="1" data-en="250 JOD is the lowest price, and it’s <em>final</em>. I never go below it.">250 د.أ أدنى سعر، وهو <em>نهائي</em>. لا أنزل عنه.</h3>
+          <p class="reveal" data-d="2" data-en="Because I don’t compromise on quality, I don’t compromise on price. Your project’s final price (250, 300 or more, by size) is written down before we start and never changes. Payment: 50% on agreement, 50% on delivery.">لأنني لا أساوم على الجودة، لا أساوم على السعر. يُكتب لك السعر النهائي لمشروعك (250 أو 300 أو أكثر حسب حجمه) قبل البدء ولا يتغيّر بعده. الدفع: <bdi>50%</bdi> عند الاتفاق و<bdi>50%</bdi> عند التسليم.</p>
           <div class="factors reveal" data-d="2">
-            <span data-en="Project type (web / mobile / database)">نوع المشروع (ويب / موبايل / قاعدة بيانات)</span>
-            <span data-en="Number of screens and features">عدد الشاشات والمزايا</span>
-            <span data-en="Documentation size">حجم التوثيق المطلوب</span>
+            <span data-en="Project type">نوع المشروع</span>
+            <span data-en="Screens and features">عدد الشاشات والمزايا</span>
             <span data-en="Deadline">مدة التسليم</span>
           </div>
         </div>
       </div>
-
-      <div class="price-cols">
-        <div class="price-box reveal" data-d="1">
-          <h4><svg class="ic"><use href="#i-check-check"/></svg><span data-en="Included in every project">مشمول في كل مشروع</span></h4>
-          <ul>
-            <li data-en="Guaranteed grade above 85">علامة مضمونة فوق <bdi>85</bdi></li>
-            <li data-en="Clean, organized source code">كود مصدري نظيف ومنظّم</li>
-            <li data-en="Full documentation in your university’s format">توثيق كامل بصيغة جامعتك</li>
-            <li data-en="A free AI feature, scaled to your idea’s size">ميزة ذكاء اصطناعي مجانية (حسب حجم الفكرة)</li>
-            <li data-en="Line-by-line explanation, with endless patience">جلسة شرح سطراً بسطر، وبصبر طويل</li>
-            <li data-en="A mock defense with likely committee questions">بروفة مناقشة وأسئلة اللجنة المتوقعة</li>
-            <li data-en="Free revisions within the agreed scope">تعديلات مجانية ضمن الاتفاق</li>
-            <li data-en="Support up to defense day">متابعة حتى يوم المناقشة</li>
-          </ul>
-          <p class="pay" data-en="Payment: 50% on agreement, 50% on delivery">الدفع: <bdi>50%</bdi> عند الاتفاق و<bdi>50%</bdi> عند التسليم</p>
-        </div>
-        <div class="price-box reveal" data-d="2">
-          <h4><svg class="ic"><use href="#i-pin"/></svg><span data-en="What moves the price up or down">ما الذي يرفع السعر أو يخفضه</span></h4>
-          <ul>
-            <li data-en="Simple database + reports project: starts at the base price (250 JOD)">مشروع قاعدة بيانات وتقارير بسيط: يبدأ من السعر الأساسي (250 د.أ)</li>
-            <li data-en="Full-stack web with admin panel: mid range">مشروع ويب متكامل مع لوحة تحكم: سعر متوسط</li>
-            <li data-en="Complete project + documentation + mobile app: top range">مشروع متكامل مع توثيق وتطبيق موبايل: الأعلى سعراً</li>
-            <li data-en="Ready-made project: priced per project, ask me">مشروع جاهز: يُسعَّر لكل مشروع، اسألني</li>
-            <li data-en="Online lectures: priced per session or package">محاضرات أونلاين: بالجلسة أو بالباقة</li>
-            <li data-en="Tight deadline? Ask about express delivery, quoted upfront">وقت ضيق؟ اسأل عن التسليم السريع، ويُحدَّد سعره من البداية</li>
-          </ul>
-          <p class="pay" data-en="Every quote is written down before any work starts, and it doesn’t change after">كل عرض سعر يُكتب قبل أن يبدأ أي عمل، ولا يتغيّر بعده</p>
-        </div>
-      </div>
-
-      <div class="split-strip reveal">
-        <div>
-          <b class="t" data-en="A team project? The team shares the amount.">مشروعكم جماعي؟ الفريق يتقاسم المبلغ.</b>
-          <span class="sub" data-en="Based on the 250 JOD base price:">على سعر 250 د.أ الأساسي:</span>
-        </div>
-        <div class="split-nums">
-          <div><b>83.3</b><span data-en="per student · 3 of you">للطالب · إن كنتم 3</span></div>
-          <div><b>62.5</b><span data-en="per student · 4 of you">للطالب · إن كنتم 4</span></div>
-        </div>
-        <a class="btn btn-outline btn-sm" href="#worth"><span data-en="Calculate your share">احسب حصّتك بنفسك</span> <svg class="ic"><use href="#i-calculator"/></svg></a>
-      </div>
-
       <a class="btn btn-solid reveal" data-d="2" href="https://wa.me/962772372187" target="_blank" rel="noopener">
-        <span data-en="Send your project details and get the final price">أرسل تفاصيل مشروعك واحصل على السعر النهائي</span>
+        <span data-en="Send your details and get the final price">أرسل تفاصيل مشروعك واحصل على السعر النهائي</span>
         <svg class="ic arr-flip"><use href="#i-arrow-up-left"/></svg>
       </a>
     </div>
   </section>
 
-  <!-- ============ هل هو مبلغ كبير؟ ============ -->
+  <!-- ============ احسب حصّتك ============ -->
   <section id="worth" class="sec">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num" data-en="09 — Is it a lot?">09 — هل هو مبلغ كبير؟</span>
+        <span class="sec-num" data-en="08 — Split the price">08 — احسب حصّتك</span>
         <span class="grow"></span>
       </div>
-      <h2 class="reveal" data-en="Is 250 JOD a lot? <em>Let’s do the math together.</em>">هل 250 د.أ مبلغ كبير؟ <em>فلنحسبها معاً.</em></h2>
-      <p class="sec-desc reveal" data-d="1" data-en="Let me be straight with you: once you divide the amount by the months of work and by the team members, it’s much smaller than the first number suggests.">سأكون صريحاً معك: حين تقسم المبلغ على أشهر العمل وعلى أعضاء الفريق، يصبح أصغر بكثير مما يبدو في الرقم الأول.</p>
+      <h2 class="reveal" data-en="Is 250 JOD a lot? <em>Let’s do the math.</em>">هل 250 د.أ كثيرة؟ <em>فلنحسبها.</em></h2>
+      <p class="sec-desc reveal" data-d="1" data-en="Three months of work, shared by your team. Retaking the course would mean extra fees and a delayed semester.">ثلاثة أشهر من العمل يتقاسمها فريقك. أما إعادة المادة فتعني رسوماً إضافية وفصلاً متأخراً.</p>
 
       <div class="calc reveal" data-d="1">
         <div class="receipt">
           <div class="rc-head"><span>HAMZEH AL-TAL</span><span>#GRAD-<span class="yr">2026</span></span></div>
           <ul class="rc-list">
-            <li><span data-en="A complete project: code, database and interfaces">مشروع كامل: كود وقاعدة بيانات وواجهات</span><span class="ok">✓</span></li>
-            <li><span data-en="ERD analysis and documentation in your university’s format">تحليل ERD وتوثيق بصيغة جامعتك</span><span class="ok">✓</span></li>
+            <li><span data-en="A complete project: code, database, interfaces">مشروع كامل: كود وقاعدة بيانات وواجهات</span><span class="ok">✓</span></li>
+            <li><span data-en="Documentation in your university’s format">توثيق بصيغة جامعتك</span><span class="ok">✓</span></li>
             <li><span data-en="An AI feature with its explanation">ميزة ذكاء اصطناعي مع شرحها</span><span class="free" data-en="FREE">مجاناً</span></li>
-            <li><span data-en="Explanation sessions and recorded lectures">جلسات شرح ومحاضرات مسجّلة</span><span class="ok">✓</span></li>
-            <li><span data-en="A mock defense with committee questions">بروفة مناقشة وأسئلة اللجنة</span><span class="ok">✓</span></li>
-            <li><span data-en="Revisions within scope and 3 months of follow-up">تعديلات ضمن الاتفاق ومتابعة 3 أشهر</span><span class="ok">✓</span></li>
+            <li><span data-en="Explanation, recorded lectures, mock defense">شرح ومحاضرات مسجّلة وبروفة مناقشة</span><span class="ok">✓</span></li>
+            <li><span data-en="Revisions and 3 months of follow-up">تعديلات ومتابعة 3 أشهر</span><span class="ok">✓</span></li>
           </ul>
           <div class="rc-total"><span data-en="Total (final)">الإجمالي (نهائي)</span><b id="rcTotal"><bdi>250</bdi><small>د.أ</small></b></div>
-          <p class="rc-note" data-en="Illustrative. Your project’s final price is written down before we start.">عرض توضيحي. السعر النهائي لمشروعك يُكتب لك قبل البدء.</p>
+          <p class="rc-note" data-en="Your project’s final price is written down before we start.">السعر النهائي لمشروعك يُكتب لك قبل البدء.</p>
         </div>
 
         <div class="calc-panel">
@@ -1380,74 +1234,25 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
             <div class="chips" id="priceChips"></div>
           </div>
           <div class="calc-row">
-            <span class="lbl" data-en="How many students on the team?">كم طالباً في الفريق؟</span>
+            <span class="lbl" data-en="Students on the team">عدد الطلاب في الفريق</span>
             <div class="chips" id="teamChips"></div>
           </div>
           <div class="calc-out" aria-live="polite">
             <div class="co-main"><span data-en="Each student pays">حصّة كل طالب</span><b id="coEach">83.3</b><small data-en="JOD">د.أ</small></div>
             <div class="co-grid">
-              <div><b id="coFirst">41.7</b><span data-en="first payment per student (50%)">الدفعة الأولى لكل طالب (50%)</span></div>
+              <div><b id="coFirst">41.7</b><span data-en="first payment (50%)">الدفعة الأولى (50%)</span></div>
               <div><b id="coWeek">6.94</b><span data-en="per week (12 weeks)">في الأسبوع (12 أسبوعاً)</span></div>
-              <div><b id="coDay">0.93</b><span data-en="per day (about 90 days)">في اليوم (نحو 90 يوماً)</span></div>
+              <div><b id="coDay">0.93</b><span data-en="per day (about 90)">في اليوم (نحو 90 يوماً)</span></div>
             </div>
           </div>
           <a class="btn btn-solid" id="calcCta" href="#" target="_blank" rel="noopener"><span data-en="Book your project at this share">احجز مشروعك بهذه الحصّة</span></a>
         </div>
       </div>
 
-      <div class="why-grid">
-        <article class="card why-card reveal">
-          <span class="why-num">3×30</span>
-          <h3 data-en="Three months of my time on your project">ثلاثة أشهر من وقتي لمشروعك</h3>
-          <p data-en="I don’t hand you files and vanish. I work with you week by week: analysis, build, AI, documentation, then defense rehearsal.">لا أسلّمك ملفات وأختفي. أعمل معك أسبوعاً بأسبوع: تحليل، بناء، ذكاء اصطناعي، توثيق، ثم بروفة المناقشة.</p>
-        </article>
-        <article class="card why-card reveal" data-d="1">
-          <span class="why-num">GPA</span>
-          <h3 data-en="Your grade is worth more than the price">علامتك أغلى من المبلغ</h3>
-          <p data-en="The graduation project is one of the most important courses; its grade counts toward your GPA and comes up in your first job interviews. Retaking it means extra fees and a delayed graduation.">مشروع التخرّج من أهم مواد الخطة، وعلامته تدخل في معدّلك ويُسأل عنه في أول مقابلة عمل. وإعادته تعني رسوماً إضافية وفصلاً متأخراً.</p>
-        </article>
-        <article class="card why-card reveal" data-d="2">
-          <span class="why-num">ALL</span>
-          <h3 data-en="Everything is inside the price">كل شيء داخل السعر</h3>
-          <p data-en="Code, database, documentation, explanation, mock defense, revisions and a free AI feature. No extra line items to surprise you.">كود، قاعدة بيانات، توثيق، شرح، بروفة مناقشة، تعديلات، وميزة ذكاء اصطناعي مجانية. لا بنود إضافية تفاجئك.</p>
-        </article>
-        <article class="card why-card reveal" data-d="3">
-          <span class="why-num">÷ 3–4</span>
-          <h3 data-en="The team shares the cost">الفريق يتقاسم المبلغ</h3>
-          <p data-en="Most projects are team projects. With 3 or 4 students each share is small, and it’s paid in two instalments.">أغلب المشاريع جماعية. مع 3 أو 4 طلاب يصبح نصيب الواحد مبلغاً بسيطاً، ويُدفع على دفعتين.</p>
-        </article>
-      </div>
-
       <div class="road reveal">
-        <h3 class="steps-title" data-en="Three months with you, week by week">ثلاثة أشهر معك، أسبوعاً بأسبوع</h3>
+        <h3 class="steps-title" data-en="Three months, week by week">ثلاثة أشهر، أسبوعاً بأسبوع</h3>
         <div class="road-bar" id="roadBar" aria-hidden="true"></div>
         <div class="road-list" id="roadList"></div>
-      </div>
-
-      <div class="costs reveal">
-        <div class="bad">
-          <h3 data-en="What does stumbling cost?">ما تكلفة التعثّر؟</h3>
-          <ul>
-            <li data-en="Extra credit-hour fees to retake the course">رسوم ساعات إضافية لإعادة المادة</li>
-            <li data-en="An extra semester and a delayed graduation">فصل دراسي إضافي وتأخّر في التخرّج</li>
-            <li data-en="A late start in the job market">تأخّر في دخول سوق العمل</li>
-            <li data-en="Long stress before every defense">ضغط نفسي طويل قبل كل مناقشة</li>
-          </ul>
-        </div>
-        <div class="good">
-          <h3 data-en="And with me?">ومعي؟</h3>
-          <ul>
-            <li data-en="One small amount, shared by the team">مبلغ واحد بسيط يتقاسمه الفريق</li>
-            <li data-en="A guaranteed grade above 85">علامة مضمونة فوق 85</li>
-            <li data-en="Real understanding and confidence in front of the committee">فهم حقيقي لمشروعك وثقة أمام اللجنة</li>
-            <li data-en="An AI feature that sets your project apart">ميزة ذكاء اصطناعي تميّز مشروعك</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cta-band reveal">
-        <div><b data-en="Ready to start? One message is enough.">جاهز تبدأ؟ رسالة واحدة تكفي.</b><span data-en="The price is final and written, and payment is in two parts: 50% on agreement, 50% on delivery.">السعر نهائي ومكتوب، والدفع على دفعتين: 50% عند الاتفاق و50% عند التسليم.</span></div>
-        <a class="btn btn-solid" href="https://wa.me/962772372187" target="_blank" rel="noopener"><span data-en="Start on WhatsApp">ابدأ على واتساب</span></a>
       </div>
     </div>
   </section>
@@ -1456,7 +1261,7 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   <section id="faq" class="sec tight">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num" data-en="10 — FAQ">10 — أسئلة شائعة</span>
+        <span class="sec-num" data-en="09 — FAQ">09 — أسئلة شائعة</span>
         <span class="grow"></span>
       </div>
       <h2 class="reveal" data-en="Questions every student asks<em>.</em>">أسئلة يسألها كل طالب<em>.</em></h2>
@@ -1468,20 +1273,20 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   <section id="contact" class="sec contact deep">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num" data-en="11 — Contact">11 — تواصل</span>
+        <span class="sec-num" data-en="10 — Contact">10 — تواصل</span>
         <span class="grow"></span>
       </div>
       <h2 class="reveal" data-en="Ready to start? WhatsApp is fastest<em>.</em>">جاهز للبدء؟ واتساب هو الأسرع<em>.</em></h2>
       <div class="contact-grid">
 
         <div class="contact-info reveal" data-d="1">
-          <p data-en="Send me your project details (university, requirements, deadline) and you’ll get a clear offer and a build plan within 24 hours. No emails, no forms lost in the void. Everything happens directly on WhatsApp.">أرسل لي تفاصيل مشروعك (الجامعة والمتطلبات وموعد التسليم) وسيصلك عرض واضح وخطة تنفيذ خلال 24 ساعة. بلا بريد إلكتروني وبلا نماذج تضيع. كل شيء يتم مباشرةً على واتساب.</p>
+          <p data-en="Send your project details (university, requirements, deadline) and you’ll get a written offer and a build plan within 24 hours. Everything happens directly on WhatsApp.">أرسل تفاصيل مشروعك (الجامعة والمتطلبات وموعد التسليم) فيصلك عرض مكتوب وخطة تنفيذ خلال 24 ساعة. كل شيء مباشرةً على واتساب.</p>
 
           <a class="wa-big" href="https://wa.me/962772372187?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%AD%D9%85%D8%B2%D8%A9%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AA%D8%AE%D8%B1%D8%AC" target="_blank" rel="noopener">
             <span class="wa-ic"><svg><use href="#ic-wa"/></svg></span>
             <span class="wa-body">
               <b data-en="WhatsApp: Hamzeh Al-Tal">واتساب: حمزة التل</b>
-              <small data-en="Tap to chat directly. Replies within 24 hours at most">اضغط وتحدّث مباشرة. الرد خلال 24 ساعة كحد أقصى</small>
+              <small data-en="Tap to chat directly. Replies within 24 hours">اضغط وتحدّث مباشرة. الرد خلال 24 ساعة</small>
             </span>
             <svg class="ic c-arr arr-flip"><use href="#i-arrow-up-left"/></svg>
           </a>
@@ -1503,7 +1308,7 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
 
         <form class="quick-form reveal" data-d="2" id="waForm" novalidate>
           <h3 data-en="Quick request via WhatsApp">طلب سريع عبر واتساب</h3>
-          <p data-en="Fill in the fields and I’ll prepare a ready message. You can edit it before sending.">عبّئ الحقول وسأجهّز لك رسالة جاهزة، ويمكنك تعديلها قبل الإرسال.</p>
+          <p data-en="Fill in the fields and I’ll prepare a ready message you can edit before sending.">عبّئ الحقول وسأجهّز لك رسالة جاهزة تعدّلها قبل الإرسال.</p>
           <div class="field">
             <label for="fName" data-en="Your name">اسمك</label>
             <input id="fName" type="text" data-en-ph="e.g. Sara Khatib" placeholder="مثال: سارة الخطيب" autocomplete="name">
@@ -1525,7 +1330,7 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
             </div>
           </div>
           <div class="field">
-            <div class="flabel" id="teamLbl" data-en="How many students on the project?">كم طالباً في المشروع؟</div>
+            <div class="flabel" id="teamLbl" data-en="How many students?">كم طالباً في المشروع؟</div>
             <div class="pill-group" role="radiogroup" aria-labelledby="teamLbl">
               <label class="pill"><input type="radio" name="team" value="1"><span>1</span></label>
               <label class="pill"><input type="radio" name="team" value="2"><span>2</span></label>
@@ -1536,19 +1341,11 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
             <div class="est" id="fEst"></div>
           </div>
           <div class="field">
-            <div class="flabel" id="aiLbl" data-en="AI feature (free, scaled to your idea)">ميزة الذكاء الاصطناعي (مجانية حسب حجم الفكرة)</div>
-            <div class="pill-group" role="radiogroup" aria-labelledby="aiLbl">
-              <label class="pill"><input type="radio" name="aiopt" value="أريد ميزة ذكاء اصطناعي" data-v-en="I want an AI feature"><span data-en="I want one">أريدها</span></label>
-              <label class="pill"><input type="radio" name="aiopt" value="غير متأكد وأريد أن أعرف أكثر" data-v-en="Not sure, I’d like to know more"><span data-en="Not sure yet">غير متأكد</span></label>
-              <label class="pill"><input type="radio" name="aiopt" value="بدون ذكاء اصطناعي" data-v-en="No AI needed"><span data-en="No AI">بدونها</span></label>
-            </div>
-          </div>
-          <div class="field">
             <label for="fDet" data-en="Details (optional)">تفاصيل (اختياري)</label>
             <textarea id="fDet" rows="3" data-en-ph="Requirements, deadline, professor’s notes..." placeholder="المتطلبات، موعد التسليم، أي ملاحظة من الدكتور..."></textarea>
           </div>
           <button class="btn btn-solid" type="submit"><span data-en="Send via WhatsApp">إرسال عبر واتساب</span> <svg class="ic"><use href="#i-send"/></svg></button>
-          <p class="form-hint" data-en="The message opens in your own WhatsApp before sending. Nothing is stored or sent anywhere else.">تُفتح الرسالة في واتساب الخاص بك قبل الإرسال، ولا يُحفظ أو يُرسل أي شيء إلى مكان آخر.</p>
+          <p class="form-hint" data-en="The message opens in your own WhatsApp before sending. Nothing is stored anywhere else.">تُفتح الرسالة في واتساب الخاص بك قبل الإرسال، ولا يُحفظ شيء في مكان آخر.</p>
         </form>
       </div>
     </div>
@@ -1572,19 +1369,24 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
   </div>
 </footer>
 
-<!-- نافذة لقطات المشروع -->
+<!-- نافذة معرض المشروع: صور + شرح -->
 <div id="pModal" class="pmodal" role="dialog" aria-modal="true" aria-labelledby="pmTitle" hidden>
   <div class="pm-bar">
     <h3 id="pmTitle"></h3>
     <span class="pm-count" id="pmCount"></span>
     <button type="button" class="pm-close" id="pmClose" aria-label="إغلاق"><svg class="ic"><use href="#i-x"/></svg></button>
   </div>
-  <div class="pm-stage" id="pmStage">
-    <button type="button" class="pm-nav pm-prev" id="pmPrev" aria-label="السابق"><svg class="ic"><use href="#i-chev-l"/></svg></button>
-    <img id="pmImg" alt="">
-    <button type="button" class="pm-nav pm-next" id="pmNext" aria-label="التالي"><svg class="ic"><use href="#i-chev-r"/></svg></button>
+  <div class="pm-body">
+    <div class="pm-main">
+      <div class="pm-stage" id="pmStage">
+        <button type="button" class="pm-nav pm-prev" id="pmPrev" aria-label="السابق"><svg class="ic"><use href="#i-chev-l"/></svg></button>
+        <img id="pmImg" alt="">
+        <button type="button" class="pm-nav pm-next" id="pmNext" aria-label="التالي"><svg class="ic"><use href="#i-chev-r"/></svg></button>
+      </div>
+      <div class="pm-thumbs" id="pmThumbs"></div>
+    </div>
+    <aside class="pm-info" id="pmInfo"></aside>
   </div>
-  <div class="pm-thumbs" id="pmThumbs"></div>
 </div>
 
 <!-- النوافذ السفلية: قائمة «المزيد» (موبايل) و«قبل أن تغادر» -->
@@ -1597,7 +1399,7 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
     <a class="more-item hot" href="#ai"><svg class="ic"><use href="#i-sparkles"/></svg><span data-en="Free AI feature">ذكاء اصطناعي مجاني</span></a>
     <a class="more-item" href="#about"><svg class="ic"><use href="#i-user"/></svg><span data-en="About me">نبذة عني</span></a>
     <a class="more-item" href="#why"><svg class="ic"><use href="#i-shield"/></svg><span data-en="Why me">لماذا أنا</span></a>
-    <a class="more-item" href="#ready"><svg class="ic"><use href="#i-layers"/></svg><span data-en="Ready projects">مشاريع جاهزة</span></a>
+    <a class="more-item" href="#projects"><svg class="ic"><use href="#i-image"/></svg><span data-en="My projects">مشاريعي</span></a>
     <a class="more-item" href="#ideas"><svg class="ic"><use href="#i-bulb"/></svg><span data-en="Project ideas">أفكار مشاريع</span></a>
     <a class="more-item" href="#worth"><svg class="ic"><use href="#i-calculator"/></svg><span data-en="Split the price">احسب حصّتك</span></a>
     <a class="more-item" href="#faq"><svg class="ic"><use href="#i-help"/></svg><span data-en="FAQ">أسئلة شائعة</span></a>
@@ -1631,6 +1433,11 @@ footer{background:var(--deep);color:#F1EDDF;border-top:1px solid #2C2920}
     <a class="btn btn-solid" id="exitCta" href="#" target="_blank" rel="noopener"><span data-en="Start on WhatsApp">ابدأ على واتساب</span></a>
     <button type="button" class="exit-skip" data-close-sheet data-en="I’ll keep browsing">سأكمل التصفّح</button>
   </div>
+</aside>
+
+<aside class="sheet sheet-wide" id="ideaSheet" role="dialog" aria-modal="true" aria-labelledby="ideaTitle" aria-hidden="true">
+  <div class="sheet-grab" data-grab></div>
+  <div id="ideaBody"></div>
 </aside>
 
 <!-- زر واتساب العائم (الديسكتوب) -->
@@ -1672,194 +1479,215 @@ const T = {
 
 /* ===================== البيانات (✏️ عدّلها بسهولة) ===================== */
 
-/* ✏️ مشاريعي: dir = مجلد الصور، shots = أسماء ملفات اللقطات داخل المجلد.
-   مثال: ضع الصور في  projects/clinic/1.jpg  و 2.jpg ... ثم اكتب shots:['1.jpg','2.jpg']
-   إذا تركت shots فارغة أو الصورة غير موجودة تظهر لقطة بديلة مؤقتة. */
+/* ✏️ مشاريعي (حقيقية). الصور في المجلد images/<اسم المشروع>/1.jpg ... 15.jpg
+   الكود يكتشف تلقائياً اسم المجلد (بأي حالة أحرف أو مسافات أو شرطات) والامتداد وعدد الصور (حتى 25).
+   لو كان اسم مجلد مشروع مختلفاً تماماً: أضف dir:'اسم-المجلد-بالضبط' لذلك المشروع. */
 const PROJECTS = [
-  { ar:'نظام إدارة عيادات',     en:'Clinic Management System',   dir:'projects/clinic',   shots:[] },
-  { ar:'متجر إلكتروني',          en:'E-commerce Store',           dir:'projects/shop',     shots:[] },
-  { ar:'نظام إدارة مستشفى',      en:'Hospital Management System', dir:'projects/hospital', shots:[] },
-  { ar:'تطبيق توصيل طلبات',      en:'Order Delivery App',         dir:'projects/delivery', shots:[] },
-  { ar:'لوحة تحليلات مبيعات',    en:'Sales Analytics Dashboard',  dir:'projects/analytics',shots:[] },
-  { ar:'تطبيق مصاريف شخصية',     en:'Personal Expense Tracker',   dir:'projects/expense',  shots:[] }
+  { ar:'JO BEST', en:'JO BEST', names:['JO BEST','JoBest'], tag:{ar:'ويب · أفلام',en:'Web · Movies'}, ai:true,
+    tech:['React','MySQL','TMDB API','AI chatbot'],
+    d:{ar:'مشروع ويب متخصص بالأفلام، يوفّر محرك بحث فوري للأفلام والإعلانات الترويجية (Trailers)، مع شات بوت ذكي يصف له المستخدم مشهداً من فيلم فيتعرّف على الفيلم ويقترح أفلاماً مشابهة. الهدف سدّ الفجوة في المنصات العربية التي تفتقر إلى بحث ذكي عن الأفلام.',
+       en:'A movie-focused web platform with instant search for films and trailers, plus a smart chatbot: describe a scene and it identifies the film and suggests similar ones. Built to fill the gap in Arabic platforms that lack smart movie search.'} },
+  { ar:'JOOD (جود)', en:'JOOD', names:['JOOD','Jood'], tag:{ar:'ويب · طبخ وصحة',en:'Web · Cooking & health'}, ai:true,
+    tech:['React','GPT API','Spoonacular','TheMealDB'],
+    d:{ar:'منصة طبخ ذكية تعتمد كلياً على واجهات برمجية (APIs) دون قاعدة بيانات محلية. يُدخل المستخدم المكوّنات المتوفرة عنده فيولّد الذكاء الاصطناعي (GPT) وصفات مخصصة بحسب صحته وحميته الغذائية، مع توصيات صحية ومخطط وجبات أسبوعي ووجبات للأطفال ومجلة «جود».',
+       en:'A smart cooking platform that runs entirely on APIs with no local database. Enter the ingredients you have and AI (GPT) generates recipes tailored to your health and diet, with health tips, a weekly meal planner, kids’ meals and the “Jood” magazine.'} },
+  { ar:'Kiddo', en:'Kiddo', names:['Kiddo'], tag:{ar:'ويب · تعليم الأطفال',en:'Web · Kids’ education'}, ai:true,
+    tech:['React.js','Laravel','MySQL','Web Speech API'],
+    d:{ar:'منصة تعليمية تفاعلية لتعليم اللغة الإنجليزية لطلاب الصف الأول في الأردن، مبنية على منهج «Team Together» الرسمي. تستخدم الألعاب والصوت والصور، وWeb Speech API لتدريب الطفل على النطق وتقييمه، وفيها لوحة متابعة للأهالي مدعومة بالذكاء الاصطناعي.',
+       en:'An interactive platform for teaching English to first graders in Jordan, based on the official “Team Together” curriculum. It uses gamification, audio and images, and the Web Speech API to train and grade the child’s pronunciation, with an AI-powered parents’ dashboard.'} },
+  { ar:'Mind Gate', en:'Mind Gate', names:['Mind Gate','MindGate'], tag:{ar:'ويب · الصحة النفسية',en:'Web · Mental health'}, ai:true,
+    tech:['React','Laravel','MySQL','Chatbot'],
+    d:{ar:'منصة ويب ذكية لدعم الصحة النفسية: تقييم أولي بالذكاء الاصطناعي، ومطابقة ذكية بين المستخدم والأخصائي المناسب، وحجز مواعيد، وتتبّع يومي للمزاج، وروبوت محادثة للدعم العاطفي الفوري، بنظام أدوار (مستخدم / طبيب / أدمن).',
+       en:'A smart web platform for mental-health support: an AI-powered initial assessment, smart matching between the user and the right specialist, appointment booking, daily mood tracking and a chatbot for instant emotional support, with roles (user / doctor / admin).'} },
+  { ar:'PCA – Pet Care Application', en:'PCA – Pet Care Application', names:['PCA','Pet Care Application','PetCare'], tag:{ar:'تطبيق موبايل · حيوانات أليفة',en:'Mobile app · Pets'}, ai:false,
+    tech:['Flutter','Dart','Firebase'],
+    d:{ar:'تطبيق موبايل للعناية بالحيوانات الأليفة في الأردن، وهو الأول من نوعه في المنطقة. يجمع الخدمات في مكان واحد: التبنّي، والبيع والشراء، والإبلاغ عن حيوان ضائع، والعيادات البيطرية، ومتاجر المستلزمات، والتواصل مع جمعيات حقوق الحيوان.',
+       en:'A mobile app for pet care in Jordan, the first of its kind in the region. It brings services together in one place: adoption, buying and selling, reporting a lost pet, veterinary clinics, pet-supply stores and contact with animal-rights associations.'} },
+  { ar:'Smart Study Planner (SSP)', en:'Smart Study Planner (SSP)', names:['SSP','Smart Study Planner','SmartStudyPlanner'], tag:{ar:'ويب · تخطيط دراسي',en:'Web · Study planning'}, ai:true,
+    tech:['React','Laravel','MySQL','OpenAI API'],
+    d:{ar:'منصة ويب ذكية تساعد طلاب الجامعة على تنظيم دراستهم. تحلّل معلومات الطالب (المواد الصعبة والساعات المتاحة والأهداف) وتولّد جدولاً دراسياً يومياً وأسبوعياً مخصصاً عبر OpenAI API، مع تتبّع مستمر للتقدّم وتعديل تلقائي للخطة إذا تأخّر الطالب.',
+       en:'A smart web platform that helps university students organize their study. It analyzes the student’s info (hard subjects, available hours, goals) and generates a personalized daily and weekly schedule via the OpenAI API, with continuous progress tracking and automatic plan adjustment if the student falls behind.'} },
+  { ar:'Syntax Store', en:'Syntax Store', names:['Syntax Store','SyntaxStore'], tag:{ar:'ويب · متجر إلكتروني',en:'Web · E-commerce'}, ai:true,
+    tech:['Laravel','MySQL','Admin panel','AI assistant'],
+    d:{ar:'متجر إلكتروني متخصص بمنتجات المبرمجين وعشاق التقنية في الأردن، يبيع أدوات وملحقات وكتباً تقنية، مع خدمات مدعومة بالذكاء الاصطناعي مثل مساعد لأسئلة البرمجة ومراجعة الكود وكشف الأخطاء، ولوحة تحكم كاملة للأدمن (طلبات، كوبونات، بانرات).',
+       en:'An online store specialized in products for programmers and tech lovers in Jordan, selling tools, accessories and technical books, with AI-powered services such as a coding Q&A assistant, code review and bug detection, and a full admin panel (orders, coupons, banners).'} },
+  { ar:'Taafi (تعافي)', en:'Taafi', names:['Taafi','Tafi'], tag:{ar:'ويب · التعافي من الإدمان',en:'Web · Addiction recovery'}, ai:true,
+    tech:['Laravel 11','React','MySQL','Arabic UI'],
+    d:{ar:'منصة ويب ذكية لمساعدة الأشخاص على التعافي من الإدمان (التدخين، الإنترنت، الألعاب وغيرها). تجمع تتبّعاً سلوكياً يومياً، وتسجيل الرغبات والانتكاسات، وخطة تعافٍ مخصصة، ومؤشراً لخطر الانتكاس، ودردشة بالذكاء الاصطناعي للدعم النفسي، ودعماً فورياً وقت الخطر، بواجهة عربية.',
+       en:'A smart web platform that helps people recover from addiction (smoking, internet, gaming and more). It combines daily behavior tracking, logging cravings and relapses, a personalized recovery plan, a relapse-risk indicator, an AI chat for emotional support and instant emergency support, with an Arabic interface.'} },
+  { ar:'Tripplus+', en:'Tripplus+', names:['Tripplus+','Tripplus','TripPlus','Trip Plus'], tag:{ar:'ويب · سياحة',en:'Web · Tourism'}, ai:true,
+    tech:['React','Laravel','MySQL','AI recommendations'],
+    d:{ar:'منصة سياحية ذكية توحّد خدمات السفر في مكان واحد: البحث عن الوجهات، وباقات رحلات منتقاة، وحجز مرن، ومحرك توصيات بالذكاء الاصطناعي، وشات بوت للإرشاد الفوري. وتدعم شركات السياحة المحلية بإدارة باقاتها وحجزها مباشرة عبر المنصة.',
+       en:'A smart tourism platform that unifies travel services in one place: destination search, curated trip packages, flexible booking, an AI recommendation engine and a chatbot for instant guidance. It also supports local travel companies in managing and booking their packages directly on the platform.'} },
+  { ar:'رفيق', en:'Rafeeq', names:['rafeeq','Rafeeq','رفيق'], single:true, first:['rafeeq','Rafeeq','RAFEEQ','1'], exts:['png','pmg','jpg','jpeg','webp','PNG','JPG'], rootToo:true,
+    tag:{ar:'مشروع',en:'Project'}, ai:false, tech:[],
+    d:{ar:'',en:''} }
 ];
 
-/* ✏️ المشاريع الجاهزة للشراء */
-const READY = [
-  { ar:'نظام إدارة عيادات', en:'Clinic Management System', cat:{ar:'ويب + قاعدة بيانات',en:'Web + Database'}, tech:['Laravel','MySQL'],
-    d:{ar:'حجز المواعيد، ملفات المرضى، الوصفات والفواتير مع لوحة تحكم وتقارير.',en:'Appointments, patient files, prescriptions and invoices with an admin panel and reports.'} },
-  { ar:'متجر إلكتروني متكامل', en:'Complete E-commerce Store', cat:{ar:'ويب Full-Stack',en:'Full-Stack Web'}, tech:['Laravel','React','MySQL'],
-    d:{ar:'سلة مشتريات، طلبات، إدارة منتجات ومخزون، ولوحة تحكم بصلاحيات.',en:'Cart, orders, product and stock management, and a role-based admin panel.'} },
-  { ar:'تطبيق مصاريف شخصية', en:'Personal Expense Tracker', cat:{ar:'تطبيق موبايل',en:'Mobile App'}, tech:['React Native','Firebase'],
-    d:{ar:'تسجيل المصاريف والدخل، تصنيفات، ورسوم بيانية شهرية، يعمل على أندرويد وآيفون.',en:'Log income and expenses, categories and monthly charts. Runs on Android and iPhone.'} }
-];
-
-/* ✏️ أفكار مشاريع: كل فكرة = مشكلة حقيقية + ميزة جديدة + ذكاء اصطناعي بسيط + وحدات + جداول + نقطة قوة أمام اللجنة */
-const IDEA_CATS = {
-  web:    { ar:'ويب وقواعد بيانات', en:'Web & Database' },
-  mobile: { ar:'تطبيق موبايل',      en:'Mobile App' },
-  data:   { ar:'تحليل بيانات',      en:'Data Analytics' }
-};
+/* ✏️ أفكار مشاريع أردنية بالذكاء الاصطناعي: sector القطاع، hook الميزة الجديدة، jo لماذا تناسب الأردن، how الذكاء الاصطناعي ببساطة.
+   تُعرض كبطاقة مدمجة، وتُفتح تفاصيلها بالضغط. */
 const IDEAS = [
-  { k:'web', lvl:{ar:'متقدم',en:'Advanced'}, wk:{ar:'10–12 أسبوعاً',en:'10–12 weeks'}, tech:['Laravel','React','MySQL'], ai:['Speech-to-Text','LLM'],
-    ar:'لجنة المناقشة الافتراضية', en:'Virtual Defense Committee',
-    hook:{ar:'الجديد: لجنة ذكية تسمع إجابتك بصوتك وتقيّمها من وثائق مشروعك أنت.',
-          en:'New: a smart committee that listens to your spoken answers and grades them against your own project documents.'},
-    prob:{ar:'الطلاب يتدرّبون على المناقشة أمام المرآة أو مع أصدقائهم، فلا يعرفون الأسئلة الحقيقية ولا مدى دقّة إجاباتهم، فيرتبكون يوم المناقشة.',
-          en:'Students rehearse in front of a mirror or with friends, never knowing the real questions or how accurate their answers are, then freeze on the day.'},
-    sol:{ar:'منصّة ترفع إليها وثائق مشروعك فتولّد أسئلة بثلاث مستويات صعوبة، وتستمع لإجابتك صوتياً وتقارنها بما كُتب في الوثائق، ثم تعطيك درجة وملاحظات وخريطة بنقاط ضعفك.',
-         en:'Upload your project documents and the platform generates questions at three difficulty levels, listens to your spoken answer, compares it with what the documents say, then gives you a score, feedback and a map of your weak spots.'},
-    how:{ar:'نموذج لغوي يقرأ الوثائق ويصيغ الأسئلة، وخدمة تحويل الكلام إلى نص تكتب إجابتك، ثم تُقارَن بالوثائق لحساب درجة التطابق. ببساطة: سؤال ← إجابة ← مقارنة ← درجة.',
-         en:'A language model reads the documents and writes the questions; speech-to-text turns your answer into text, which is compared with the documents for a match score. Simply: question → answer → compare → score.'},
-    mods:{ar:['رفع الوثائق وتقسيمها إلى أقسام','توليد أسئلة بثلاث مستويات صعوبة','تسجيل الإجابة صوتياً وتحويلها إلى نص','تقييم الإجابة وإبراز ما فاتك مقارنةً بالوثائق','خريطة نقاط الضعف وتقدّمك عبر الجلسات'],
-          en:['Upload documents and split them into sections','Generate questions at three difficulty levels','Record the answer by voice and transcribe it','Grade the answer and highlight what you missed against the documents','A weak-spot map and your progress across sessions']},
-    tbl:['students','projects','documents','doc_chunks','questions','sessions','answers','scores'],
-    win:{ar:'تصميم واضح قابل للشرح: الإجابة تُقيَّم من وثائق المشروع نفسه لا من «رأي» النموذج، ويمكنك عرض جلسة تدريب حيّة أمام اللجنة.',
-         en:'A clear, explainable design: answers are graded against the project’s own documents, not the model’s “opinion”, and you can run a live practice session in front of the committee.'} },
+  { sector:{ar:'التعليم',en:'Education'}, lvl:{ar:'متوسط إلى متقدم',en:'Intermediate to advanced'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','React','MySQL','Charts'], ai:['Prediction model','LLM'],
+    ar:'مرشد القبول الموحد الذكي', en:'Smart Unified-Admission Advisor',
+    hook:{ar:'يخبرك باحتمال قبولك في كل تخصص وجامعة قبل أن ترتّب رغباتك، ويقترح بدائل أذكى.',
+          en:'Tells you your chance of admission to each major and university before you rank your choices, and suggests smarter alternatives.'},
+    prob:{ar:'يرتّب طلاب التوجيهي رغباتهم في القبول الموحد بنصيحة الأهل والأصدقاء غالباً، بينما تتغيّر حدود القبول من سنة لأخرى، فيخسر بعضهم تخصصاً أو جامعة بفارق بسيط.',
+          en:'Tawjihi students often rank their unified-admission choices on advice from family and friends, while cut-offs shift from year to year, so some miss a major or university by a small margin.'},
+    sol:{ar:'تُدخل معدلك وفرعك ورغباتك، فيقدّر النظام احتمال القبول في كل خيار من بيانات السنوات السابقة، ويقترح ترتيباً أذكى للرغبات وبدائل قريبة، مع الرسوم ونظرة على سوق العمل لكل تخصص، ويتيح لك محاكاة «ماذا لو ارتفعت حدود القبول؟».',
+         en:'Enter your average, track and preferences; the system estimates the chance of admission to each option from past years’ data, proposes a smarter ranking and close alternatives, shows fees and a job-market outlook per major, and lets you simulate “what if cut-offs rise?”.'},
+    jo:{ar:'القبول الموحد قرار مصيري لعشرات الآلاف كل عام، ومع نظام الفروع والمسارات الجديد في التوجيهي يزداد احتياج الطلاب إلى إرشاد مبني على بيانات.',
+        en:'Unified admission is a life-shaping decision for tens of thousands each year, and with the new Tawjihi fields-and-tracks system students need data-based guidance more than ever.'},
+    how:{ar:'نموذج تنبؤ بسيط يقارن معدلك بحدود القبول السابقة واتجاهها فيعطي نسبة احتمال، ونموذج لغوي يشرح لك النتيجة بكلمات بسيطة.',
+         en:'A simple prediction model compares your average with past cut-offs and their trend to give a probability, and a language model explains the result in plain words.'},
+    mods:{ar:['قاعدة حدود القبول التاريخية لكل جامعة وتخصص','تقدير احتمال القبول لكل رغبة','محاكاة «ماذا لو» وترتيب أذكى للرغبات','الرسوم ونظرة على سوق العمل لكل تخصص'],
+          en:['A historical cut-off database per university and major','Admission probability per choice','“What if” simulation and a smarter ranking','Fees and a job-market outlook per major']},
+    tbl:['students','tracks','universities','majors','cutoffs_history','predictions','fees','job_outlook'],
+    win:{ar:'يمكنك قياس دقّة التنبؤ على سنة سابقة كاملة وعرض الخطأ بالأرقام أمام اللجنة.',
+         en:'You can measure the prediction accuracy on a whole past year and show the error in numbers to the committee.'} },
 
-  { k:'web', lvl:{ar:'متوسط إلى متقدم',en:'Intermediate to advanced'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','React','MySQL'], ai:['Speech-to-Text','LLM','Search'],
-    ar:'رادار المحاضرة', en:'Lecture Radar',
-    hook:{ar:'الجديد: يلتقط ما أكّد عليه الدكتور وكرّره، ويحوّله إلى خطة مراجعة مرتّبة بالأهمية.',
-          en:'New: catches what the instructor stressed and repeated, and turns it into a revision plan ranked by importance.'},
-    prob:{ar:'الطالب يحضر محاضرة ساعة ويخرج لا يعرف أي نقاطها الأهم، ثم يراجع كل شيء بالتساوي قبل الامتحان.',
-          en:'A student sits through an hour-long lecture without knowing which points mattered most, then revises everything equally before exams.'},
-    sol:{ar:'ترفع تسجيل المحاضرة فيحوّله النظام إلى نص بمؤشرات زمنية، ويستخرج المواضيع، ويرصد التأكيد والتكرار («انتبهوا»، «هاي مهمة»)، ثم يبني ملخصاً وبطاقات مراجعة وخطة دراسة، ويتيح لك سؤال المحاضرة والقفز إلى الدقيقة التي ذُكرت فيها الإجابة.',
-         en:'Upload a lecture recording; the system transcribes it with timestamps, extracts topics, detects emphasis and repetition (“pay attention”, “this is important”), then builds a summary, flashcards and a study plan, and lets you ask the lecture a question and jump to the minute it was answered.'},
-    how:{ar:'تحويل الكلام إلى نص، ثم نموذج لغوي يقسّم النص إلى مواضيع ويلخّصها، وقاعدة بسيطة تحسب «وزن الأهمية» من التكرار وعبارات التأكيد. وعند سؤال المحاضرة يُبحث عن أقرب فقرة ويُجاب منها.',
-         en:'Speech-to-text, then a language model splits the text into topics and summarizes them; a simple rule scores “importance” from repetition and emphasis phrases. When you ask the lecture, the closest passage is found and the answer comes from it.'},
-    mods:{ar:['رفع التسجيل الصوتي وتحويله إلى نص بمؤشرات زمنية','استخراج المواضيع والملخّص','كشف التأكيد والتكرار وحساب وزن الأهمية','بطاقات مراجعة واختبار قصير تلقائي','اسأل المحاضرة مع الانتقال إلى الدقيقة المناسبة'],
-          en:['Upload the audio and transcribe it with timestamps','Extract topics and a summary','Detect emphasis and repetition and compute an importance weight','Flashcards and an automatic mini quiz','Ask the lecture and jump to the right minute']},
-    tbl:['courses','lectures','transcript_segments','topics','emphasis_signals','flashcards','study_plans','qa_history'],
-    win:{ar:'معادلة «وزن الأهمية» قابلة للتعديل والتجربة، فتشرح للجنة كيف تحقّقت من دقّتها بمقارنتها بما اعتبره الطلاب مهماً فعلاً.',
-         en:'The “importance weight” formula is adjustable and testable, so you can show the committee how you checked its accuracy against what students actually found important.'} },
+  { sector:{ar:'الزراعة والمياه',en:'Agriculture & Water'}, lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['React Native','Laravel','MySQL'], ai:['Weather forecast','LLM'],
+    ar:'ريّان: ري ذكي لمزارعي الأغوار', en:'Rayyan: Smart Irrigation for Jordan Valley Farms',
+    hook:{ar:'يقول للمزارع متى يروي وكم يروي لكل محصول، ويحسب كلفة المياه ويوفّر ما يضيع منها.',
+          en:'Tells the farmer when and how much to irrigate each crop, calculates water cost and cuts what gets wasted.'},
+    prob:{ar:'مزارعو الأغوار يعتمدون كلياً على الري والمياه شحيحة وكلفتها ترتفع، فيروون غالباً بالتقدير والعادة، فتضيع مياه ويقلّ الربح.',
+          en:'Jordan Valley farmers depend entirely on irrigation while water is scarce and costly, so they often irrigate by habit and guesswork, wasting water and profit.'},
+    sol:{ar:'يسجّل المزارع محصوله ومساحته ونوع تربته، فيحسب النظام حاجة النبات للماء من توقعات الطقس اليومية، ويصدر جدول ري أسبوعياً بالدقائق والكميات، وينبّه عند الحر الشديد أو الأمطار، ويتتبّع الاستهلاك والكلفة ويقارنها بالموسم السابق.',
+         en:'The farmer records crop, area and soil type; the system calculates the crop’s water need from daily weather forecasts, issues a weekly irrigation schedule in minutes and volumes, alerts on heat waves or rain, and tracks use and cost against last season.'},
+    jo:{ar:'المياه أندر مورد في الأردن، والأغوار مثال مباشر على الحاجة إلى ريّ ذكي، والزراعة والمياه من قطاعات الأولوية للذكاء الاصطناعي في البلاد.',
+        en:'Water is Jordan’s scarcest resource, the Jordan Valley is a direct case for smart irrigation, and agriculture and water are priority sectors for AI in the country.'},
+    how:{ar:'معادلة معروفة لحاجة المحصول من الماء (التبخّر والنتح) تُغذّى بتوقعات الطقس، ونموذج لغوي يحوّل الجدول إلى رسالة بسيطة بالعامية للمزارع.',
+         en:'A well-known crop-water-need formula (evapotranspiration) fed with weather forecasts, and a language model that turns the schedule into a simple message for the farmer.'},
+    mods:{ar:['ملف المزرعة والمحاصيل والتربة','حساب حاجة الماء من الطقس','جدول ري أسبوعي وتنبيهات','متابعة الاستهلاك والكلفة والمقارنة بالموسم السابق'],
+          en:['Farm, crop and soil profile','Water-need calculation from weather','A weekly irrigation schedule and alerts','Usage and cost tracking against last season']},
+    tbl:['farmers','farms','crops','soil_types','weather_forecasts','irrigation_plans','water_usage','costs'],
+    win:{ar:'معادلة علمية معروفة تُشرح وتُثبت، وبياناتها من واجهة طقس مجانية، وتُجرَّب أمام اللجنة بمحاصيل مختلفة.',
+         en:'A well-known scientific formula you can explain and prove, with data from a free weather API, tested in front of the committee with different crops.'} },
 
-  { k:'mobile', lvl:{ar:'متقدم',en:'Advanced'}, wk:{ar:'10–12 أسبوعاً',en:'10–12 weeks'}, tech:['React Native','Laravel','MySQL'], ai:['Vision / OCR','LLM'],
+  { sector:{ar:'الطاقة',en:'Energy'}, lvl:{ar:'متوسط إلى متقدم',en:'Intermediate to advanced'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','React','MySQL','Charts'], ai:['Vision / OCR','LLM'],
+    ar:'شمسي: مستشار الطاقة للبيت الأردني', en:'Shamsi: Energy Advisor for Jordanian Homes',
+    hook:{ar:'صوّر فاتورة الكهرباء فيخبرك هل تركيب الخلايا الشمسية يوفّر عليك، وبأي نظام.',
+          en:'Photograph your electricity bill and find out whether solar actually pays off for you, and with which setup.'},
+    prob:{ar:'تغيّرت قواعد الفوترة للطاقة الشمسية في الأردن وتُخطَّط تعرفة حسب وقت الاستخدام، فلا يعرف صاحب البيت إن كان التركيب مجدياً له، وبأي حجم وأي نظام.',
+          en:'Jordan’s billing rules for solar have changed and a time-of-use tariff is planned, so homeowners can’t tell whether installing pays off, at what size and with which setup.'},
+    sol:{ar:'يقرأ النظام فاتورتك (الاستهلاك والشريحة)، ثم يحاكي أنظمة مختلفة (بدون بطارية أو معها) بحسب قواعد الفوترة والتعرفة، ويحسب التوفير الشهري وفترة استرداد الكلفة، ويقارن عروض شركات التركيب المسجّلة في قاعدة البيانات.',
+         en:'The system reads your bill (consumption and tier), then simulates different setups (with or without a battery) under the billing rules and tariff, computes monthly savings and payback, and compares offers from installers registered in the database.'},
+    jo:{ar:'الأردن يتّجه إلى الطاقة المتجددة وقواعد الفوترة تتبدّل، فتحتاج الأسر إلى حاسبة تواكب هذه القواعد وتُحدَّث بسهولة.',
+        en:'Jordan is moving toward renewables and billing rules keep changing, so households need a calculator that follows the rules and is easy to update.'},
+    how:{ar:'الذكاء الاصطناعي يقرأ الفاتورة فقط. أما الحساب (الشرائح والإنتاج والاسترداد) فمعادلات واضحة تُشرح وتُثبت على الورق.',
+         en:'AI only reads the bill. The calculation itself (tiers, output, payback) is clear formulas you can explain and prove on paper.'},
+    mods:{ar:['قراءة الفاتورة واستخراج الاستهلاك والشريحة','محاكاة الأنظمة بحسب قواعد الفوترة','التوفير وفترة الاسترداد برسوم بيانية','مقارنة عروض شركات التركيب'],
+          en:['Read the bill and extract consumption and tier','Simulate setups under the billing rules','Savings and payback with charts','Compare installer offers']},
+    tbl:['users','bills','tariff_rules','scenarios','system_sizes','installers','quotes','savings'],
+    win:{ar:'القواعد والتعرفة جدول قابل للتحديث دون تعديل الكود، وهذا تصميم يقنع اللجنة بأن المشروع يعيش مع تغيّر القوانين.',
+         en:'Rules and tariffs live in an updatable table, so the project survives changing regulations without code changes, a design the committee will appreciate.'} },
+
+  { sector:{ar:'النقل',en:'Transport'}, lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['React Native','Firebase','Maps'], ai:['Route matching','LLM'],
+    ar:'مشوار: توصيل جامعي مشترك وآمن', en:'Mishwar: Safe Campus Ride-Sharing',
+    hook:{ar:'مطابقة ذكية بين طلاب يسلكون الطريق نفسه إلى الجامعة، مع أمان وتقاسم عادل للأجرة.',
+          en:'Smart matching between students taking the same route to campus, with safety features and fair cost sharing.'},
+    prob:{ar:'يتنقّل كثير من الطلاب يومياً بين المحافظات والجامعات في ظل نقل عام مجزّأ وجداول غير ثابتة، فيدفعون كثيراً ويضيّعون وقتاً، وتبقى مقاعد كثيرة فارغة في السيارات.',
+          en:'Many students commute daily between governorates and campuses with fragmented public transport and unreliable timetables, spending a lot and losing time, while cars drive with empty seats.'},
+    sol:{ar:'يعلن السائق (طالب أو موظف) مساره وموعده، ويحدّد الراكب نقطته وموعده، فيطابق النظام بينهما بحسب القرب والوقت، ويقسّم الأجرة بعدل، ويوفّر خيارات أمان مثل التحقق من الحسابات الجامعية ومشاركة الرحلة مع شخص موثوق وخيار «ركاب من النساء فقط».',
+         en:'A driver (student or employee) posts their route and time and a rider sets their pickup and time; the system matches them by proximity and timing, splits the fare fairly, and offers safety options such as university-account verification, sharing the trip with a trusted contact, and a women-only option.'},
+    jo:{ar:'النقل العام في الأردن ما زال مجزّأً وغير منتظم في كثير من الخطوط، والتنقّل اليومي بين المحافظات والجامعات همّ حقيقي للطلاب.',
+        en:'Public transport in Jordan remains fragmented and irregular on many routes, and the daily commute between governorates and campuses is a real burden for students.'},
+    how:{ar:'خوارزمية مطابقة تحسب درجة توافق بين مسارين (المسافة والوقت)، ونموذج لغوي يلخّص الرحلة ويصيغ رسائل التنسيق بين الطرفين.',
+         en:'A matching algorithm scores two routes (distance and time), and a language model summarizes the trip and drafts coordination messages.'},
+    mods:{ar:['ملفات السائقين والركاب مع التحقق','نشر الرحلات والمطابقة بدرجة توافق','تقسيم الأجرة وتتبّع الرحلة','خيارات الأمان والتقييم المتبادل'],
+          en:['Driver and rider profiles with verification','Posting trips and matching by fit score','Fare splitting and trip tracking','Safety options and mutual ratings']},
+    tbl:['users','verifications','vehicles','trips','requests','matches','payments','ratings'],
+    win:{ar:'درجة التوافق وتقسيم الأجرة خوارزميتان واضحتان تُشرحان بالرسم، والمشكلة يعرفها كل أعضاء اللجنة.',
+         en:'The match score and fare splitting are two clear algorithms you can explain with a diagram, and every committee member knows the problem.'} },
+
+  { sector:{ar:'اللوجستيات',en:'Logistics'}, lvl:{ar:'متقدم',en:'Advanced'}, wk:{ar:'10–12 أسبوعاً',en:'10–12 weeks'}, tech:['Laravel','React','MySQL','Maps'], ai:['Prediction model','LLM'],
+    ar:'جسر العقبة: مطابقة الشاحنات والشحنات', en:'Aqaba Bridge: Smarter Freight Matching',
+    hook:{ar:'يطابق الشاحنات العائدة فارغة مع شحنات في طريقها، ويتوقّع زمن الانتظار قبل أن تصل.',
+          en:'Matches trucks returning empty with loads along their way, and predicts waiting time before they arrive.'},
+    prob:{ar:'مع نمو الترانزيت عبر العقبة نحو العراق تزدحم الساحات وتنتظر الشاحنات طويلاً، وتعود شاحنات كثيرة فارغة بينما يبحث تجار صغار عن ناقل بسعر معقول.',
+          en:'As transit through Aqaba toward Iraq grew, yards get crowded and trucks wait long, many trucks return empty while small traders look for an affordable carrier.'},
+    sol:{ar:'منصة يعلن فيها السائق رحلة العودة وسعتها، وينشر التاجر شحنته، فيقترح النظام الأنسب بحسب المسار والوزن والمهلة، ويتوقّع زمن الانتظار عند الميناء أو المخزن الجاف من البيانات السابقة، ويقترح موعداً يخفّف الازدحام.',
+         en:'A platform where a driver posts the return trip and its capacity and a trader posts a load; the system suggests the best fit by route, weight and deadline, predicts waiting time at the port or dry port from past data, and recommends a time slot that eases congestion.'},
+    jo:{ar:'العقبة بوابة الأردن التجارية، وتشهد حركة ترانزيت وشاحنات متصاعدة ومشاريع لوجستية جديدة مثل الميناء الجاف، فالفكرة قريبة من واقع يُبنى الآن.',
+        en:'Aqaba is Jordan’s trade gateway, with rising transit and truck traffic and new logistics projects such as the dry port, so the idea sits close to something being built right now.'},
+    how:{ar:'نموذج تنبؤ يتعلّم من أزمنة الانتظار السابقة (اليوم والساعة والموسم)، ودرجة توافق تحسب مدى ملاءمة الشحنة للشاحنة.',
+         en:'A prediction model learns from past waiting times (day, hour, season), and a fit score measures how well a load suits a truck.'},
+    mods:{ar:['تسجيل الشاحنات ورحلات العودة','نشر الشحنات ومطابقتها بدرجة توافق','توقّع زمن الانتظار واقتراح مواعيد','تتبّع الحالة وتقييم الطرفين'],
+          en:['Register trucks and return trips','Post loads and match them by fit score','Predict waiting time and suggest slots','Status tracking and mutual ratings']},
+    tbl:['drivers','trucks','trips','shipments','matches','wait_times','slots','ratings'],
+    win:{ar:'يجمع خوارزمية مطابقة ونموذج تنبؤ في مشروع واحد، ويرتبط بقطاع اقتصادي يعرفه الجميع.',
+         en:'Combines a matching algorithm and a prediction model in one project, tied to an economic sector everyone knows.'} },
+
+  { sector:{ar:'سوق العمل',en:'Job Market'}, lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','React','MySQL','Charts'], ai:['LLM','Text analysis'],
+    ar:'رادار سوق العمل الأردني', en:'Jordan Job-Market Radar',
+    hook:{ar:'يقرأ إعلانات الوظائف الأردنية ويخبرك أي مهارات ينقصك لتُقبل، وما أسرع طريق لتعلّمها.',
+          en:'Reads Jordanian job ads and tells you which skills you’re missing to get hired, and the fastest way to learn them.'},
+    prob:{ar:'يتخرّج الطلاب بمعرفة نظرية بينما يشكو أصحاب العمل من نقص المهارات العملية والرقمية، والبطالة بين الشباب مرتفعة، ولا يعرف الخريج بدقّة ما المطلوب فعلاً.',
+          en:'Graduates leave with theory while employers report gaps in practical and digital skills, youth unemployment is high, and graduates don’t know precisely what is actually required.'},
+    sol:{ar:'تُدخل إعلانات الوظائف (من ملفات أو روابط)، فيستخرج النظام المهارات المطلوبة ويبني لوحة بالمهارات الأكثر طلباً حسب القطاع والمحافظة، ثم تُدخل سيرتك فيحسب فجوتك ويرشّح خطة تعلّم من أربعة أسابيع.',
+         en:'You load job ads (from files or links); the system extracts the required skills and builds a dashboard of the most in-demand skills by sector and governorate; then you add your CV and it computes your gap and suggests a four-week learning plan.'},
+    jo:{ar:'الفجوة بين مخرجات التعليم وحاجات السوق من أبرز تحديات الشباب في الأردن، والحل بيانات حقيقية تُفهم بسهولة.',
+        en:'The gap between education and market needs is among the main challenges for Jordan’s youth, and the answer is real data made easy to understand.'},
+    how:{ar:'نموذج لغوي يستخرج المهارات من نص الإعلان ويوحّد مسمياتها، ثم يقارن قائمة مهاراتك بقائمة الإعلان ويحسب نسبة التطابق.',
+         en:'A language model extracts skills from each ad and normalizes their names, then compares your skill list with the ad’s and computes a match percentage.'},
+    mods:{ar:['استيراد الإعلانات واستخراج المهارات','لوحة المهارات الأكثر طلباً حسب القطاع','تحليل فجوة سيرتك الذاتية','خطة تعلّم من أربعة أسابيع'],
+          en:['Import ads and extract skills','A dashboard of the most in-demand skills by sector','CV gap analysis','A four-week learning plan']},
+    tbl:['job_ads','companies','sectors','skills','ad_skills','candidates','candidate_skills','gap_reports'],
+    win:{ar:'مشروع بيانات حقيقي: استعلامات تجميعية ولوحات ومنطق مطابقة، وفائدته واضحة لكل طالب في اللجنة.',
+         en:'A real data project: aggregate queries, dashboards and matching logic, with a benefit obvious to every student on the panel.'} },
+
+  { sector:{ar:'السياحة',en:'Tourism'}, lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['React Native','Firebase','Maps'], ai:['LLM','Vision'],
+    ar:'دليل الأردن الذكي', en:'Smart Jordan Guide',
+    hook:{ar:'مسار يومي للزائر يراعي الحرارة والازدحام والمسافات، ويربطه بتجارب أهل المنطقة.',
+          en:'A day plan for the visitor that accounts for heat, crowds and distances, linked to experiences hosted by local communities.'},
+    prob:{ar:'السياحة قطاع حيوي في الأردن، لكن الزائر يضيع بين المواقع ويخطّط بلا معرفة بالحرارة والمسافات والازدحام، وتبقى تجارب المجتمعات المحلية الجميلة غير مرئية له.',
+          en:'Tourism is a vital sector in Jordan, yet visitors get lost between sites and plan without knowing heat, distances and crowds, while wonderful local-community experiences stay invisible to them.'},
+    sol:{ar:'يختار الزائر اهتماماته ومدّة إقامته، فيبني النظام برنامجاً يومياً ضمن ساعات العمل والمسافات وتوقعات الطقس، ويقترح تجارب من مضيفين محليين مسجّلين، ويشرح له المعلم الأثري عند تصويره بلغته.',
+         en:'The visitor picks interests and trip length; the system builds a daily program within opening hours, distances and weather forecasts, suggests experiences from registered local hosts, and explains a landmark in the visitor’s language when photographed.'},
+    jo:{ar:'يكمّل المنصات الوطنية للحجز بتجارب محلية ومسارات ذكية، ويخدم قطاعاً تسعى الدولة إلى تقوية تنافسيته.',
+        en:'It complements national booking platforms with local experiences and smart routes, serving a sector the state is working to make more competitive.'},
+    how:{ar:'نموذج لغوي يبني البرنامج من قاعدة المواقع والتجارب بشروط واضحة (وقت وحرارة ومسافة)، ونموذج رؤية يتعرّف على المعلم من الصورة ويحكي قصته.',
+         en:'A language model builds the program from the sites-and-experiences database under clear constraints (time, heat, distance), and a vision model recognizes the landmark from a photo and tells its story.'},
+    mods:{ar:['قاعدة المواقع والتجارب والمضيفين المحليين','بناء البرنامج اليومي بشروط الوقت والحرارة','دليل صوتي ونصي بعدة لغات','حجز التجارب وتقييمها'],
+          en:['A database of sites, experiences and local hosts','Daily program under time and heat constraints','A voice and text guide in several languages','Booking and rating experiences']},
+    tbl:['visitors','sites','experiences','hosts','itineraries','itinerary_items','bookings','reviews'],
+    win:{ar:'خوارزمية جدولة بشروط حقيقية مع واجهة جميلة تُعرض مباشرة على الهاتف.',
+         en:'A scheduling algorithm with real constraints and a beautiful interface demonstrated live on a phone.'} },
+
+  { sector:{ar:'الصحة',en:'Health'}, lvl:{ar:'متقدم',en:'Advanced'}, wk:{ar:'10–12 أسبوعاً',en:'10–12 weeks'}, tech:['React Native','Laravel','MySQL'], ai:['Vision / OCR','LLM'],
     ar:'مترجم التقارير المخبرية', en:'Lab Report Translator',
-    hook:{ar:'الجديد: القواعد الطبية تحكم والذكاء الاصطناعي يشرح فقط، فلا تخمين ولا تشخيص.',
-          en:'New: medical rules make the call and AI only explains, so there’s no guessing and no diagnosing.'},
+    hook:{ar:'القواعد الطبية تحكم والذكاء الاصطناعي يشرح فقط، فلا تخمين ولا تشخيص.',
+          en:'Medical rules make the call and AI only explains, so there’s no guessing and no diagnosing.'},
     prob:{ar:'يستلم الناس تقارير مخبرية مليئة بالأرقام والمختصرات فلا يفهمون أيها طبيعي وأيها يحتاج متابعة، وتضيع التقارير القديمة فلا تُقارَن النتائج عبر الزمن.',
           en:'People receive lab reports full of numbers and abbreviations, can’t tell which are normal and which need follow-up, and old reports get lost so results are never compared over time.'},
-    sol:{ar:'تصوّر التقرير بكاميرا الهاتف فيستخرج النظام اسم كل فحص وقيمته ووحدته، ويقارنها بجدول المجالات الطبيعية المخزّن في قاعدة البيانات، ويشرح بلغة بسيطة ما يعنيه كل فحص، ويرسم تطوّر نتائجك ويحتفظ بملف صحي للعائلة. (تعليمي، ولا يغني عن الطبيب).',
+    sol:{ar:'تصوّر التقرير بكاميرا الهاتف فيستخرج النظام اسم كل فحص وقيمته ووحدته، ويقارنها بجدول المجالات الطبيعية في قاعدة البيانات، ويشرح بلغة بسيطة ما يعنيه كل فحص، ويرسم تطوّر نتائجك ويحتفظ بملف صحي للعائلة. (تعليمي، ولا يغني عن الطبيب).',
          en:'Photograph the report with your phone; the system extracts each test’s name, value and unit, compares them with a normal-ranges table in the database, explains each test in plain language, charts your results over time and keeps a family health file. (Educational only, never a substitute for a doctor.)'},
+    jo:{ar:'تأتي كثير من التقارير المخبرية بمصطلحات إنجليزية يصعب على الناس فهمها، والصحة من قطاعات الأولوية للذكاء الاصطناعي في الأردن.',
+        en:'Many lab reports arrive in English medical terms that people struggle to understand, and health is a priority sector for AI in Jordan.'},
     how:{ar:'الذكاء الاصطناعي يقرأ الصورة ويحوّل الأرقام إلى جدول منظّم، ثم يعمل جدول القيم الطبيعية كحكم نهائي (طبيعي / مرتفع / منخفض). الشرح المكتوب يأتي بعد ذلك فقط.',
          en:'AI reads the photo and turns the numbers into a structured table; then the normal-ranges table acts as the final judge (normal / high / low). The written explanation comes only afterwards.'},
-    mods:{ar:['تصوير التقرير واستخراج الفحوصات والقيم','مطابقة القيم مع المجالات الطبيعية حسب العمر والجنس','شرح مبسّط لكل فحص','رسم بياني لتطوّر الفحص عبر الزمن','ملفات صحية لأفراد العائلة وتذكير بموعد الفحص القادم'],
-          en:['Photograph the report and extract tests and values','Match values with normal ranges by age and sex','A simple explanation for each test','A chart of each test over time','Health files for family members and next-test reminders']},
+    mods:{ar:['تصوير التقرير واستخراج الفحوصات والقيم','مطابقة القيم مع المجالات الطبيعية حسب العمر والجنس','شرح مبسّط لكل فحص','رسم بياني لتطوّر الفحص وملفات للعائلة'],
+          en:['Photograph the report and extract tests and values','Match values with normal ranges by age and sex','A simple explanation for each test','Trend charts and family health files']},
     tbl:['users','family_members','reports','tests','reference_ranges','results','trends','reminders'],
     win:{ar:'فصل «القرار» (قواعد حتمية) عن «الشرح» (ذكاء اصطناعي) تصميم ناضج يجيب عن سؤال «ماذا لو أخطأ النموذج؟».',
-         en:'Separating the “decision” (deterministic rules) from the “explanation” (AI) is a mature design that answers the question “what if the model is wrong?”'} },
+         en:'Separating the “decision” (deterministic rules) from the “explanation” (AI) is a mature design that answers “what if the model is wrong?”'} },
 
-  { k:'mobile', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'6–8 أسابيع',en:'6–8 weeks'}, tech:['React Native','Firebase'], ai:['Vision / OCR','Anomaly detection'],
-    ar:'محفظة الماء', en:'Water Wallet',
-    hook:{ar:'الجديد: يكشف تسرّب الماء من قراءة العدّاد الليلية قبل أن تصلك الفاتورة.',
-          en:'New: detects water leaks from night-time meter readings before the bill arrives.'},
-    prob:{ar:'الأردن من أفقر دول العالم مائياً، ومع ذلك تضيع كميات بسبب تسرّبات صامتة داخل البيوت، وتأتي الفاتورة المرتفعة بعد فوات الأوان، ولا أحد يتتبّع أيام وصول الماء ومستوى الخزّان.',
-          en:'Jordan is among the most water-scarce countries in the world, yet homes lose water to silent leaks, the high bill arrives too late, and nobody tracks supply days or tank levels.'},
-    sol:{ar:'تصوّر عدّاد المياه فيقرأ التطبيق الرقم تلقائياً، ويحسب الاستهلاك اليومي، وينبّهك إن استمر الاستهلاك ليلاً حين يفترض أن يكون قريباً من الصفر، ويتوقّع فاتورتك، ويسجّل أيام وصول الماء لحيّك ويذكّرك بتعبئة الخزّان.',
-         en:'Photograph the water meter; the app reads the number automatically, computes daily use, warns you when consumption continues at night when it should be near zero, forecasts your bill, and logs your neighborhood’s supply days to remind you to fill the tank.'},
-    how:{ar:'الذكاء الاصطناعي يقرأ الأرقام من صورة العدّاد (مثل قارئ الباركود لكن للأرقام)، ثم تأتي قاعدة بسيطة: إن بقي الاستهلاك ليلاً فوق حدّ معيّن لعدة ليالٍ فهذا تسرّب محتمل.',
-         en:'AI reads the digits from the meter photo (like a barcode scanner for numbers), then a simple rule applies: if night consumption stays above a threshold for several nights, that’s a probable leak.'},
-    mods:{ar:['تصوير العدّاد وقراءة الرقم','حساب الاستهلاك اليومي والأسبوعي','كشف التسرّب من نمط الاستهلاك الليلي','توقّع الفاتورة حسب الشرائح','تقويم أيام وصول المياه وتذكير بالتعبئة'],
-          en:['Photograph the meter and read the number','Compute daily and weekly consumption','Detect leaks from the night-time pattern','Forecast the bill by tier','A calendar of supply days with fill reminders']},
-    tbl:['users','households','meters','readings','daily_usage','leak_alerts','supply_days','bill_forecasts'],
-    win:{ar:'مشكلة وطنية حقيقية، وخوارزمية الكشف (خط الأساس الليلي) بسيطة ويمكن اختبارها بإدخال بيانات تسرّب مصطنعة أمام اللجنة.',
-         en:'A real national problem, and the detection algorithm (a night-time baseline) is simple and can be demonstrated by feeding in synthetic leak data in front of the committee.'} },
-
-  { k:'mobile', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['React Native','Firebase'], ai:['LLM','Image comparison'],
-    ar:'حارس عقد السكن', en:'Rental Guardian',
-    hook:{ar:'الجديد: يقارن صور الشقة عند الاستلام وعند التسليم ليدافع عن تأمينك.',
-          en:'New: compares apartment photos at move-in and move-out to defend your deposit.'},
-    prob:{ar:'طلاب كثيرون يستأجرون سكناً بعقود لا يفهمون بنودها، وعند الخروج يخسرون التأمين بسبب خلاف على «أضرار» لا دليل على وقتها.',
-          en:'Many students rent under contracts they don’t fully understand, then lose their deposit over disputed “damages” with no proof of when they happened.'},
-    sol:{ar:'ترفع صورة العقد فيستخرج النظام المبلغ والمدة والتأمين وبنود الإنهاء، ويراجعها على قائمة بنود حسّاسة ويشرحها ببساطة، ويذكّرك بمواعيد الدفع والإشعار، ويوثّق حالة كل غرفة بصور مؤرَّخة ثم يقارنها عند الخروج ويبرز الفروقات. (تعليمي، ولا يغني عن استشارة قانونية).',
-         en:'Upload a photo of the contract; the system extracts the rent, term, deposit and termination clauses, checks them against a sensitive-clause checklist and explains them simply, reminds you of payment and notice dates, documents each room with dated photos, then compares them at move-out and highlights differences. (Educational only, not legal advice.)'},
-    how:{ar:'الذكاء الاصطناعي يقرأ العقد ويستخرج البنود، وقائمة فحص جاهزة في قاعدة البيانات تحدّد البنود الناقصة أو الحسّاسة. وفي الصور يقارن النموذج صورتين ويصف الفروقات.',
-         en:'AI reads the contract and extracts the clauses; a checklist in the database flags missing or sensitive ones. For photos, the model compares two images and describes the differences.'},
-    mods:{ar:['قراءة العقد واستخراج البنود الأساسية','مراجعة على قائمة بنود حسّاسة مع شرح مبسّط','تقويم الدفعات والإشعارات','توثيق حالة الغرف بصور مؤرّخة','مقارنة الصور عند الخروج وتقرير الفروقات'],
-          en:['Read the contract and extract key clauses','Check against sensitive clauses with a simple explanation','A calendar of payments and notices','Document room condition with dated photos','Compare photos at move-out with a differences report']},
-    tbl:['users','properties','contracts','clauses','checklist_items','payments','room_photos','inspections'],
-    win:{ar:'يجمع استخراجاً منظّماً من نص، ومنطق مواعيد، وتوثيقاً بالأدلة، وكلها تُعرض مباشرة على الهاتف.',
-         en:'It combines structured extraction from text, date logic and evidence-based documentation, all demonstrable on a phone.'} },
-
-  { k:'data', lvl:{ar:'متوسط إلى متقدم',en:'Intermediate to advanced'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','React','MySQL','Charts'], ai:['Vision / OCR','LLM'],
-    ar:'شمسي: من فاتورتك إلى نظامك', en:'Shamsi: From Your Bill to Your Solar System',
-    hook:{ar:'الجديد: ارفع فاتورة الكهرباء فتحصل على حجم نظام الطاقة الشمسية المناسب وفترة استرداد تكلفته.',
-          en:'New: upload your electricity bill and get the right solar system size and its payback period.'},
-    prob:{ar:'يتردّد أصحاب البيوت في تركيب الطاقة الشمسية لأنهم لا يعرفون الحجم المناسب ولا كم سيوفّرون فعلاً، فيعتمدون على كلام البائع.',
-          en:'Homeowners hesitate to install solar because they don’t know the right size or how much they would actually save, so they rely on the seller’s word.'},
-    sol:{ar:'تُرفع صورة الفاتورة فيُستخرج منها الاستهلاك الشهري وشريحة التعرفة، ثم يحسب محرّك حسابات حجم المنظومة المناسب والتوفير الشهري وفترة الاسترداد، ويقارن عروض شركات مسجّلة في قاعدة البيانات، ويرسم فاتورتك قبل التركيب وبعده.',
-         en:'Upload the bill; the system extracts monthly consumption and the tariff tier, then a calculation engine works out the right system size, monthly savings and payback period, compares offers from registered installers in the database, and charts your bill before and after.'},
-    how:{ar:'الذكاء الاصطناعي يقرأ الفاتورة فقط. أما الحساب نفسه (الشرائح، الإنتاج، الاسترداد) فمعادلات واضحة تستطيع شرحها وإثباتها على الورق.',
-         en:'AI only reads the bill. The calculation itself (tiers, output, payback) is clear formulas you can explain and prove on paper.'},
-    mods:{ar:['قراءة الفاتورة واستخراج الاستهلاك والشريحة','محرّك حساب الشرائح التصاعدية','تصميم حجم المنظومة والتوفير والاسترداد','سوق عروض الشركات المركّبة','رسوم بيانية قبل وبعد'],
-          en:['Read the bill and extract consumption and tier','A tiered-tariff calculation engine','System sizing, savings and payback','A marketplace of installer offers','Before-and-after charts']},
-    tbl:['users','bills','tariff_tiers','sites','system_sizes','installers','quotes','savings_forecast'],
-    win:{ar:'مشروع يمسّ سوقاً حقيقية في الأردن، وفيه محرّك حسابات يُدافَع عنه بالمعادلات لا بالكلام.',
-         en:'A project that touches a real market in Jordan, with a calculation engine defended by formulas rather than talk.'} },
-
-  { k:'web', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','React','MySQL'], ai:['LLM','Speech-to-Text'],
-    ar:'الفريق العادل', en:'Fair Team',
-    hook:{ar:'الجديد: لوحة شفافة تُظهر من أنجز ماذا في مشروع الفريق، بلا خلافات ولا «أنا تعبت وهو لا».',
-          en:'New: a transparent board that shows who delivered what in a team project, ending the “I did all the work” arguments.'},
-    prob:{ar:'في المشاريع الجماعية يشتكي دائماً أحد الأعضاء أنه يعمل أكثر من غيره، وتتحوّل العلاقة بين أعضاء الفريق إلى خلاف وتقييم غير عادل.',
-          en:'In group projects someone always feels they work more than the rest, and the relationship between members turns into disputes and an unfair evaluation.'},
-    sol:{ar:'يسجّل الفريق اجتماعاته صوتياً أو نصياً فيستخرج النظام المهام ومن كُلّف بها، وتُتابَع المهام بلوحة، وتُحسب مساهمة كل عضو من المهام المنجزة وحضور الاجتماعات والتقييم المتبادل، ويصدر تقريراً عادلاً للمشرف.',
-         en:'The team records meetings (audio or text); the system extracts tasks and assignees, tracks them on a board, computes each member’s contribution from completed tasks, meeting attendance and peer reviews, and produces a fair report for the supervisor.'},
-    how:{ar:'الذكاء الاصطناعي يحوّل محضر الاجتماع إلى قائمة مهام (من؟ ماذا؟ متى؟)، أما حساب المساهمة فمعادلة بأوزان واضحة يضبطها المشرف.',
-         en:'AI turns the meeting notes into a task list (who? what? when?); the contribution score is a formula with clear weights set by the supervisor.'},
-    mods:{ar:['فرق وأعضاء وأدوار','محاضر الاجتماعات واستخراج المهام تلقائياً','لوحة مهام (Kanban) مع مواعيد','تقييم متبادل سرّي بين الأعضاء','تقرير مساهمة عادل للمشرف'],
-          en:['Teams, members and roles','Meeting notes with automatic task extraction','A Kanban task board with deadlines','Confidential peer reviews','A fair contribution report for the supervisor']},
-    tbl:['teams','members','meetings','tasks','task_logs','peer_reviews','contribution_scores'],
-    win:{ar:'مشكلة يعرفها كل طالب وكل لجنة، ومعادلة المساهمة بأوزانها المعلنة تفتح نقاشاً ذكياً حول العدالة والقياس.',
-         en:'A problem every student and committee knows, and the contribution formula with its disclosed weights opens a smart discussion about fairness and measurement.'} },
-
-  { k:'web', lvl:{ar:'متقدم',en:'Advanced'}, wk:{ar:'10–12 أسبوعاً',en:'10–12 weeks'}, tech:['Laravel','React','MySQL'], ai:['LLM','Embeddings'],
-    ar:'مساعد سياسات الشركة بحسب الصلاحية', en:'Permission-Aware Policy Assistant',
-    hook:{ar:'الجديد: يجيب كل موظف مما يحق له الاطلاع عليه فقط، ويذكر المصدر الدقيق لكل جواب.',
-          en:'New: answers each employee only from documents they’re allowed to see, and cites the exact source for every answer.'},
-    prob:{ar:'الموظفون يسألون المسؤولين عن السياسات والإجراءات بدل البحث في مئات الملفات، وأي مساعد ذكي عام قد يكشف وثائق سرّية لمن لا يحق له.',
-          en:'Employees keep asking managers about policies instead of digging through hundreds of files, and a generic chatbot could leak confidential documents to people who shouldn’t see them.'},
-    sol:{ar:'نظام يفهرس وثائق الشركة ويجيب عن أسئلة الموظفين من الوثائق المسموح بها لدوره فقط، ويعرض اسم الوثيقة والفقرة التي استند إليها، وتظهر للمدير الأسئلة التي لم يجد لها جواباً ليحسّن الوثائق.',
-         en:'A system that indexes company documents and answers employee questions only from documents permitted for their role, shows the document and paragraph it relied on, and surfaces unanswered questions to managers so the documents can be improved.'},
-    how:{ar:'الوثائق تُقسَّم إلى فقرات، فيُبحث عن أقرب الفقرات للسؤال ضمن ما يسمح به دور المستخدم، ثم يكتب النموذج الجواب من تلك الفقرات فقط. الصلاحية تُفحص في قاعدة البيانات قبل أن يرى النموذج أي نص.',
-         en:'Documents are split into passages; the closest passages to the question are found within what the user’s role allows, then the model writes the answer from those passages only. Permissions are checked in the database before the model sees any text.'},
-    mods:{ar:['رفع الوثائق وتصنيفها بالأقسام','أدوار وصلاحيات على مستوى الوثيقة','بحث دلالي عن الفقرات الأقرب','جواب مع اسم المصدر ورقم الفقرة','لوحة للأسئلة غير المُجابة وتقييم الأجوبة'],
-          en:['Upload and categorize documents by department','Roles and document-level permissions','Semantic search for the closest passages','An answer with the source name and passage number','A dashboard of unanswered questions and answer ratings']},
-    tbl:['users','roles','documents','document_permissions','chunks','questions','answers','citations','feedback'],
-    win:{ar:'فحص الصلاحية قبل الذكاء الاصطناعي لا بعده: نقطة أمنية قوية تقنع اللجنة بأن المشروع صالح لشركات حقيقية.',
-         en:'Checking permissions before the AI rather than after is a strong security point that convinces the committee the project is fit for real companies.'} },
-
-  { k:'mobile', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'6–8 أسابيع',en:'6–8 weeks'}, tech:['React Native','Firebase','MySQL'], ai:['Vision','LLM'],
-    ar:'ثلاجتي تطبخ', en:'My Fridge Cooks',
-    hook:{ar:'الجديد: صوّر ثلاجتك فيقترح وصفات أردنية تعتمد على ما سينتهي قريباً.',
-          en:'New: photograph your fridge and get Jordanian recipes built around what’s about to expire.'},
-    prob:{ar:'كثير من الطعام يُرمى لأن أحداً لا يتذكّر ما في الثلاجة، ويتكرّر كل يوم سؤال «شو نطبخ؟».',
-          en:'A lot of food is thrown away because nobody remembers what’s in the fridge, and the daily question “what shall we cook?” never ends.'},
-    sol:{ar:'تصوّر الثلاجة أو الرفوف فيتعرّف النظام على المكوّنات ويسجّل تاريخ انتهاء كل منها، ثم يقترح وصفات أردنية وعالمية مرتّبة بحسب ما يقترب من الانتهاء وما ينقصك، ويبني قائمة تسوّق ذكية، ويحسب ما وفّرته من الهدر.',
-         en:'Photograph the fridge or shelves; the system recognizes ingredients and logs each expiry date, then suggests Jordanian and international recipes ranked by what’s about to expire and what you’re missing, builds a smart shopping list, and tracks the waste you saved.'},
-    how:{ar:'الذكاء الاصطناعي يتعرّف على الأصناف في الصورة (مثل وصف صورة)، ثم مطابقة بسيطة: كم مكوّناً من الوصفة موجود عندك؟ وكم منها يقترب من الانتهاء؟',
-         en:'AI recognizes the items in the photo (like describing a picture), then a simple match: how many of a recipe’s ingredients do you have, and how many are near expiry?'},
-    mods:{ar:['تصوير الثلاجة والتعرّف على المكوّنات','تواريخ الصلاحية والتنبيهات','مكتبة وصفات أردنية بمكوّنات مرتبطة','درجة توافق الوصفة مع ما عندك','قائمة تسوّق وحساب الهدر الموفَّر'],
-          en:['Photograph the fridge and recognize ingredients','Expiry dates and alerts','A library of Jordanian recipes with linked ingredients','A recipe match score against what you have','A shopping list and wasted-food savings']},
-    tbl:['users','pantry_items','ingredients','recipes','recipe_ingredients','match_scores','shopping_lists','waste_savings'],
-    win:{ar:'علاقة «متعدد لمتعدد» بين الوصفات والمكوّنات مع درجة التوافق مثال ممتاز لتصميم قاعدة بيانات واستعلامات حقيقية.',
-         en:'The many-to-many relation between recipes and ingredients, plus the match score, is an excellent example of real database design and queries.'} },
-
-  { k:'data', lvl:{ar:'متوسط',en:'Intermediate'}, wk:{ar:'8–10 أسابيع',en:'8–10 weeks'}, tech:['Laravel','MySQL','SQL','Charts'], ai:['Prediction model','LLM'],
-    ar:'مقيّم السيارات المستعملة', en:'Used-Car Fair-Price Checker',
-    hook:{ar:'الجديد: يقول لك إن كان سعر الإعلان عادلاً ويكشف العلامات المريبة في وصفه قبل أن تدفع.',
-          en:'New: tells you whether a listing’s price is fair and flags suspicious signs in its description before you pay.'},
-    prob:{ar:'شراء سيارة مستعملة من أكبر القرارات المالية للأسرة، وكثيرون يدفعون أكثر من قيمتها أو يشترون سيارة بعيب مخفي لأنهم لا يملكون مرجعاً يقارنون به.',
-          en:'Buying a used car is one of a family’s biggest financial decisions, and many overpay or buy a hidden fault because they have nothing to compare against.'},
-    sol:{ar:'تُدخل مواصفات السيارة وسعر الإعلان فيقدّر النظام السعر العادل من بيانات سيارات مشابهة ويعرض نطاق التفاوض المنطقي، ويقرأ نص الإعلان ويبرز الإشارات المريبة، ثم يعطيك قائمة فحص مخصّصة للطراز وتقريراً تحتفظ به.',
-         en:'Enter the car’s specs and the listing price; the system estimates a fair price from similar cars, shows a reasonable negotiation range, reads the listing text and highlights suspicious signals, then gives you an inspection checklist for the model and a report to keep.'},
-    how:{ar:'تقدير السعر يعتمد على مقارنة السيارة بسيارات مشابهة (نموذج تنبؤ بسيط يمكن رسمه بخط على مخطط). أما قراءة نص الإعلان فيقوم بها نموذج لغوي يبحث عن عبارات مثل «بدون فحص» أو «مستعجل».',
-         en:'The price estimate compares the car to similar ones (a simple prediction model you can draw as a line on a chart). Reading the listing text is done by a language model that looks for phrases like “no inspection” or “urgent sale”.'},
-    mods:{ar:['قاعدة بيانات سيارات وأسعار مرجعية','نموذج تقدير السعر العادل','تحليل نص الإعلان وإبراز الإشارات المريبة','قائمة فحص حسب الطراز','تقرير قابل للطباعة ومقارنة بين سيارتين'],
-          en:['A database of cars and reference prices','A fair-price estimation model','Listing-text analysis that highlights suspicious signals','An inspection checklist per model','A printable report and a two-car comparison']},
-    tbl:['cars','models','listings','price_history','features','red_flags','inspection_items','reports'],
-    win:{ar:'تستطيع قياس دقّة النموذج بأرقام (متوسط الخطأ) وعرضها على اللجنة، وهذا ما يجعله مشروع بيانات حقيقياً لا مجرد شاشات.',
-         en:'You can measure the model’s accuracy with numbers (average error) and present them to the committee, which makes it a real data project and not just screens.'} }
+  { sector:{ar:'التعليم',en:'Education'}, lvl:{ar:'متقدم',en:'Advanced'}, wk:{ar:'10–12 أسبوعاً',en:'10–12 weeks'}, tech:['Laravel','React','MySQL'], ai:['Speech-to-Text','LLM'],
+    ar:'لجنة المناقشة الافتراضية', en:'Virtual Defense Committee',
+    hook:{ar:'لجنة ذكية تسمع إجابتك بصوتك وتقيّمها من وثائق مشروعك أنت.',
+          en:'A smart committee that listens to your spoken answers and grades them against your own project documents.'},
+    prob:{ar:'الطلاب يتدرّبون على المناقشة أمام المرآة أو مع أصدقائهم، فلا يعرفون الأسئلة الحقيقية ولا مدى دقّة إجاباتهم، فيرتبكون يوم المناقشة.',
+          en:'Students rehearse in front of a mirror or with friends, never knowing the real questions or how accurate their answers are, then freeze on the day.'},
+    sol:{ar:'ترفع وثائق مشروعك فتولّد المنصّة أسئلة بثلاثة مستويات صعوبة، وتستمع لإجابتك صوتياً وتقارنها بما كُتب في الوثائق، ثم تعطيك درجة وملاحظات وخريطة بنقاط ضعفك.',
+         en:'Upload your project documents and the platform generates questions at three difficulty levels, listens to your spoken answer, compares it with what the documents say, then gives you a score, feedback and a map of your weak spots.'},
+    jo:{ar:'المناقشة محطة حاسمة في كل جامعة أردنية، ومعظم الطلاب يتدرّبون عليها بلا لجنة ولا تقييم.',
+        en:'The defense is a decisive milestone in every Jordanian university, and most students practice without a panel or any feedback.'},
+    how:{ar:'نموذج لغوي يقرأ الوثائق ويصيغ الأسئلة، وخدمة تحويل الكلام إلى نص تكتب إجابتك، ثم تُقارَن بالوثائق لحساب درجة التطابق. ببساطة: سؤال ← إجابة ← مقارنة ← درجة.',
+         en:'A language model reads the documents and writes the questions; speech-to-text turns your answer into text, which is compared with the documents for a match score. Simply: question → answer → compare → score.'},
+    mods:{ar:['رفع الوثائق وتقسيمها إلى أقسام','توليد أسئلة بثلاثة مستويات','تسجيل الإجابة صوتياً وتقييمها مقارنةً بالوثائق','خريطة نقاط الضعف وتقدّمك'],
+          en:['Upload documents and split them into sections','Generate questions at three levels','Record the answer by voice and grade it against the documents','A weak-spot map and your progress']},
+    tbl:['students','projects','documents','doc_chunks','questions','sessions','answers','scores'],
+    win:{ar:'الإجابة تُقيَّم من وثائق المشروع نفسه لا من «رأي» النموذج، ويمكنك عرض جلسة تدريب حيّة أمام اللجنة.',
+         en:'Answers are graded against the project’s own documents, not the model’s “opinion”, and you can run a live practice session in front of the committee.'} }
 ];
 
 /* العبارات التحفيزية */
@@ -1867,10 +1695,7 @@ const QUOTES = [
   { tag:{ar:'الفهم',en:'Understanding'}, ar:'اللجنة لا تسأل: من كتب الكود؟ بل: هل تفهمه؟ ومن يفهم مشروعه لا يخشى أي سؤال.', en:'The committee doesn’t ask who wrote the code. It asks whether you understand it. And whoever understands their project fears no question.' },
   { tag:{ar:'الثقة',en:'Confidence'}, ar:'الثقة لا تهبط عليك يوم المناقشة، بل تُبنى قبلها بأسابيع من التدريب الهادئ.', en:'Confidence doesn’t land on you on defense day. It’s built weeks earlier through calm practice.' },
   { tag:{ar:'الوقت',en:'Time'}, ar:'ثلاثة أشهر من العمل المنظّم أخفّ بكثير من ثلاث ليالٍ من الذعر.', en:'Three months of organized work is far lighter than three nights of panic.' },
-  { tag:{ar:'مستقبلك',en:'Your future'}, ar:'مشروع تخرّجك أول بند في سيرتك الذاتية. اجعله بنداً يسأل عنه صاحب العمل.', en:'Your graduation project is the first line on your CV. Make it the line an employer asks about.' },
   { tag:{ar:'الذكاء الاصطناعي',en:'AI'}, ar:'الذكاء الاصطناعي لا يأخذ مكان من يفهمه، بل مكان من يتجاهله. وأنت اليوم تتعلّمه على مشروع حقيقي.', en:'AI doesn’t replace people who understand it. It replaces people who ignore it. And today you learn it on a real project.' },
-  { tag:{ar:'الهدوء',en:'Calm'}, ar:'التوتر لا يأتي من صعوبة المشروع، بل من الغموض. أزل الغموض يختفِ التوتر.', en:'Stress doesn’t come from how hard the project is. It comes from not knowing. Remove the unknown and the stress goes.' },
-  { tag:{ar:'الفريق',en:'Teamwork'}, ar:'حين يتقاسم الفريق التكلفة والفهم، يصبح أصعب مشروع أخفّ حملاً.', en:'When a team shares the cost and the understanding, the hardest project becomes lighter to carry.' },
   { tag:{ar:'الصبر',en:'Patience'}, ar:'لا سؤال سخيف ولا شرح أخير. أعيد حتى تفهم، فالفهم ليس سباقاً.', en:'No silly question, no final explanation. I’ll repeat until you understand, because understanding isn’t a race.' },
   { tag:{ar:'البداية',en:'The start'}, ar:'أصعب خطوة في مشروع التخرّج هي الرسالة الأولى. وما بعدها نكمله معاً بهدوء.', en:'The hardest step in a graduation project is the first message. After that, we continue together, calmly.' }
 ];
@@ -1883,82 +1708,49 @@ const MARQUEE = [
   { ar:'تطوير ويب <bdi>Full-Stack</bdi>', en:'Full-stack web development' },
   { ar:'قواعد بيانات وتقارير', en:'Databases & reports' },
   { ar:'طويل البال في الشرح', en:'Patient explanations' },
-  { ar:'تطبيقات <bdi>React Native</bdi>', en:'React Native apps' },
-  { ar:'محاضرات أونلاين أو مسجّلة', en:'Recorded online lectures' },
-  { ar:'مشاريع جاهزة مع شرحها', en:'Ready projects with explanation' },
-  { ar:'أفكار جديدة بالذكاء الاصطناعي', en:'Fresh AI-powered ideas' },
+  { ar:'أفكار أردنية بالذكاء الاصطناعي', en:'Jordan-rooted AI ideas' },
   { ar:'<bdi>250</bdi> د.أ سعر نهائي', en:'250 JOD, final price' }
 ];
 
 /* الخدمات */
 const SERVICES = [
-  { techs:['Laravel','React','React Native','MySQL','SQL','AI APIs'],
+  { techs:['Laravel','React','MySQL','AI APIs'],
     ar:{ t:'مشاريع تخرّج كاملة', tag:'من الفكرة إلى المناقشة',
-      p:'الخدمة الأكثر طلباً. أبني مشروعك من الصفر وفق متطلبات جامعتك: تحليل المتطلبات وتصميم مخطط <bdi>ERD</bdi>، وبناء قاعدة البيانات، وبرمجة الواجهات والخلفية، وتوثيق كامل بصيغة جامعتك، وجلسات شرح حتى تستطيع عرض أي جزء بثقة. أنت تقدّم المناقشة، وأنا أضمن الجودة، وأبقى معك بطول بال حتى تفهم كل سطر.',
-      outs:['تحليل المتطلبات ومخطط <bdi>ERD</bdi> جاهز للتقرير','كود كامل ومنظّم مع تعليقات توضيحية','ميزة ذكاء اصطناعي مجانية (حسب حجم الفكرة)','دليل تثبيت وتشغيل خطوة بخطوة','جلسات شرح وتحضير لأسئلة اللجنة','علامة مضمونة فوق <bdi>85</bdi>'] },
+      p:'أبني مشروعك من الصفر وفق متطلبات جامعتك: تحليل و<bdi>ERD</bdi>، وقاعدة بيانات، وواجهات وخلفية، وتوثيق كامل، مع شرح سطراً بسطر حتى تعرضه بثقة.',
+      outs:['تحليل ومخطط <bdi>ERD</bdi> جاهز للتقرير','كود منظّم وميزة ذكاء اصطناعي مجانية','جلسات شرح وتحضير لأسئلة اللجنة'] },
     en:{ t:'Complete graduation projects', tag:'From idea to defense',
-      p:'The most requested service. I build your project from scratch to your university’s requirements: requirements analysis and ERD design, database construction, front-end and back-end programming, full documentation in your university’s format, and explanation sessions until you can present any part with confidence. You give the defense, I guarantee the quality, and I stay patiently with you until you understand every line.',
-      outs:['Requirements analysis and a report-ready ERD','Complete, organized, commented code','A free AI feature (scaled to the idea’s size)','Step-by-step setup and run guide','Explanation sessions and committee Q&A prep','Guaranteed grade above 85'] } },
-  { techs:['LLM APIs','Vision / OCR','Speech-to-Text','Embeddings'],
+      p:'I build your project from scratch to your university’s requirements: analysis and ERD, database, front-end and back-end, full documentation, with a line-by-line explanation so you can present it with confidence.',
+      outs:['Analysis and a report-ready ERD','Organized code and a free AI feature','Explanation sessions and committee Q&A prep'] } },
+  { techs:['LLM APIs','Vision / OCR','Speech-to-Text'],
     cta:{ href:'#ai', ar:'اكتشف الذكاء الاصطناعي ببساطة', en:'Discover AI, made simple' },
-    ar:{ t:'الذكاء الاصطناعي داخل مشروعك', tag:'مجاني ضمن مشروعك، وشرحه بسيط',
-      p:'أغلب المشاريع اليوم فيها ذكاء اصطناعي، ولهذا أضيف لمشروعك ميزة ذكية مجاناً (حسب حجم الفكرة): مساعد محادثة، قراءة صور، تصنيف، توصيات، تلخيص أو توقّع. أستخدم نماذج جاهزة عبر واجهات برمجية، فلا تدريب معقّد ولا رياضيات مخيفة، وأشرحها لك بأمثلة بسيطة حتى تجيب عنها أمام اللجنة بثقة.',
-      outs:['ميزة ذكاء اصطناعي مجانية ضمن المشروع (حسب حجم الفكرة)','شرح بسيط بلا مصطلحات مخيفة','نماذج جاهزة، بلا تدريب معقّد','أسئلة لجنة متوقعة عن الذكاء الاصطناعي مع أجوبتها'] },
-    en:{ t:'AI inside your project', tag:'Free inside your project, simple to explain',
-      p:'Most projects today include AI, so I add a smart feature to yours for free (scaled to the idea’s size): a chat assistant, image reading, classification, recommendations, summarization or forecasting. I use ready-made models through APIs, so there’s no complex training and no scary math, and I explain it with simple examples so you can answer the committee confidently.',
-      outs:['A free AI feature inside the project (scaled to the idea’s size)','A simple explanation with no scary jargon','Ready-made models, no complex training','Likely committee questions about the AI, with answers'] } },
-  { techs:['Laravel','React','MySQL','REST APIs'],
-    ar:{ t:'تطوير مواقع <bdi>Full-Stack</bdi>', tag:'خلفية حقيقية ولوحة تحكم فعلية',
-      p:'مواقع شركات، ومتاجر إلكترونية، وأنظمة إدارية، ولوحات تحكم. من تصميم الواجهة حتى ربط الخلفية بقاعدة البيانات، ثم النشر على استضافة حقيقية لتفتحه اللجنة من أجهزتها.',
-      outs:['واجهات متجاوبة مع جميع الشاشات','لوحات تحكم بنظام صلاحيات','<bdi>REST API</bdi> مرتبطة بقاعدة البيانات','نشر واستضافة وتجربة حيّة'] },
-    en:{ t:'Full-stack web development', tag:'A real back-end and a working admin panel',
-      p:'Company sites, online stores, admin systems and dashboards. From interface design to connecting the back-end and database, then deploying on real hosting so the committee can open it from their own devices.',
-      outs:['Responsive interfaces on every screen','Admin panels with roles and permissions','REST APIs wired to the database','Live hosting and deployment'] } },
-  { techs:['MySQL','SQL','ERD','Normalization'],
-    ar:{ t:'قواعد البيانات', tag:'تخصصي الأساسي',
-      p:'تصميم <bdi>ERD</bdi> وتطبيع الجداول، وكتابة الاستعلامات والإجراءات المخزّنة، وبناء التقارير، وتحسين أداء الاستعلامات. قاعدة البيانات هي الجزء الذي تتعمّق فيه اللجان غالباً، وهي صلب عملي اليومي.',
-      outs:['مخطط <bdi>ERD</bdi> كامل مع توثيق التطبيع','استعلامات معقّدة وتقارير','إجراءات مخزّنة و<bdi>Triggers</bdi>','تحسين الأداء والفهرسة'] },
-    en:{ t:'Databases', tag:'My core specialty',
-      p:'ERD design and normalization, queries and stored procedures, reporting, and query performance tuning. The database is where committees usually dig deepest, and it is the core of my daily work.',
-      outs:['Full ERD with documented normalization','Complex queries and reports','Stored procedures and triggers','Performance tuning and indexing'] } },
-  { techs:['React Native','JavaScript','Firebase','REST APIs'],
-    ar:{ t:'تطبيقات الموبايل', tag:'أندرويد وآيفون بكود واحد',
-      p:'تطبيقات موبايل باستخدام <bdi>React Native</bdi>: واجهات سريعة، وربط مع <bdi>Firebase</bdi> أو واجهة برمجية جاهزة، وتجربة فعلية على هاتفك قبل التسليم، وليس على المحاكي فقط.',
-      outs:['تكامل <bdi>React Native</bdi> مع <bdi>Firebase</bdi>','تجربة مباشرة على هاتفك','تسليم ملف <bdi>APK</bdi> يعمل','شرح بنية التطبيق والشاشات'] },
-    en:{ t:'Mobile apps', tag:'Android and iPhone from one codebase',
-      p:'Mobile apps built with React Native: fast interfaces, Firebase or ready API integration, and real testing on your own phone before delivery, not just on an emulator.',
-      outs:['React Native + Firebase integration','Live testing on your own phone','A working APK delivered','Walkthrough of the app structure and screens'] } },
-  { techs:['Systems Analysis','Laravel','SQL'],
-    ar:{ t:'أنظمة إدارية وأتمتة العمليات', tag:'تحليل عمليات حقيقية',
-      p:'أنظمة إدارية وأتمتة للعمليات: فواتير، ومخازن، وحضور وانصراف، وتقارير إدارية. إن كانت لديك فكرة نظام لنشاط تجاري، أو مشروع نظم معلومات يتطلب تحليل عمليات فعلياً، فهذا من صلب عملي.',
-      outs:['تحليل عمليات العمل وتوثيقها','أنظمة ويب داخلية','ربط مع أنظمة قائمة','صيانة وتطوير مستمر'] },
-    en:{ t:'Business systems & process automation', tag:'Real process analysis',
-      p:'Admin systems and process automation: invoicing, inventory, attendance and management reports. If you have a system idea for a real business, or an information-systems project that needs genuine process analysis, this is core to my work.',
-      outs:['Business process analysis and documentation','Internal web systems','Integration with existing systems','Maintenance and continuous improvement'] } },
+    ar:{ t:'الذكاء الاصطناعي داخل مشروعك', tag:'مجاني ضمن مشروعك',
+      p:'ميزة ذكية مجانية ضمن مشروعك (حسب حجم الفكرة): مساعد محادثة، قراءة صور، تصنيف، توصيات، تلخيص أو توقّع. نماذج جاهزة بلا تدريب معقّد، وأشرحها ببساطة.',
+      outs:['مجانية ضمن المشروع','شرح بسيط بلا مصطلحات مخيفة','أسئلة لجنة عنها مع أجوبتها'] },
+    en:{ t:'AI inside your project', tag:'Free inside your project',
+      p:'A free smart feature inside your project (scaled to the idea’s size): a chat assistant, image reading, classification, recommendations, summarization or forecasting. Ready-made models, no complex training, explained simply.',
+      outs:['Free inside the project','A simple explanation, no scary jargon','Likely committee questions, with answers'] } },
+  { techs:['Laravel','React','React Native','REST APIs'],
+    ar:{ t:'مواقع وتطبيقات موبايل', tag:'ويب وأندرويد وآيفون',
+      p:'مواقع وأنظمة ولوحات تحكم بـ<bdi>Laravel</bdi> و<bdi>React</bdi>، وتطبيقات أندرويد وآيفون بـ<bdi>React Native</bdi>، مع نشر حيّ ليفتحها الدكتور من جهازه.',
+      outs:['واجهات متجاوبة ولوحات بصلاحيات','<bdi>REST API</bdi> مرتبطة بقاعدة البيانات','نشر وتجربة حيّة وملف <bdi>APK</bdi>'] },
+    en:{ t:'Web and mobile apps', tag:'Web, Android and iPhone',
+      p:'Websites, systems and dashboards with Laravel and React, and Android and iPhone apps with React Native, deployed live so your professor can open them from their own device.',
+      outs:['Responsive interfaces and role-based panels','REST APIs wired to the database','Live deployment and a working APK'] } },
+  { techs:['MySQL','SQL','ERD','Systems Analysis'],
+    ar:{ t:'قواعد البيانات والأنظمة', tag:'تخصصي الأساسي',
+      p:'<bdi>ERD</bdi> وتطبيع واستعلامات وإجراءات مخزّنة وتقارير وتحسين أداء، وأنظمة إدارية تؤتمت الفواتير والمخازن والحضور. قاعدة البيانات هي ما تتعمّق به اللجان، وهي صلب عملي.',
+      outs:['<bdi>ERD</bdi> مطبَّع وموثّق','استعلامات وتقارير و<bdi>Triggers</bdi>','تحليل عمليات وأنظمة داخلية'] },
+    en:{ t:'Databases and systems', tag:'My core specialty',
+      p:'ERD, normalization, queries, stored procedures, reports and tuning, plus admin systems that automate invoicing, inventory and attendance. The database is where committees dig deepest, and it’s the core of my work.',
+      outs:['A normalized, documented ERD','Queries, reports and triggers','Process analysis and internal systems'] } },
   { techs:['Live','Recorded','Q&A'],
     cta:{ href:'#contact', ar:'احجز محاضرة', en:'Book a lecture' },
     ar:{ t:'محاضرات أونلاين أو مسجّلة', tag:'ارجع إلى الشرح بأي وقت',
-      p:'محاضرات أونلاين للطلاب، فردية أو لمجموعات، لشرح مشروعك أو مواد البرمجة وقواعد البيانات. كل محاضرة تُسجَّل وتصلك بعدها، لتراجع الشرح بأي وقت وبالسرعة التي تناسبك، وأعيد الشرح بصبر مهما تكرّر السؤال.',
-      outs:['شرح مباشر مع أسئلة وأجوبة','تسجيل كل محاضرة لتعيد مشاهدتها','مواعيد مرنة تناسب دوامك','مراجعة نهائية قبل المناقشة'] },
+      p:'محاضرات فردية أو لمجموعات لشرح مشروعك أو مواد البرمجة وقواعد البيانات، وكل محاضرة تُسجَّل لتعيدها متى شئت.',
+      outs:['مباشرة مع أسئلة وأجوبة','تسجيل لكل محاضرة','مراجعة أخيرة قبل المناقشة'] },
     en:{ t:'Recorded online lectures', tag:'Revisit the explanation anytime',
-      p:'Online lectures for students, one-to-one or in groups, to explain your project or programming and database courses. Every lecture is recorded and sent to you, so you can review the explanation anytime at your own pace, and I re-explain patiently however often the question comes back.',
-      outs:['Live explanation with Q&A','Every lecture recorded to re-watch','Flexible times around your schedule','Final review before the defense'] } },
-  { techs:['Laravel','React','React Native','MySQL'],
-    cta:{ href:'#ready', ar:'شاهد المشاريع الجاهزة', en:'Browse ready projects' },
-    ar:{ t:'مشاريع جاهزة للشراء', tag:'كود وقاعدة بيانات وشرح',
-      p:'مشاريع جاهزة بالكامل للشراء: الكود وقاعدة البيانات والتوثيق، مع محاضرة شرح مسجّلة لكل مشروع، وإمكانية تعديله ليناسب متطلبات جامعتك.',
-      outs:['مشروع كامل يعمل مباشرة','محاضرة شرح مسجّلة','توثيق وتقرير جاهزان','تعديل حسب متطلباتك (اختياري)'] },
-    en:{ t:'Ready-made projects for sale', tag:'Code, database and explanation',
-      p:'Fully ready projects for purchase: the code, the database and the documentation, with a recorded explanation lecture for each project, and optional customization to your university’s requirements.',
-      outs:['A complete project that runs right away','A recorded explanation lecture','Ready documentation and report','Optional customization to your requirements'] } },
-  { techs:['Brainstorming','Scoping','AI ideas'],
-    cta:{ href:'#ideas', ar:'شاهد أفكاراً جديدة', en:'See fresh ideas' },
-    ar:{ t:'مساعدة في إيجاد فكرة المشروع', tag:'أفكار جديدة بالذكاء الاصطناعي',
-      p:'لا تعرف ماذا تختار؟ أساعدك في الوصول إلى فكرة تناسب تخصصك ومستواك ووقتك. الأفكار جديدة بالكامل، تحلّ مشكلة حقيقية وفيها ميزة ذكاء اصطناعي، ونتحقق معك أنها غير مستخدمة في جامعتك.',
-      outs:['جلسة عصف ذهني حسب تخصصك','أفكار جديدة بميزة ذكاء اصطناعي','تقدير صعوبة الفكرة ومدة تنفيذها','مساعدة في صياغة الفكرة لتقبلها اللجنة'] },
-    en:{ t:'Help finding a project idea', tag:'Fresh ideas, powered by AI',
-      p:'Not sure what to pick? I help you land on an idea that suits your major, level and time. Ideas are completely new, solve a real problem and include an AI feature, and we check with you that they aren’t already used at your university.',
-      outs:['A brainstorming session around your major','New ideas with an AI feature','Difficulty and time estimate for each idea','Help framing the idea so the committee approves it'] } }
+      p:'One-to-one or group lectures to explain your project or programming and database courses, and every lecture is recorded so you can re-watch it anytime.',
+      outs:['Live with Q&A','Every lecture recorded','A final review before the defense'] } }
 ];
 
 /* الذكاء الاصطناعي: ميزات + نصوص الواجهة */
@@ -2014,29 +1806,23 @@ const AIL = {
 /* الأسئلة الشائعة */
 const FAQ = [
   { q:{ar:'هل 250 دينار سعر نهائي فعلاً؟',en:'Is 250 JOD really the final price?'},
-    a:{ar:'نعم. <b>250 د.أ هو أدنى سعر، وهو نهائي ولا أنزل عنه أبداً</b>، لأنني لا أساوم على الجودة فلا أساوم على السعر. ويتحدّد سعر مشروعك (250 أو 300 أو أكثر) حسب حجمه وتفاصيله، ويُكتب لك قبل البدء ولا يتغيّر بعده.',
-       en:'Yes. <b>250 JOD is the lowest price, it’s final and I never go below it</b>, because I don’t compromise on quality so I don’t compromise on price. Your project’s price (250, 300 or more) depends on its size and details, is written down before we start and doesn’t change afterwards.'} },
-  { q:{ar:'مشروعنا جماعي (3 أو 4 طلاب)، كيف نتقاسم المبلغ؟',en:'Our project is a team of 3 or 4. How do we split the amount?'},
-    a:{ar:'تتقاسمونه بينكم كما تتفقون. مثلاً 250 ÷ 4 = <b>62.5 د.أ فقط للطالب</b>، و250 ÷ 3 ≈ 83.3 د.أ. ويُدفع على دفعتين: 50% عند الاتفاق و50% عند التسليم. استخدم الحاسبة في قسم «هل هو مبلغ كبير؟» لترى حصتك.',
-       en:'You split it between you however you agree. For example 250 ÷ 4 = <b>just 62.5 JOD each</b>, and 250 ÷ 3 ≈ 83.3 JOD. It’s paid in two parts: 50% on agreement and 50% on delivery. Use the calculator in the “Is it a lot?” section to see your share.'} },
+    a:{ar:'نعم. <b>250 د.أ أدنى سعر، وهو نهائي ولا أنزل عنه</b>. يُكتب سعر مشروعك (250 أو 300 أو أكثر حسب حجمه) قبل البدء ولا يتغيّر بعده.',
+       en:'Yes. <b>250 JOD is the lowest price, it’s final and I never go below it</b>. Your project’s price (250, 300 or more, by size) is written down before we start and doesn’t change afterwards.'} },
+  { q:{ar:'مشروعنا جماعي (3 أو 4 طلاب)، كيف نتقاسم المبلغ؟',en:'Our project is a team of 3 or 4. How do we split it?'},
+    a:{ar:'تتقاسمونه كما تتفقون: 250 ÷ 4 = <b>62.5 د.أ فقط للطالب</b>، و250 ÷ 3 ≈ 83.3 د.أ، ويُدفع على دفعتين: 50% عند الاتفاق و50% عند التسليم. جرّب الحاسبة أعلاه.',
+       en:'You split it however you agree: 250 ÷ 4 = <b>just 62.5 JOD each</b>, and 250 ÷ 3 ≈ 83.3 JOD, paid in two parts: 50% on agreement and 50% on delivery. Try the calculator above.'} },
   { q:{ar:'هل الذكاء الاصطناعي صعب؟ وهل هو مجاني فعلاً؟',en:'Is AI difficult? And is it really free?'},
-    a:{ar:'ليس صعباً أبداً. نستخدم نماذج جاهزة عبر واجهات برمجية، فلا تدريب معقّد ولا رياضيات مخيفة، وأشرحه لك بمثال من مشروعك نفسه. وإضافة ميزة الذكاء الاصطناعي <b>مجانية ضمن المشروع حسب حجم الفكرة</b>. وغالباً تكفي الخدمات ذات الطبقة المجانية للعرض والمناقشة، وإن احتاجت فكرتك شيئاً مختلفاً أخبرك قبل البدء.',
-       en:'Not difficult at all. We use ready-made models through APIs, so there’s no complex training and no scary math, and I explain it with an example from your own project. Adding the AI feature is <b>free inside the project, scaled to the idea’s size</b>. Free-tier services are usually enough for the demo and defense, and if your idea needs something different I’ll tell you before we start.'} },
+    a:{ar:'ليس صعباً: نماذج جاهزة بلا تدريب معقّد، وأشرحه بمثال من مشروعك. وإضافته <b>مجانية ضمن المشروع حسب حجم الفكرة</b>. وغالباً تكفي الخدمات ذات الطبقة المجانية للعرض والمناقشة، وإن احتجنا شيئاً مختلفاً أخبرك قبل البدء.',
+       en:'Not difficult: ready-made models with no complex training, explained with an example from your project. Adding it is <b>free inside the project, scaled to the idea’s size</b>. Free-tier services are usually enough for the demo and defense, and if we need something different I’ll tell you before we start.'} },
   { q:{ar:'هل سأفهم المشروع فعلاً أم سأستلم ملفات فقط؟',en:'Will I truly understand the project, or just receive files?'},
-    a:{ar:'ستفهمه. أشرح لك سطراً بسطر، وتصلك محاضرات مسجّلة تعيدها متى شئت، ونجري بروفة مناقشة بأسئلة اللجنة المتوقعة. وأنا <b>طويل البال</b>: أعيد الشرح بأكثر من طريقة حتى يصبح المشروع مشروعك.',
-       en:'You will. I explain line by line, you get recorded lectures to re-watch anytime, and we run a mock defense with the committee’s likely questions. And I’m <b>patient</b>: I re-explain in more than one way until the project becomes yours.'} },
-  { q:{ar:'ماذا لو طلب الدكتور تعديلات؟',en:'What if my professor asks for changes?'},
-    a:{ar:'التعديلات المجانية ضمن الاتفاق مشمولة، ونتعامل معها معاً بهدوء.',en:'Free revisions within the agreement are included, and we handle them together, calmly.'} },
+    a:{ar:'ستفهمه: شرح سطراً بسطر، ومحاضرات مسجّلة، وبروفة بأسئلة اللجنة. وأنا <b>طويل البال</b> وأعيد الشرح حتى يصبح المشروع مشروعك.',
+       en:'You will: line-by-line explanation, recorded lectures and a rehearsal with committee questions. And I’m <b>patient</b>, re-explaining until the project becomes yours.'} },
   { q:{ar:'كم تستغرق المدة؟ وماذا لو كان وقتي ضيقاً؟',en:'How long does it take? What if I’m short on time?'},
-    a:{ar:'عادةً أعمل على المشروع نحو 3 أشهر من الفكرة حتى المناقشة. وإن كان وقتك أضيق فاسأل عن التسليم السريع، ويُحدَّد سعره مكتوباً من البداية.',
-       en:'I usually work on a project for about 3 months, from idea to defense. If you have less time, ask about express delivery, which is quoted in writing from the start.'} },
+    a:{ar:'عادةً نحو 3 أشهر من الفكرة حتى المناقشة. وإن كان وقتك أضيق فاسأل عن التسليم السريع، ويُحدَّد سعره مكتوباً من البداية.',
+       en:'Usually about 3 months from idea to defense. If you have less time, ask about express delivery, quoted in writing from the start.'} },
   { q:{ar:'كيف أبدأ؟',en:'How do I start?'},
-    a:{ar:'رسالة واتساب واحدة بجامعتك ومتطلباتك وموعد التسليم، فيصلك خلال 24 ساعة عرض مكتوب وخطة تنفيذ، بلا أي التزام.',
-       en:'One WhatsApp message with your university, requirements and deadline, and within 24 hours you get a written offer and a build plan, with no commitment.'} },
-  { q:{ar:'هل بياناتي ومشروعي خاصّان؟',en:'Are my details and project private?'},
-    a:{ar:'نعم، تفاصيلك ومشروعك ومعلوماتك الشخصية تبقى بيني وبينك.',en:'Yes. Your details, project and personal information stay between us.'} },
-  { q:{ar:'أين تتواجد؟ وهل تعمل أونلاين؟',en:'Where are you based? Do you work online?'},
-    a:{ar:'أتواجد في عمّان وإربد وأستطيع لقاءك حضورياً، وأعمل أونلاين مع طلاب من أي مكان.',en:'I’m in Amman and Irbid and can meet you in person, and I work online with students from anywhere.'} }
+    a:{ar:'رسالة واتساب واحدة بجامعتك ومتطلباتك وموعد التسليم، فيصلك خلال 24 ساعة عرض مكتوب وخطة تنفيذ، بلا التزام. وتفاصيلك ومشروعك تبقى بيني وبينك.',
+       en:'One WhatsApp message with your university, requirements and deadline, and within 24 hours you get a written offer and a build plan, with no commitment. Your details and project stay between us.'} }
 ];
 
 /* جرّب سؤال لجنة */
@@ -2067,8 +1853,8 @@ const DQ = [
     a:{ar:'اختر مشكلة حقيقية واشرح كيف فكّرت خطوة بخطوة. اللجنة تحب أن ترى طريقة تفكيرك أكثر من الحل نفسه.',en:'Pick a real problem and explain how you thought it through step by step. Committees like to see your thinking even more than the solution itself.'} }
 ];
 const DL = {
-  ar:{ h:'هل أنت جاهز للمناقشة؟', p:'جرّب سؤالاً حقيقياً من أسئلة اللجان الآن: فكّر بجوابك أولاً، ثم اعرض فكرة الجواب. هذا بالضبط ما نتدرّب عليه معاً حتى يصبح الجواب عادة.', tag:'سؤال من اللجنة', show:'اعرض فكرة الجواب', hide:'أخفِ الجواب', next:'سؤال آخر', idea:'فكرة الجواب', foot:'هذه عيّنة صغيرة. أدرّبك على أسئلة مشروعك أنت.', book:'احجز بروفة مناقشة', msg:'مرحباً حمزة، أرغب بحجز بروفة مناقشة لمشروعي.' },
-  en:{ h:'Are you ready for the defense?', p:'Try a real committee-style question now: think of your answer first, then reveal the answer idea. This is exactly what we practice together until answering becomes a habit.', tag:'Committee question', show:'Show the answer idea', hide:'Hide the answer', next:'Another question', idea:'Answer idea', foot:'This is a small sample. I rehearse the questions of your own project.', book:'Book a mock defense', msg:'Hi Hamzeh, I’d like to book a mock defense for my project.' }
+  ar:{ h:'هل أنت جاهز للمناقشة؟', p:'جرّب سؤالاً حقيقياً من أسئلة اللجان: فكّر بجوابك، ثم اعرض فكرة الجواب.', tag:'سؤال من اللجنة', show:'اعرض فكرة الجواب', hide:'أخفِ الجواب', next:'سؤال آخر', idea:'فكرة الجواب', foot:'هذه عيّنة صغيرة. أدرّبك على أسئلة مشروعك أنت.', book:'احجز بروفة مناقشة', msg:'مرحباً حمزة، أرغب بحجز بروفة مناقشة لمشروعي.' },
+  en:{ h:'Are you ready for the defense?', p:'Try a real committee-style question: think of your answer first, then reveal the answer idea.', tag:'Committee question', show:'Show the answer idea', hide:'Hide the answer', next:'Another question', idea:'Answer idea', foot:'This is a small sample. I rehearse the questions of your own project.', book:'Book a mock defense', msg:'Hi Hamzeh, I’d like to book a mock defense for my project.' }
 };
 
 /* خطة الـ12 أسبوعاً */
@@ -2131,7 +1917,6 @@ const ph = (n) => {
   const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='960' height='600' viewBox='0 0 960 600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#1d1a13'/><stop offset='1' stop-color='#2b2d12'/></linearGradient></defs><rect width='960' height='600' fill='url(#g)'/><rect x='48' y='48' width='864' height='40' rx='6' fill='#C9F73A' opacity='.9'/><rect x='48' y='120' width='260' height='432' rx='8' fill='#ffffff' opacity='.06'/><rect x='336' y='120' width='576' height='200' rx='8' fill='#ffffff' opacity='.06'/><rect x='336' y='344' width='276' height='208' rx='8' fill='#ffffff' opacity='.06'/><rect x='636' y='344' width='276' height='208' rx='8' fill='#ffffff' opacity='.06'/><text x='480' y='328' fill='#C9F73A' font-family='monospace' font-size='34' text-anchor='middle' letter-spacing='6'>SCREENSHOT ${pad(n)}</text></svg>`;
   return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
 };
-const shotsOf = p => (p.shots && p.shots.length) ? p.shots.map(f => `${p.dir}/${f}`) : [null, null, null];
 const imgTag = (src, n, alt = '', extra = '') => `<img src="${src || ph(n)}" data-fb="${n}" alt="${alt}" ${extra}>`;
 function bindFallbacks(root){
   $$('img[data-fb]', root).forEach(im => {
@@ -2169,73 +1954,103 @@ function renderServices(){
   requestAnimationFrame(fitOpen);
 }
 
-function renderProjects(){
-  $('#projGrid').innerHTML = PROJECTS.map((p, i) => {
-    const first = shotsOf(p)[0];
-    return `<button type="button" class="proj-card reveal" data-i="${i}" style="transition-delay:${(i % 3) * .08}s" aria-label="${p[LANG]}">
-      <span class="pc-img">${imgTag(first, 1, '', 'loading="lazy"')}</span>
-      <span class="pc-meta"><span class="pc-num">${pad(i+1)}</span><span class="pc-name">${p[LANG]}</span><span class="pc-go">${ICON('arrow-up-left','ic arr-flip')}</span></span>
-    </button>`;
-  }).join('');
-  bindFallbacks($('#projGrid'));
+/* ===================== صور المشاريع: اكتشاف تلقائي للمجلد والامتداد وعدد الصور ===================== */
+const IMG_ROOT = 'images', MAX_SHOTS = 25, DEF_EXTS = ['jpg','png','jpeg','webp','JPG'];
+const seg = s => encodeURIComponent(s);
+const imgUrl = (dir, file) => `${IMG_ROOT}/${dir ? seg(dir) + '/' : ''}${seg(file)}`;
+const probe = src => new Promise(res => { const im = new Image(); im.onload = () => res(true); im.onerror = () => res(false); im.src = src; });
+function dirVariants(name){
+  const t = name.replace(/\b\w/g, c => c.toUpperCase()), set = new Set();
+  [name, name.toLowerCase(), name.toUpperCase(), t].forEach(n => { set.add(n); set.add(n.replace(/\s+/g, '-')); set.add(n.replace(/\s+/g, '_')); set.add(n.replace(/\s+/g, '')); });
+  return [...set];
+}
+PROJECTS.forEach(p => {
+  const list = []; if (p.dir) list.push(p.dir);
+  (p.names || [p.en]).forEach(n => dirVariants(n).forEach(v => list.push(v)));
+  if (p.rootToo) list.push('');
+  p.dirs = [...new Set(list)];
+});
+async function findBase(p){            // يجد المجلد والامتداد من أول صورة
+  for (const ext of (p.exts || DEF_EXTS)){
+    for (const nm of (p.first || ['1'])){
+      const r = await Promise.all(p.dirs.map(d => probe(imgUrl(d, `${nm}.${ext}`))));
+      const i = r.indexOf(true);
+      if (i >= 0){ p.base = { dir:p.dirs[i], ext }; p.cover = imgUrl(p.dirs[i], `${nm}.${ext}`); return; }
+    }
+  }
+}
+async function listShots(p){           // يجمع كل الصور المتسلسلة 1..25
+  if (p.shots) return p.shots;
+  if (!p.base){ p.shots = []; return p.shots; }
+  if (p.single){ p.shots = [p.cover]; return p.shots; }
+  const nums = Array.from({ length:MAX_SHOTS }, (_, i) => i + 1);
+  const r = await Promise.all(nums.map(n => probe(imgUrl(p.base.dir, `${n}.${p.base.ext}`))));
+  p.shots = nums.filter((_, i) => r[i]).map(n => imgUrl(p.base.dir, `${n}.${p.base.ext}`));
+  return p.shots;
+}
+let coverTimer = 0;
+function scheduleCovers(){ clearTimeout(coverTimer); coverTimer = setTimeout(paintCovers, 150); }
+function paintCovers(){
+  $$('#projGrid .proj-card').forEach(c => {
+    const p = PROJECTS[+c.dataset.i], im = $('img', c);
+    if (p.cover && im && im.dataset.cur !== p.cover){ im.dataset.cur = p.cover; im.src = p.cover; }
+  });
+  renderTeaser();
 }
 
+function renderProjects(){
+  $('#projGrid').innerHTML = PROJECTS.map((p, i) => `<button type="button" class="proj-card reveal" data-i="${i}" style="transition-delay:${(i % 3) * .08}s" aria-label="${p[LANG]}">
+      <span class="pc-img">${imgTag(p.cover, 1, '', 'loading="lazy"')}</span>
+      <span class="pc-meta"><span class="pc-num">${pad(i+1)}</span><span class="pc-name">${p[LANG]}<small>${p.tag[LANG]}</small></span><span class="pc-go">${ICON('arrow-up-left','ic arr-flip')}</span></span>
+    </button>`).join('');
+  bindFallbacks($('#projGrid'));
+}
 function renderTeaser(){
-  const one = PROJECTS.map((p, i) => `<span class="wt-chip"><img src="${shotsOf(p)[0] || ph(1)}" data-fb="1" alt="" loading="lazy"><b>${pad(i+1)}</b><span>${p[LANG]}</span></span>`).join('');
+  const one = PROJECTS.map((p, i) => `<span class="wt-chip"><img src="${p.cover || ph(1)}" data-fb="1" alt="" loading="lazy"><b>${pad(i+1)}</b><span>${p[LANG]}</span></span>`).join('');
   $('#wtTrack').innerHTML = `<span class="wt-group">${one}</span><span class="wt-group">${one}</span>`;
   $('#wtCount').textContent = nProj(PROJECTS.length);
   bindFallbacks($('#wtTrack'));
 }
 
-function renderReady(){
-  $('#readyGrid').innerHTML = READY.map((r, i) => {
-    const msg = LANG === 'en' ? `Hi Hamzeh, I’m interested in the ready-made project “${r.en}”. Can we talk?` : `مرحباً حمزة، أرغب بالاستفسار عن المشروع الجاهز "${r.ar}". هل نستطيع التحدث؟`;
-    return `<article class="card item-card reveal" style="transition-delay:${(i % 3) * .08}s">
-      <div class="top"><span class="chip">${r.cat[LANG]}</span><span class="chip ghost">${LANG==='en'?'Ready':'جاهز'}</span></div>
-      <h3>${r[LANG]}</h3><p>${r.d[LANG]}</p>
-      <div class="tags">${r.tech.map(t => `<span>${t}</span>`).join('')}</div>
-      <a class="btn btn-outline btn-sm" href="${wa(msg)}" target="_blank" rel="noopener"><span>${LANG==='en'?'Ask about this project':'اسأل عن هذا المشروع'}</span></a>
-    </article>`;
-  }).join('');
-}
-
-/* الأفكار */
-let ideaFilter = 'all';
+/* الأفكار: بطاقات مدمجة، وتُفتح التفاصيل في نافذة بالضغط */
 const IL = {
-  ar:{ prob:'المشكلة', sol:'الحل', more:'تفاصيل الفكرة وكيف يعمل الذكاء الاصطناعي ببساطة', how:'الذكاء الاصطناعي هنا ببساطة', mods:'الوحدات الرئيسية', tbl:'الجداول الرئيسية', win:'نقطة قوتها أمام اللجنة', wk:'مدة التنفيذ التقديرية', want:'أريد هذه الفكرة', all:'الكل' },
-  en:{ prob:'The problem', sol:'The solution', more:'Idea details and how the AI works, simply', how:'The AI here, simply', mods:'Main modules', tbl:'Core tables', win:'Why it works in a defense', wk:'Estimated build time', want:'I want this idea', all:'All' }
+  ar:{ prob:'المشكلة', sol:'الحل', jo:'لماذا تناسب الأردن؟', how:'الذكاء الاصطناعي هنا ببساطة', mods:'الوحدات الرئيسية', tbl:'الجداول الرئيسية', win:'نقطة قوتها أمام اللجنة', wk:'مدة التنفيذ التقديرية', want:'أريد هذه الفكرة', open:'عرض التفاصيل', close:'إغلاق' },
+  en:{ prob:'The problem', sol:'The solution', jo:'Why it fits Jordan', how:'The AI here, simply', mods:'Main modules', tbl:'Core tables', win:'Why it works in a defense', wk:'Estimated build time', want:'I want this idea', open:'View details', close:'Close' }
 };
-function renderIdeaFilters(){
-  const L = IL[LANG];
-  $('#ideaFilters').innerHTML = ['all', ...Object.keys(IDEA_CATS)].map(k =>
-    `<button type="button" class="fchip ${ideaFilter === k ? 'on' : ''}" data-f="${k}" aria-pressed="${ideaFilter === k}">${k === 'all' ? L.all : IDEA_CATS[k][LANG]}</button>`).join('');
-}
+let curIdea = null;
 function renderIdeas(){
   const L = IL[LANG];
-  const list = IDEAS.filter(x => ideaFilter === 'all' || x.k === ideaFilter);
-  $('#ideasGrid').innerHTML = list.map((x, i) => {
-    const msg = LANG === 'en' ? `Hi Hamzeh, I like the idea “${x.en}” and I’d like to discuss it.` : `مرحباً حمزة، أعجبتني فكرة "${x.ar}" وأرغب بمناقشتها.`;
-    return `<article class="card item-card idea-card reveal" style="transition-delay:${(i % 3) * .08}s">
-      <div class="top"><div class="l"><span class="chip">${IDEA_CATS[x.k][LANG]}</span><span class="chip ghost">${x.lvl[LANG]}</span></div><span class="chip ai">${ICON('sparkles')}AI</span></div>
+  $('#ideasGrid').innerHTML = IDEAS.map((x, i) => `<button type="button" class="card idea-card reveal" data-i="${i}" style="transition-delay:${(i % 3) * .08}s" aria-haspopup="dialog">
+      <span class="top"><span class="chip">${x.sector[LANG]}</span><span class="chip ai">${ICON('sparkles')}AI</span></span>
       <h3>${x[LANG]}</h3>
-      <div class="idea-hook">${ICON('sparkles')}<span>${x.hook[LANG]}</span></div>
-      <div class="ps"><div><b>${L.prob}</b><p>${x.prob[LANG]}</p></div><div><b>${L.sol}</b><p class="sol">${x.sol[LANG]}</p></div></div>
-      <details class="idea-more"><summary>${L.more}</summary>
-        <div class="idea-det">
-          <div class="aihow"><b>${L.how}</b><p>${x.how[LANG]}</p></div>
-          <div><b>${L.mods}</b><ul>${x.mods[LANG].map(m => `<li>${m}</li>`).join('')}</ul></div>
-          <div><b>${L.tbl}</b><div class="tags">${x.tbl.map(t => `<span>${t}</span>`).join('')}</div></div>
-          <div><b>${L.win}</b><p>${x.win[LANG]}</p></div>
-          <div><b>${L.wk}</b><p>${x.wk[LANG]}</p></div>
-        </div>
-      </details>
-      <div class="tags">${x.tech.map(t => `<span>${t}</span>`).join('')}${x.ai.map(t => `<span class="ai">${t}</span>`).join('')}</div>
-      <a class="btn btn-outline btn-sm" href="${wa(msg)}" target="_blank" rel="noopener"><span>${L.want}</span></a>
-    </article>`;
-  }).join('');
+      <span class="idea-hook">${ICON('sparkles')}<span>${x.hook[LANG]}</span></span>
+      <span class="idea-go">${L.open} ${ICON('arrow-up-left','ic arr-flip')}</span>
+    </button>`).join('');
   $('#ideaAsk').href = wa(LANG === 'en' ? 'Hi Hamzeh, I need help finding an original AI-powered graduation project idea. My major is: ' : 'مرحباً حمزة، أحتاج مساعدة في إيجاد فكرة مشروع تخرّج جديدة بالذكاء الاصطناعي. تخصصي: ');
   observeReveals();
+  if (curIdea !== null && $('#ideaSheet').classList.contains('open')) fillIdea(curIdea);
 }
+function fillIdea(i){
+  const x = IDEAS[i], L = IL[LANG];
+  const msg = LANG === 'en' ? `Hi Hamzeh, I like the idea “${x.en}” and I’d like to discuss it.` : `مرحباً حمزة، أعجبتني فكرة "${x.ar}" وأرغب بمناقشتها.`;
+  $('#ideaBody').innerHTML = `
+    <div class="ib-head"><h3 id="ideaTitle">${x[LANG]}</h3><button type="button" class="ib-close" data-close-sheet aria-label="${L.close}">${ICON('x')}</button></div>
+    <div class="ib-chips"><span class="chip">${x.sector[LANG]}</span><span class="chip ghost">${x.lvl[LANG]}</span><span class="chip ai">${ICON('sparkles')}AI</span></div>
+    <div class="idea-hook">${ICON('sparkles')}<span>${x.hook[LANG]}</span></div>
+    <div class="idea-det">
+      <div><b>${L.prob}</b><p>${x.prob[LANG]}</p></div>
+      <div><b>${L.sol}</b><p>${x.sol[LANG]}</p></div>
+      <div class="aihow"><b>${L.jo}</b><p>${x.jo[LANG]}</p></div>
+      <div class="aihow"><b>${L.how}</b><p>${x.how[LANG]}</p></div>
+      <div><b>${L.mods}</b><ul>${x.mods[LANG].map(m => `<li>${m}</li>`).join('')}</ul></div>
+      <div><b>${L.tbl}</b><div class="tags">${x.tbl.map(t => `<span>${t}</span>`).join('')}</div></div>
+      <div><b>${L.win}</b><p>${x.win[LANG]}</p></div>
+      <div><b>${L.wk}</b><p>${x.wk[LANG]}</p></div>
+      <div class="tags">${x.tech.map(t => `<span>${t}</span>`).join('')}${x.ai.map(t => `<span class="ai">${t}</span>`).join('')}</div>
+    </div>
+    <div class="ib-cta"><a class="btn btn-solid" href="${wa(msg)}" target="_blank" rel="noopener"><span>${L.want}</span></a></div>`;
+}
+function openIdea(i){ fillIdea(i); openSheet('ideaSheet'); curIdea = i; $('#ideaSheet').scrollTop = 0; }
 
 /* العبارات التحفيزية (يتقدّم الشريط السفلي تلقائياً، ويتوقف عند المرور بالماوس) */
 let qi = 0;
@@ -2291,7 +2106,7 @@ function renderDQ(){
 /* خطة الـ12 أسبوعاً */
 function renderRoad(){
   $('#roadBar').innerHTML = ROADMAP.map((r, i) => `<i style="flex:${r.n};opacity:${Math.min(1, .35 + i * .165).toFixed(2)}"></i>`).join('');
-  $('#roadList').innerHTML = ROADMAP.map(r => `<div class="rd"><i>${LANG === 'en' ? 'Week' : 'أسبوع'} ${r.w}</i><h4>${r.t[LANG]}</h4><p>${r.d[LANG]}</p></div>`).join('');
+  $('#roadList').innerHTML = ROADMAP.map(r => `<div class="rd"><i>${LANG === 'en' ? 'Week' : 'أسبوع'} ${r.w}</i><h4>${r.t[LANG]}</h4></div>`).join('');
 }
 
 /* حاسبة: هل هو مبلغ كبير؟ */
@@ -2390,8 +2205,8 @@ function setYear(){ $$('.yr').forEach(e => e.textContent = new Date().getFullYea
 function setExitHref(){ $('#exitCta').href = wa(LANG === 'en' ? 'Hi Hamzeh, project: I’d like a quote and a build plan.' : 'مرحباً حمزة، مشروع: أرغب بعرض سعر وخطة تنفيذ.'); }
 
 function renderAll(){
-  renderMarquee(); renderServices(); renderProjects(); renderTeaser(); renderReady();
-  renderIdeaFilters(); renderIdeas(); renderQuote(); renderAIChips(); renderAI();
+  renderMarquee(); renderServices(); renderProjects(); renderTeaser();
+  renderIdeas(); renderQuote(); renderAIChips(); renderAI();
   renderFAQ(); renderDQ(); renderRoad(); renderCalc(); renderSlideTabs(); updateEst(); setExitHref();
 }
 
@@ -2507,6 +2322,7 @@ function openSheet(id){
   if (f) f.focus({ preventScroll:true });
 }
 function closeSheets(silent){
+  curIdea = null;
   $$('.sheet.open').forEach(s => { s.classList.remove('open'); s.setAttribute('aria-hidden', 'true'); s.style.transform = ''; });
   $('#sheetBd').classList.remove('open'); body.classList.remove('sheet-open');
   if (!silent && lastSheetFocus){ try { lastSheetFocus.focus({ preventScroll:true }); } catch(e){} }
@@ -2529,10 +2345,10 @@ addEventListener('focusout', () => body.classList.remove('kb'));
 addEventListener('resize', () => { if (!appMQ.matches && $('#moreSheet').classList.contains('open')) closeSheets(true); fitOpen(); setSub(); });
 
 /* مراقبة الأقسام: تفعيل التبويب والروابط وعنوان الشريط العلوي */
-const SPY = { hero:'home', about:'home', services:'services', ai:'services', why:'services', projects:'work', ready:'work', ideas:'work', pricing:'price', worth:'price', faq:'price', contact:'wa' };
+const SPY = { hero:'home', about:'home', services:'services', ai:'services', why:'services', projects:'work', ideas:'work', pricing:'price', worth:'price', faq:'price', contact:'wa' };
 const SEC_LABEL = {
   about:{ar:'نبذة عني',en:'About'}, services:{ar:'الخدمات',en:'Services'}, ai:{ar:'الذكاء الاصطناعي',en:'AI, simplified'}, why:{ar:'لماذا أنا',en:'Why me'},
-  projects:{ar:'مشاريعي',en:'My projects'}, ready:{ar:'مشاريع جاهزة',en:'Ready projects'}, ideas:{ar:'أفكار مشاريع',en:'Project ideas'}, pricing:{ar:'الأسعار',en:'Pricing'},
+  projects:{ar:'مشاريعي',en:'My projects'}, ideas:{ar:'أفكار مشاريع',en:'Project ideas'}, pricing:{ar:'الأسعار',en:'Pricing'},
   worth:{ar:'احسب حصّتك',en:'Split the price'}, faq:{ar:'أسئلة شائعة',en:'FAQ'}, contact:{ar:'تواصل',en:'Contact'}
 };
 let curSec = 'hero';
@@ -2617,27 +2433,38 @@ addEventListener('load', fitOpen);
 /* ===================== نافذة لقطات المشروع ===================== */
 const modal = $('#pModal');
 let curProj = null, curShot = 0, lastFocus = null;
+let curShots = [];
 function renderModal(){
-  const p = PROJECTS[curProj], shots = shotsOf(p), total = shots.length;
+  const p = PROJECTS[curProj], total = curShots.length;
   $('#pmTitle').textContent = p[LANG];
   $('#pmCount').textContent = `${curShot + 1} / ${total}`;
   const img = $('#pmImg');
   img.alt = `${p[LANG]} — ${T[LANG].shot} ${curShot + 1}`;
   img.dataset.fb = curShot + 1;
   img.onerror = () => { img.onerror = null; img.src = ph(curShot + 1); };
-  img.src = shots[curShot] || ph(curShot + 1);
-  $('#pmThumbs').innerHTML = shots.map((s, i) =>
+  img.src = curShots[curShot] || ph(curShot + 1);
+  $('#pmThumbs').innerHTML = curShots.map((s, i) =>
     `<button type="button" class="pm-th ${i === curShot ? 'on' : ''}" data-s="${i}" aria-label="${T[LANG].shot} ${i+1}">${imgTag(s, i+1)}</button>`).join('');
   bindFallbacks($('#pmThumbs'));
   const act = $('.pm-th.on'); if (act) act.scrollIntoView({ block:'nearest', inline:'center' });
-  const single = total < 2;
-  $('#pmPrev').style.display = $('#pmNext').style.display = single ? 'none' : '';
+  const msg = LANG === 'en' ? `Hi Hamzeh, I liked the project “${p.en}” and I’d like a similar one, or to ask about it.` : `مرحباً حمزة، أعجبني مشروع "${p.ar}" وأرغب بمشروع مثله أو الاستفسار عنه.`;
+  $('#pmInfo').innerHTML =
+    `<div class="ib-chips"><span class="chip">${p.tag[LANG]}</span>${p.ai ? `<span class="chip ai">${ICON('sparkles')}AI</span>` : ''}</div>` +
+    (p.d[LANG] ? `<p class="pm-desc">${p.d[LANG]}</p>` : '') +
+    (p.tech.length ? `<div class="tags">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>` : '') +
+    `<a class="btn btn-solid" href="${wa(msg)}" target="_blank" rel="noopener"><span>${LANG === 'en' ? 'I want a project like this' : 'أريد مشروعاً مثل هذا'}</span></a>`;
+  $('#pmPrev').style.display = $('#pmNext').style.display = total < 2 ? 'none' : '';
 }
-function openModal(i){
+async function openModal(i){
+  const p = PROJECTS[i];
   curProj = i; curShot = 0; lastFocus = document.activeElement;
+  curShots = p.shots || (p.cover ? [p.cover] : [null]);
   modal.hidden = false; body.classList.add('modal-open');
   renderModal();
   requestAnimationFrame(() => { modal.classList.add('open'); $('#pmClose').focus(); });
+  const list = await listShots(p);
+  if (curProj === i && list.length && list.length !== curShots.length){ curShots = list; renderModal(); }
+  else if (curProj === i && list.length){ curShots = list; }
 }
 function closeModal(){
   modal.classList.remove('open'); body.classList.remove('modal-open');
@@ -2645,9 +2472,10 @@ function closeModal(){
   if (lastFocus) lastFocus.focus();
 }
 function stepShot(d){
-  const total = shotsOf(PROJECTS[curProj]).length;
+  const total = curShots.length;
   curShot = (curShot + d + total) % total; renderModal();
 }
+
 $('#projGrid').addEventListener('click', e => { const c = e.target.closest('.proj-card'); if (c) openModal(+c.dataset.i); });
 $('#pmClose').addEventListener('click', closeModal);
 $('#pmPrev').addEventListener('click', () => stepShot(-1));
@@ -2691,12 +2519,8 @@ $('.q-body').addEventListener('touchend', e => {
   goQuote(qi + (((html.dir === 'rtl') ? dx > 0 : dx < 0) ? 1 : -1));
 }, { passive:true });
 
-$('#ideaFilters').addEventListener('click', e => {
-  const b = e.target.closest('[data-f]'); if (!b) return;
-  ideaFilter = b.dataset.f;
-  $$('#ideaFilters .fchip').forEach(c => { const on = c === b; c.classList.toggle('on', on); c.setAttribute('aria-pressed', String(on)); });
-  renderIdeas(); buzz();
-});
+$('#ideasGrid').addEventListener('click', e => { const c = e.target.closest('.idea-card'); if (c){ buzz(); openIdea(+c.dataset.i); } });
+$('#ideaSheet').addEventListener('click', e => { if (e.target.closest('[data-close-sheet]')) closeSheets(); else if (e.target.closest('a')) closeSheets(true); });
 $('#aiChips').addEventListener('click', e => {
   const b = e.target.closest('[data-a]'); if (!b) return;
   aiSel = +b.dataset.a;
@@ -2743,14 +2567,13 @@ $('#waForm').addEventListener('submit', e => {
   const name = $('#fName').value.trim(), uni = $('#fUni').value.trim(), det = $('#fDet').value.trim();
   const type = document.querySelector('input[name="ptype"]:checked');
   const team = document.querySelector('input[name="team"]:checked');
-  const aiopt = document.querySelector('input[name="aiopt"]:checked');
   if (!name){ toast(T[LANG].name); $('#fName').focus(); return; }
   if (!type){ toast(T[LANG].type); return; }
   const msg = LANG === 'en'
     ? `Hi Hamzeh,\nI’d like to ask about a project:\n- Name: ${name}\n` + (uni ? `- University/Major: ${uni}\n` : '') +
-      `- I need: ${type.dataset.vEn}\n` + (team ? `- Team size: ${team.value}\n` : '') + (aiopt ? `- AI feature: ${aiopt.dataset.vEn}\n` : '') + (det ? `- Details: ${det}\n` : '') + `Thanks`
+      `- I need: ${type.dataset.vEn}\n` + (team ? `- Team size: ${team.value}\n` : '') + (det ? `- Details: ${det}\n` : '') + `Thanks`
     : `مرحباً حمزة،\nأريد الاستفسار عن مشروع:\n- الاسم: ${name}\n` + (uni ? `- الجامعة/التخصص: ${uni}\n` : '') +
-      `- أحتاج: ${type.value}\n` + (team ? `- عدد الطلاب: ${team.value}\n` : '') + (aiopt ? `- الذكاء الاصطناعي: ${aiopt.value}\n` : '') + (det ? `- التفاصيل: ${det}\n` : '') + `شكراً`;
+      `- أحتاج: ${type.value}\n` + (team ? `- عدد الطلاب: ${team.value}\n` : '') + (det ? `- التفاصيل: ${det}\n` : '') + `شكراً`;
   waClicked = true;
   openWA(msg);
   toast(T[LANG].open);
@@ -2775,6 +2598,7 @@ document.addEventListener('click', e => { if (e.target.closest && e.target.close
 applyTheme(html.dataset.theme === 'light' ? 'light' : 'dark');
 applyLang(LANG);
 runBar();
+PROJECTS.forEach(p => findBase(p).then(scheduleCovers));
 </script>
 </body>
 </html>
